@@ -88,7 +88,7 @@ alias ll="ls -al"
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
-ZSH_TMUX_AUTOSTART="true"
+#ZSH_TMUX_AUTOSTART="true"
 
 vim_ins_mode="%{$fg[cyan]%}[I]%{$reset_color%}"
 vim_cmd_mode="%{$fg[green]%}[C]%{$reset_color%}"
