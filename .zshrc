@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/chadbc/.oh-my-zsh
+#export ZSH=/Users/chadbc/.oh-my-zsh
+source "$HOME/.dotfiles-local/.zshrc-before"
+#/Users/chadbc/.dotfiles-local/.zshrc-before
+
+#export TEST=${0:a:h}
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -79,9 +83,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
-alias mongoApp="node /usr/local/lib/node_modules/mongo-express"
 alias ll="ls -al"
-alias moshbcodev='mosh chad@45.55.188.196'
 
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
@@ -112,3 +114,5 @@ function TRAPINT() {
 }
 
 PROMPT+='${vim_mode} '
+
+source "$HOME/.dotfiles-local/.zshrc-after"

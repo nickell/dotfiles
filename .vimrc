@@ -23,32 +23,18 @@
           \    },
           \ }
 
-    "NeoBundle 'Shougo/unite.vim'
-    "NeoBundle 'tpope/vim-surround'
     NeoBundle 'tpope/vim-abolish'
     NeoBundle 'scrooloose/syntastic'
-    "NeoBundle 'Lokaltog/vim-easymotion'
-    NeoBundle 'kien/ctrlp.vim'
     NeoBundle 'Shougo/neocomplete.vim'
-    NeoBundle 'joonty/vdebug'
-    NeoBundle 'digitaltoad/vim-jade'
-    NeoBundle 'tpope/vim-git'
 
     " Syntax definitions
-    "NeoBundle 'groenewege/vim-less'
     NeoBundle "elzr/vim-json"
-    "NeoBundle 'tpope/vim-markdown'
     NeoBundle "pangloss/vim-javascript"
     NeoBundle "hail2u/vim-css3-syntax"
     NeoBundle "othree/html5.vim"
-    "NeoBundle 'toyamarinyon/vim-swift'
     NeoBundle 'StanAngeloff/php.vim'
 
-    " Markdown
-    "NeoBundle 'suan/vim-instant-markdown'
-
-    "NeoBundle 'altercation/vim-colors-solarized'
-   NeoBundle 'sickill/vim-monokai'
+    NeoBundle 'sickill/vim-monokai'
 
     call neobundle#end()
 
@@ -116,10 +102,6 @@ set splitbelow
 set splitright
 set clipboard=unnamed
 
-"call vimfiler#custom#profile('default', 'context', {
-"    \ 'safe' : 0,
-"    \ })
-
 " Use mouse to move cursor
 set mouse=a
 
@@ -160,23 +142,3 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
-let g:vdebug_options= {
-    \    "port" : 9000,
-    \    "server" : 'localhost',
-    \    "timeout" : 20,
-    \    "on_close" : 'detach',
-    \    "break_on_open" : 0,
-    \    "ide_key" : 'vim-xdebug',
-    \    "path_maps" : {},
-    \    "debug_window_level" : 0,
-    \    "debug_file_level" : 0,
-    \    "debug_file" : "",
-    \    "watch_window_style" : 'expanded',
-    \    "marker_default" : '⬦',
-    \    "marker_closed_tree" : '▸',
-    \    "marker_open_tree" : '▾'
-    \}
-
-
-"autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-"autocmd  FileType  html setlocal omnifunc=htmlcomplete#CompleteTags
