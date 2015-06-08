@@ -83,7 +83,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
 alias ll="ls -al"
+alias tkill="tmux kill-session"
 
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
