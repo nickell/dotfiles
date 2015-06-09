@@ -63,7 +63,7 @@ NeoBundleCheck
 augroup mygroup
     autocmd!
     " Git tweaks
-    autocmd Filetype gitcommit textwidth=72 
+    autocmd Filetype gitcommit setlocal textwidth=72 
     " Search highlighting tweaks
     autocmd InsertEnter * :set nohlsearch
     autocmd InsertLeave * :set hlsearch
