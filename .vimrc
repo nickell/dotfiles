@@ -74,6 +74,7 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" NeoComplete config
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_smart_case = 1
@@ -89,10 +90,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
+" NeoSnippet config
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
 " Powerline config
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-" set laststatus=2 " Always display the statusline in all windows
-" set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " Syntastic config
@@ -153,8 +155,13 @@ nnoremap <leader>2 :tabn<return>
 nnoremap <leader>3 :tabm -1<return>
 nnoremap <leader>4 :tabm +1<return>
 nnoremap <leader>n :tabe<cr>
-nnoremap <leader>q :q<cr>
 nnoremap <leader><cr> :noh<cr>
+
+" Layout mappings
+nnoremap <leader>l2h :sp<cr>
+nnoremap <leader>l3h :sp<cr> :sp<cr>
+nnoremap <leader>l2v :vsp<cr>
+nnoremap <leader>l3v :vsp<cr> :vsp<cr>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -164,10 +171,10 @@ vnoremap > >gv
 " Unite mappings
 nnoremap <leader>f :Unite -buffer-name=files -start-insert -auto-resize buffer file_rec/async<cr>
 nnoremap <C-P> :Unite -buffer-name=files -start-insert -auto-resize file_rec/async<cr>
-nnoremap <leader>g :Unite -silent grep:%:<cr>
-nnoremap <leader>l :Unite line<cr>
+nnoremap <leader>ug :Unite -silent grep:.:<cr>
+nnoremap <leader>ul :Unite line<cr>
 nnoremap <leader>b :Unite -auto-resize buffer<cr>
-nnoremap <leader>h :Unite -auto-resize file_rec/async:~<cr>
+nnoremap <leader>uh :Unite -auto-resize file_rec/async:~<cr>
 
 " Easymotion mappings
 nmap s <Plug>(easymotion-s)
