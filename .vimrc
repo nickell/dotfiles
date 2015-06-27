@@ -103,6 +103,7 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 " Unite config
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore "(node_modules)" --ignore "*.cache*" --hidden -g ""'
@@ -214,5 +215,5 @@ set nowritebackup
 
 " This configures the ignore pattern for some plugins, I don't think I'm even
 " using anything that is affected by this
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " }}}
