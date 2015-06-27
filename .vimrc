@@ -47,6 +47,8 @@ NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "othree/html5.vim"
 NeoBundle "StanAngeloff/php.vim"
 NeoBundle "tpope/vim-commentary"
+NeoBundle "plasticboy/vim-markdown"
+NeoBundle "suan/vim-instant-markdown"
 
 " Themes
 " NeoBundle "sickill/vim-monokai"
