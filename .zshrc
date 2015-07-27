@@ -118,4 +118,7 @@ function TRAPINT() {
 
 PROMPT+='${vim_mode} '
 
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 source "$HOME/.dotfiles-local/.zshrc-after"
