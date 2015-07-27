@@ -49,6 +49,7 @@ NeoBundle "StanAngeloff/php.vim"
 NeoBundle "tpope/vim-commentary"
 NeoBundle "plasticboy/vim-markdown"
 NeoBundle "suan/vim-instant-markdown"
+NeoBundle "tpope/vim-surround"
 
 " Themes
 " NeoBundle "sickill/vim-monokai"
@@ -72,6 +73,8 @@ augroup mygroup
     " These next two prevent all the folds from opening beneath the cursor during edits
     autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
     autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+    " This forces tabs in a makefile
+    autocmd filetype make setlocal noexpandtab
 augroup END
 " }}}
 
@@ -88,9 +91,11 @@ let g:neocomplete#sources#dictionary#dictionaries = {} " This removes all the fl
 set completeopt-=preview " I'm not positive what this does but it's crucial I think
 " The next 4 lines are tweaks to make neocomplete play nicely with tern_for_vim
 if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {} " This is a tweak to make neocomplete play nicely with tern_for_vim
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+" NeoComplete tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " NeoSnippet config
 let g:neosnippet#snippets_directory='~/.vim/snippets'
@@ -108,15 +113,20 @@ let g:syntastic_javascript_checkers = ['jshint']
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 " Unite config
-let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore "(node_modules)" --ignore "*.cache*" --hidden -g ""'
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--smart-case --line-numbers --nocolor --nogroup'
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_grep_max_candidates = 200
+if executable('ag')
+    let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore "(node_modules)" --ignore "*.cache*" --hidden -g ""'
+    " Use ag in unite grep source.
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts =
+                \ '-i --line-numbers --smart-case --nocolor --nogroup --hidden --ignore ' .
+                \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+    let g:unite_source_grep_recursive_opt = ''
+endif
 
 " Easymotion config
 let g:EasyMotion_smartcase = 1
-
-" NeoComplete tab completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
 " {{{ Syntax
@@ -142,7 +152,7 @@ set relativenumber
 set background=dark
 colorscheme solarized
 hi Folded ctermbg=none
-" set guifont=Inconsolata:h16
+set guifont=Inconsolata\ for\ Powerline:h12
 " }}}
 
 " {{{ Key Bindings
@@ -157,14 +167,11 @@ nnoremap <leader>1 :tabp<return>
 nnoremap <leader>2 :tabn<return>
 nnoremap <leader>3 :tabm -1<return>
 nnoremap <leader>4 :tabm +1<return>
+nnoremap <leader>0 :e ~/.vimrc
+nnoremap <leader>9 :e ~/.bin/functions.zsh
 nnoremap <leader>n :tabe<cr>
 nnoremap <leader><cr> :noh<cr>
-
-" Layout mappings
-nnoremap <leader>l2h :sp<cr>
-nnoremap <leader>l3h :sp<cr> :sp<cr>
-nnoremap <leader>l2v :vsp<cr>
-nnoremap <leader>l3v :vsp<cr> :vsp<cr>
+nnoremap <leader>s :source ~/.vimrc<cr>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -172,12 +179,13 @@ vnoremap > >gv
 
 
 " Unite mappings
-nnoremap <leader>f :Unite -buffer-name=files -start-insert -auto-resize buffer file_rec/async<cr>
-nnoremap <C-P> :Unite -buffer-name=files -start-insert -auto-resize file_rec/async<cr>
+nnoremap <leader>f :Unite -buffer-name=WorkingDirectory -start-insert -auto-resize buffer file_rec/async:.<cr>
 nnoremap <leader>ug :Unite -silent grep:.:<cr>
 nnoremap <leader>ul :Unite line<cr>
 nnoremap <leader>b :Unite -auto-resize buffer<cr>
 nnoremap <leader>uh :Unite -auto-resize file_rec/async:~<cr>
+nnoremap <leader>e :Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
+nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 " Easymotion mappings
 nmap s <Plug>(easymotion-s)
