@@ -54,7 +54,7 @@ NeoBundle "tpope/vim-surround"
 " Themes
 " NeoBundle "sickill/vim-monokai"
 NeoBundle "altercation/vim-colors-solarized"
-" NeoBundle "itchyny/lightline.vim"
+NeoBundle "itchyny/lightline.vim"
 " NeoBundle "john2x/flatui.vim"
 " NeoBundle "trusktr/seti.vim"
 
@@ -101,8 +101,17 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " Powerline config
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" Lightline config
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:lightline = {
+    \ 'colorscheme': 'solarized_dark',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"":""}',
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
 
 " Syntastic config
 let g:syntastic_always_populate_loc_list = 0
@@ -172,6 +181,9 @@ nnoremap <leader>9 :e ~/.bin/functions.zsh
 nnoremap <leader>n :tabe<cr>
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>s :source ~/.vimrc<cr>
+
+" Make paste audo indent correctly
+nnoremap p p=`]
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
