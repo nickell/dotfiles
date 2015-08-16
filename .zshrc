@@ -79,19 +79,15 @@ export EDITOR='vim'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias ll="ls -al"
-alias tkill="tmux kill-session"
+
+minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
 
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
-
-#ZSH_TMUX_AUTOSTART="true"
 
 vim_ins_mode="%{$fg[cyan]%}[I]%{$reset_color%}"
 vim_cmd_mode="%{$fg[green]%}[C]%{$reset_color%}"

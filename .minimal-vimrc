@@ -1,0 +1,129 @@
+" vim: set fdm=marker fmr={{{,}}}:
+
+" {{{ NeoBundle
+if has("vim_starting")
+    set nocompatible
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand("~/.vim/bundle/"))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch "Shougo/neobundle.vim"
+
+NeoBundle "Shougo/vimproc", {
+            \ "build" : {
+            \     "windows" : "make -f make_mingw32.mak",
+            \     "cygwin" : "make -f make_cygwin.mak",
+            \     "mac" : "make -f make_mac.mak",
+            \     "unix" : "make -f make_unix.mak",
+            \    },
+            \ }
+
+NeoBundle "tpope/vim-sensible"
+NeoBundle "Lokaltog/vim-easymotion"
+
+" Themes
+" NeoBundle "sickill/vim-monokai"
+NeoBundle "altercation/vim-colors-solarized"
+NeoBundle "itchyny/lightline.vim"
+" NeoBundle "john2x/flatui.vim"
+" NeoBundle "trusktr/seti.vim"
+
+call neobundle#end()
+NeoBundleCheck
+" }}}
+
+" {{{ Plugin Config
+" Lightline config
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:lightline = {
+            \ 'colorscheme': 'solarized_dark',
+            \ 'component': {
+            \   'readonly': '%{&readonly?"":""}',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
+
+" Easymotion config
+let g:EasyMotion_smartcase = 1
+" }}}
+
+" {{{ Syntax
+" Tabs config
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" Relative line numbers
+set number
+set relativenumber
+" }}}
+
+" {{{ Theme
+set background=dark
+colorscheme solarized
+hi Folded ctermbg=none
+set guifont=Inconsolata\ for\ Powerline:h12
+" }}}
+
+" {{{ Key Bindings
+let mapleader = ","
+inoremap jk <ESC>
+nnoremap <space> /
+nnoremap ; :
+nnoremap 0 ^
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>1 :tabp<return>
+nnoremap <leader>2 :tabn<return>
+nnoremap <leader>3 :tabm -1<return>
+nnoremap <leader>4 :tabm +1<return>
+nnoremap <leader>n :tabe<cr>
+nnoremap <leader><cr> :noh<cr>
+nnoremap <leader>s :source ~/.vimrc<cr>
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Easymotion mappings
+nmap s <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+" }}}
+
+" {{{ Miscellaneous
+set nowrap
+set splitbelow
+set splitright
+set clipboard=unnamed
+
+" Do not store global and local values in a session
+set ssop-=options
+
+" Keep buffers in memory
+set hidden
+
+" Use mouse to move cursor
+set mouse=a
+
+" Comment at top of file to configure vim
+set modeline
+
+" Search tweaks
+set ignorecase
+set hlsearch
+
+" This is a fix to stop vim from saving twice - it was messing up gulp watch
+set nowritebackup
+
+" This configures the ignore pattern for some plugins, I don't think I'm even
+" using anything that is affected by this
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" }}}
