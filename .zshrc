@@ -84,6 +84,7 @@ alias vimconfig="vim ~/.vimrc"
 alias ll="ls -al"
 
 minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
+tmux () { TERM=xterm-256color \tmux $1 }
 
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
