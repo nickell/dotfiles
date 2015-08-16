@@ -19,12 +19,50 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export EDITOR='vim'
 # }}}
 
-# {{{ Aliases and functions
+# {{{ Aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias ll="ls -al"
 alias mmv='noglob zmv -W'
+# }}}
+
+# {{{ Functions
 minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
+
+devenv() {
+    if sessionExists $1; then
+        echo 'Session already exists'
+    else
+        startMongo
+
+        WORKING_DIR="$(wd path $1)"
+
+        tmux new-session -c ${~WORKING_DIR} -d -s $1 -n vim
+        tmux new-window -c ${~WORKING_DIR} -t $1:2 -n tools
+        tmux new-window -c ${~WORKING_DIR} -t $1:3 -n other
+
+        tmux split-window -c ${~WORKING_DIR} -v -t $1:vim
+        tmux resize-pane -t $1:vim.1 -y 10
+
+        tmux send-keys -t $1:vim.0 "vim -S ~/.vim/sessions/$1.vim" C-m
+        tmux select-window -t $1:vim
+        tmux select-pane -t $1:vim.0
+
+        tmux attach-session -t $1
+    fi
+}
+
+killToNextTmux() {
+    CURRENT_SESSION="$(tmux display-message -p '#S')"
+
+    if ! (tmux switch-client -n >/dev/null 2>&1); then
+        # there were no other clients
+        tmux kill-session
+    else
+        # there was another client
+        tmux kill-session -t $CURRENT_SESSION
+    fi
+}
 # }}}
 
 # {{{ Prompt
@@ -55,3 +93,55 @@ PROMPT+='${vim_mode} '
 # }}}
 
 source $HOME/.dotfiles-local/.zshrc-after
+
+# {{{ Helper functions
+startMongo() {
+    MONGO_STARTED="$(ps aux | ag mongod | wc -l)"
+
+    # If mongo isn't started
+    if [ $MONGO_STARTED -ne 2 ]; then
+
+        # Wait until mongo logs that it's ready (or timeout after 5s)
+        touch ~/.logs/mongodb.log
+        ORIGINAL_RESULT_COUNT="$(ag 'waiting for connections' ~/.logs/mongodb.log | wc -l)"
+        RESULT_COUNT=$ORIGINAL_RESULT_COUNT
+        mongod  --quiet --logpath ~/.logs/mongodb.log --logappend &
+        COUNTER=0
+
+        while [ $RESULT_COUNT -eq $ORIGINAL_RESULT_COUNT ] ; do
+            if [ $COUNTER -ge 5 ]; then
+                echo "Mongo didn't start for 5 seconds"
+                kill -s TERM $TOP_PID
+            fi
+            sleep 1
+            let COUNTER+=1
+            echo "Waiting for mongo to initialize... ($COUNTER seconds so far)"
+            RESULT_COUNT="$(ag 'waiting for connections' ~/.logs/mongodb.log | wc -l)"
+        done
+    fi
+
+    echo "Mongo is started"
+}
+
+stopMongo() {
+    MONGO_STARTED="$(ps aux | ag mongod | wc -l)"
+
+    if [ $MONGO_STARTED -eq 2 ]; then
+        killall mongod
+    fi
+}
+
+sessionExists() {
+    EXISTING_SESSION=$(tmux ls 2> /dev/null | ag $1 | wc -l)
+
+    if [ $EXISTING_SESSION -eq 1 ]; then
+        return 0 #true
+    else
+        return 1 #false
+    fi
+}
+
+gitDirty() {
+    test -n "$(git status --porcelain)"
+}
+# }}}
