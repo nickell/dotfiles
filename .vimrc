@@ -50,6 +50,7 @@ NeoBundle "tpope/vim-commentary"
 NeoBundle "plasticboy/vim-markdown"
 NeoBundle "suan/vim-instant-markdown"
 NeoBundle "tpope/vim-surround"
+NeoBundle "tmux-plugins/vim-tmux"
 
 " Themes
 " NeoBundle "sickill/vim-monokai"
