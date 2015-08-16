@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo tmux wd)
+source $ZSH/oh-my-zsh.sh
 autoload -U zmv
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
@@ -27,8 +28,6 @@ minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
 # }}}
 
 # {{{ Prompt
-source $ZSH/oh-my-zsh.sh
-
 vim_ins_mode="%{$fg[cyan]%}[I]%{$reset_color%}"
 vim_cmd_mode="%{$fg[green]%}[C]%{$reset_color%}"
 vim_mode=$vim_ins_mode
