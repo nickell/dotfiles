@@ -75,6 +75,8 @@ augroup mygroup
     autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
     " This forces tabs in a makefile
     autocmd filetype make setlocal noexpandtab
+    " Make text files do soft wrappping
+    autocmd BufRead,BufNewFile *.txt set wrap linebreak nolist textwidth=0 wrapmargin=0
 augroup END
 " }}}
 
