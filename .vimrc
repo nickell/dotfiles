@@ -170,7 +170,7 @@ set guifont=Inconsolata\ for\ Powerline:h12
 " {{{ Key Bindings
 let mapleader = ","
 inoremap jk <ESC>
-nnoremap <space> /
+nnoremap <space> za
 nnoremap ; :
 nnoremap 0 ^
 nnoremap <leader>w :w!<cr>

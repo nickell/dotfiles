@@ -28,6 +28,7 @@ alias mmv='noglob zmv -W'
 
 # {{{ Functions
 minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
+vims () { vim -S ~/.vim/sessions/$1.vim }
 
 devenv() {
     if sessionExists $1; then
@@ -105,7 +106,7 @@ startMongo() {
         touch ~/.logs/mongodb.log
         ORIGINAL_RESULT_COUNT="$(ag 'waiting for connections' ~/.logs/mongodb.log | wc -l)"
         RESULT_COUNT=$ORIGINAL_RESULT_COUNT
-        mongod  --quiet --logpath ~/.logs/mongodb.log --logappend &
+        mongod --quiet --logpath ~/.logs/mongodb.log --logappend &
         COUNTER=0
 
         while [ $RESULT_COUNT -eq $ORIGINAL_RESULT_COUNT ] ; do
@@ -132,7 +133,7 @@ stopMongo() {
 }
 
 sessionExists() {
-    EXISTING_SESSION=$(tmux ls 2> /dev/null | ag $1 | wc -l)
+    EXISTING_SESSION=$(tmux ls 2> /dev/null | ag -w $1 | wc -l)
 
     if [ $EXISTING_SESSION -eq 1 ]; then
         return 0 #true
