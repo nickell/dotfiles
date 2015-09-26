@@ -28,6 +28,7 @@ alias mmv='noglob zmv -W'
 
 # {{{ Functions
 minvim () { vim -u ~/.dotfiles/.minimal-vimrc $1 }
+blankvim () { vim -u NORC $1 }
 vims () { vim -S ~/.vim/sessions/$1.vim }
 
 devenv() {
@@ -39,15 +40,8 @@ devenv() {
         WORKING_DIR="$(wd path $1)"
 
         tmux new-session -c ${~WORKING_DIR} -d -s $1 -n vim
-        tmux new-window -c ${~WORKING_DIR} -t $1:2 -n tools
-        tmux new-window -c ${~WORKING_DIR} -t $1:3 -n other
 
-        tmux split-window -c ${~WORKING_DIR} -v -t $1:vim
-        tmux resize-pane -t $1:vim.1 -y 10
-
-        tmux send-keys -t $1:vim.0 "vim -S ~/.vim/sessions/$1.vim" C-m
-        tmux select-window -t $1:vim
-        tmux select-pane -t $1:vim.0
+        tmux send-keys -t $1:vim "vims $1" C-m
 
         tmux attach-session -t $1
     fi
@@ -146,3 +140,6 @@ gitDirty() {
     test -n "$(git status --porcelain)"
 }
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'

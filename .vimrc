@@ -21,11 +21,9 @@ NeoBundleFetch "Shougo/neobundle.vim"
 
 NeoBundle "Shougo/vimproc", {
             \ "build" : {
-            \     "windows" : "make -f make_mingw32.mak",
-            \     "cygwin" : "make -f make_cygwin.mak",
             \     "mac" : "make -f make_mac.mak",
-            \     "unix" : "make -f make_unix.mak",
-            \    },
+            \     "unix" : "make -f make_unix.mak"
+            \    }
             \ }
 
 NeoBundle "tpope/vim-abolish"
@@ -39,6 +37,7 @@ NeoBundle "Shougo/neosnippet-snippets"
 NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "marijnh/tern_for_vim"
 NeoBundle "tpope/vim-obsession"
+NeoBundle "yegappan/greplace"
 
 " Syntax
 NeoBundle "elzr/vim-json"
@@ -103,8 +102,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " NeoSnippet config
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
-" Powerline config
-" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 " Lightline config
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 let g:lightline = {
@@ -128,17 +125,20 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_max_candidates = 200
 if executable('ag')
-    let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore "(node_modules)" --ignore "*.cache*" --hidden -g ""'
-    " Use ag in unite grep source.
+    " let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup',  '--hidden', '-g', '']
+    let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
-                \ '-i --line-numbers --smart-case --nocolor --nogroup --hidden --ignore ' .
-                \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+                \ '-i --vimgrep --hidden --ignore ' .
+                \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     let g:unite_source_grep_recursive_opt = ''
 endif
 
 " Easymotion config
 let g:EasyMotion_smartcase = 1
+
+" FZF Config
+" set rtp+=~/.fzf
 " }}}
 
 " {{{ Syntax
@@ -194,12 +194,12 @@ vnoremap > >gv
 
 
 " Unite mappings
-nnoremap <leader>f :Unite -buffer-name=WorkingDirectory -start-insert -auto-resize buffer file_rec/async:.<cr>
-nnoremap <leader>ug :Unite -silent grep:.:<cr>
-nnoremap <leader>ul :Unite line<cr>
-nnoremap <leader>b :Unite -auto-resize buffer<cr>
-nnoremap <leader>uh :Unite -auto-resize file_rec/async:~<cr>
-nnoremap <leader>e :Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
+nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/async:.<cr>
+nnoremap <leader>ug :<C-u>Unite -silent grep:.:<cr>
+nnoremap <leader>ul :<C-u>Unite line<cr>
+nnoremap <leader>b :<C-u>Unite -auto-resize buffer<cr>
+nnoremap <leader>uh :<C-u>Unite -auto-resize file_rec/async:~<cr>
+nnoremap <leader>e :<C-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 " Easymotion mappings
@@ -211,6 +211,10 @@ map <leader>k <Plug>(easymotion-k)
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" FZF Mappings
+" nnoremap <leader>f :FZF -e<cr>
+" nnoremap <leader>h :FZF -e ~<cr>
 " }}}
 
 " {{{ Miscellaneous
@@ -240,5 +244,5 @@ set nowritebackup
 
 " This configures the ignore pattern for some plugins, I don't think I'm even
 " using anything that is affected by this
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " }}}
