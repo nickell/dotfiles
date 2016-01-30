@@ -1,5 +1,0 @@
-set nocompatible
-set runtimepath+=~/.vim/bundle/vimproc/
-set runtimepath+=~/.vim/bundle/unite.vim/
-
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup',  '--hidden', '-g', '']

@@ -1,22 +1,18 @@
 " vim: set fdm=marker fmr={{{,}}}:
 
 " {{{ NeoBundle
-" This is a check to make sure python plugins play nice with neovim
-if has('nvim')
-    runtime! plugin/python_setup.vim
-endif
+if has('vim_starting')
+    if &compatible
+        set nocompatible
+    endif
 
-if has("vim_starting")
-    set nocompatible
-    " Required:
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand("~/.vim/bundle/"))
+call neobundle#begin(expand('~/.vim/bundle'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
+NeoBundleCheck
 NeoBundleFetch "Shougo/neobundle.vim"
 
 NeoBundle "Shougo/vimproc", {
@@ -44,12 +40,12 @@ NeoBundle "elzr/vim-json"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "hail2u/vim-css3-syntax"
 NeoBundle "othree/html5.vim"
-NeoBundle "StanAngeloff/php.vim"
 NeoBundle "tpope/vim-commentary"
 NeoBundle "plasticboy/vim-markdown"
 NeoBundle "suan/vim-instant-markdown"
 NeoBundle "tpope/vim-surround"
 NeoBundle "tmux-plugins/vim-tmux"
+NeoBundle "mxw/vim-jsx"
 
 " Themes
 " NeoBundle "sickill/vim-monokai"
@@ -82,6 +78,7 @@ augroup END
 
 " {{{ Plugin Config
 " NeoComplete config
+let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_smart_case = 1
@@ -118,7 +115,8 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 " Unite config
@@ -126,7 +124,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_max_candidates = 200
 if executable('ag')
     " let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup',  '--hidden', '-g', '']
-    let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+    " let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
                 \ '-i --vimgrep --hidden --ignore ' .
@@ -138,7 +136,10 @@ endif
 let g:EasyMotion_smartcase = 1
 
 " FZF Config
-" set rtp+=~/.fzf
+set rtp+=~/.fzf
+
+" Vim-Jsx Config
+let g:jsx_ext_required = 0
 " }}}
 
 " {{{ Syntax
@@ -184,6 +185,7 @@ nnoremap <leader>9 :e ~/.bin/functions.zsh
 nnoremap <leader>n :tabe<cr>
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>s :source ~/.vimrc<cr>
+cmap w!! w !sudo tee > /dev/null %
 
 " Make paste audo indent correctly
 nnoremap p p=`]
@@ -194,13 +196,15 @@ vnoremap > >gv
 
 
 " Unite mappings
-nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/async:.<cr>
+" nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/async:.<cr>
 nnoremap <leader>ug :<C-u>Unite -silent grep:.:<cr>
 nnoremap <leader>ul :<C-u>Unite line<cr>
 nnoremap <leader>b :<C-u>Unite -auto-resize buffer<cr>
 nnoremap <leader>uh :<C-u>Unite -auto-resize file_rec/async:~<cr>
 nnoremap <leader>e :<C-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
+
+nnoremap <leader>ur <Plug>(unite_redraw)
 
 " Easymotion mappings
 nmap s <Plug>(easymotion-s)
@@ -213,8 +217,8 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " FZF Mappings
-" nnoremap <leader>f :FZF -e<cr>
-" nnoremap <leader>h :FZF -e ~<cr>
+nnoremap <leader>f :FZF -e<cr>
+nnoremap <leader>h :FZF -e ~<cr>
 " }}}
 
 " {{{ Miscellaneous
@@ -245,4 +249,14 @@ set nowritebackup
 " This configures the ignore pattern for some plugins, I don't think I'm even
 " using anything that is affected by this
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" }}}
+
+" {{{ Neovim
+if has('nvim')
+    tnoremap <Leader>e <C-\><C-n>:bp<cr>
+    tnoremap jk <C-\><C-n>
+    let g:deoplete#enable_at_startup = 1
+    " call plug#begin('~/.vim/plugged')
+    " call plug#end()
+endif
 " }}}
