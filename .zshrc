@@ -32,6 +32,7 @@ export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.dotfiles/.zsh-prompt
+source $HOME/.dotfiles/.zsh-functions
 
 alias ll="ls -al"
 alias bcodev="mosh chad@brllnt.co tmux a"

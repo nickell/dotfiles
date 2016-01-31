@@ -1,0 +1,35 @@
+startMongo() {
+    MONGO_STARTED="$(ps aux | ag mongod | wc -l)"
+
+    # If mongo isn't started
+    if [ $MONGO_STARTED -ne 2 ]; then
+
+        # Wait until mongo logs that it's ready (or timeout after 5s)
+        touch ~/.logs/mongodb.log
+        ORIGINAL_RESULT_COUNT="$(ag 'waiting for connections' ~/.logs/mongodb.log | wc -l)"
+        RESULT_COUNT=$ORIGINAL_RESULT_COUNT
+        mongod --quiet --logpath ~/.logs/mongodb.log --logappend &
+        COUNTER=0
+
+        while [ $RESULT_COUNT -eq $ORIGINAL_RESULT_COUNT ] ; do
+            if [ $COUNTER -ge 5 ]; then
+                echo "Mongo didn't start for 5 seconds"
+                kill -s TERM $TOP_PID
+            fi
+            sleep 1
+            let COUNTER+=1
+            echo "Waiting for mongo to initialize... ($COUNTER seconds so far)"
+            RESULT_COUNT="$(ag 'waiting for connections' ~/.logs/mongodb.log | wc -l)"
+        done
+    fi
+
+    echo "Mongo is started"
+}
+
+stopMongo() {
+    MONGO_STARTED="$(ps aux | ag mongod | wc -l)"
+
+    if [ $MONGO_STARTED -eq 2 ]; then
+        killall mongod
+    fi
+}
