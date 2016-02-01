@@ -13,11 +13,6 @@ zstyle :compinstall filename '/Users/chad/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Vim keybindings
-bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey '^R' history-incremental-search-backward
-
 export PATH="/Users/chad/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export EDITOR='vim'
 
@@ -37,3 +32,8 @@ source $HOME/.dotfiles/.zsh-functions
 alias ll="ls -al"
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias myserver="mosh chad@chadnickell.com tmux a"
+
+# Vim keybindings
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
