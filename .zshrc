@@ -32,6 +32,7 @@ source $HOME/.dotfiles/.zsh-functions
 alias ll="ls -al"
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias myserver="mosh chad@chadnickell.com tmux a"
+alias npms="npm start"
 
 # Vim keybindings
 bindkey -v
