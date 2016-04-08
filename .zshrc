@@ -1,7 +1,7 @@
 export ZSH=/Users/chad/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git z)
 HISTFILE=~/.histfile
@@ -15,6 +15,7 @@ compinit
 
 export PATH="/Users/chad/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export EDITOR='vim'
+export TERM="screen-256color"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,7 +33,9 @@ source $HOME/.dotfiles/.zsh-functions
 alias ll="ls -al"
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias myserver="mosh chad@chadnickell.com tmux a"
-alias npms="npm start"
+alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
+alias ns="npm start"
+alias tm="tmux new -s main"
 
 # Vim keybindings
 bindkey -v

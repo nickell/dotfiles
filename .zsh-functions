@@ -33,3 +33,7 @@ stopMongo() {
         killall mongod
     fi
 }
+
+e() {
+    nvim $1
+}
