@@ -1,4 +1,3 @@
-
 " vim: set fdm=marker fmr={{{,}}}:
 
 " {{{ Plugins
@@ -133,215 +132,6 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore=['node_modules$[[dir]]']
 " }}}
 
-" {{{ Autocmds 
-augroup mygroup
-    autocmd!
-    autocmd! BufWritePost * Neomake
-    " Git tweaks
-    autocmd Filetype gitcommit setlocal textwidth=72 
-    autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
-    " autocmd FileType unite call s:configure_unite_buffer()
-    " " Search highlighting tweaks
-    " autocmd InsertEnter * :set nohlsearch
-    " autocmd InsertLeave * :set hlsearch
-    " These next two prevent all the folds from opening beneath the cursor during edits
-    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-    " " This forces tabs in a makefile
-    " autocmd filetype make setlocal noexpandtab
-    " " Make text files do soft wrappping
-    " autocmd BufRead,BufNewFile *.txt set wrap linebreak nolist textwidth=0 wrapmargin=0
-    " NERDTree stuff
-    " autocmd VimEnter * if (0 == argc()) | NERDTree | endif
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-augroup END
-" }}}
-
-" {{{ Plugin Config
-" clever-f prompt
-let g:clever_f_show_prompt = 1
-let g:clever_f_across_no_line = 1
-
-" airline
-if !exists("g:airline_symbols")
-  let g:airline_symbols = {}
-endif
-let g:airline_theme="powerlineish"
-let g:airline_powerline_fonts=1
-let g:airline#extensions#branch#empty_message  =  "no .git"
-let g:airline#extensions#whitespace#enabled    =  0
-let g:airline#extensions#syntastic#enabled     =  1
-let g:airline#extensions#tabline#enabled       =  1
-let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
-let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
-let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
-
-" Syntastic
-" let g:syntastic_javascript_checkers = ['eslint']
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#deoplete_onmni_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
-let g:deoplete#deoplete_onmni_patterns.javascript = '[^. \t]\.\w*'
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Neomake
-let g:neomake_javascript_enabled_makers= ['eslint']
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-
-" Unite
-let g:unite_data_directory='~/.config/nvim/.cache/unite'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_prompt='>> '
-let g:unite_split_rule = 'botright'
-let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'lib']
-
-" Polyglot
-" let g:polyglot_disabled=['javascript.jsx']
-
-" jsx highlighting in all js files and enable react syntax
-let g:jsx_ext_required = 0
-let g:used_javascript_libs = 'react'
-
-" git and ack stuff
-let g:gitgutter_enabled = 1
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-nnoremap <leader>G mG:Git! 
-nnoremap <leader>g :Git 
-nnoremap <leader>A :!ag 
-nnoremap <leader>a :Ag! 
-
-" EasyMotion
-let g:EasyMotion_smartcase = 1
-" }}}
-
-" {{{ COOL HACKS
-" Make sure Vim returns to the same line when you reopen a file.
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-" Visual Mode */# from Scrooloose
-function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
-endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
-
-" Text Highlighter = <leader>h[1-4]
-function! HiInterestingWord(n)
-    " Save our location.
-    normal! mz
-    " Yank the current word into the z register.
-    normal! "zyiw
-    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-    let mid = 86750 + a:n
-    " Clear existing matches, but don't worry if they don't exist.
-    silent! call matchdelete(mid)
-    " Construct a literal pattern that has to match at boundaries.
-    let pat = '\V\<' . escape(@z, '\') . '\>'
-    " Actually match the words.
-    call matchadd("InterestingWord" . a:n, pat, 1, mid)
-    " Move back to our original location.
-    normal! `z
-endfunction
-
-nnoremap <leader>hh :call clearmatches()<CR>:noh<CR>
-nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
-nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
-nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
-nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
-nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
-nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
-
-hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-
-highlight search ctermfg=white ctermbg=3423513
-
-" better retab
-fu! Retab()
-  :retab
-  :%s/\s\+$//
-endfunction
-
-" Make search results appear in the middle of the screen
-nnoremap <silent> <F4> :call <SID>SearchMode()<CR>
-function s:SearchMode()
-  if !exists('s:searchmode') || s:searchmode == 0
-    echo 'Search next: scroll hit to middle if not on same page'
-    nnoremap <silent> n n:call <SID>MaybeMiddle()<CR>
-    nnoremap <silent> N N:call <SID>MaybeMiddle()<CR>
-    let s:searchmode = 1
-  elseif s:searchmode == 1
-    echo 'Search next: scroll hit to middle'
-    nnoremap n nzz
-    nnoremap N Nzz
-    let s:searchmode = 2
-  else
-    echo 'Search next: normal'
-    nunmap n
-    nunmap N
-    let s:searchmode = 0
-  endif
-endfunction
-
-" If cursor is in first or last line of window, scroll to middle line.
-function s:MaybeMiddle()
-  if winline() == 1 || winline() == winheight(0)
-    normal! zz
-  endif
-endfunction
-" }}}
-
-" {{{ BUG WORKAROUNDS
-" realign buffers when iterm goes fullscreen
-augroup FixProportionsOnResize
-  au!
-  au VimResized * exe "normal! \<c-w>="
-augroup END
-
-" vim mode-switch lag fix
-if ! has("gui_running")
-   "set ttimeoutlen=10
-   "augroup FastEscape
-   "    autocmd!
-   "    au InsertEnter * set timeoutlen=10
-   "    au InsertLeave * set timeoutlen=1000
-   "augroup END
-endif
-
-" macos vs linux clipboard
-if has("mac")
-  set clipboard+=unnamed
-else
-  set clipboard=unnamedplus
-endif
-
-" make C-a, C-x work properly
-set nrformats=
-
-" potential lag fix
-let g:matchparen_insert_timeout=1
-
-" fix bufexplorer bug with hidden
-let g:bufExplorerFindActive=0
-" }}}
-
 " {{{ Key Bindings
 let mapleader = " "
 inoremap jk <ESC>
@@ -438,28 +228,237 @@ tnoremap <F12> <C-\><C-n>
 autocmd WinEnter term://* startinsert
 set switchbuf+=useopen
 function! TermEnter()
-  let bufcount = bufnr("$")
-  let currbufnr = 1
-  let nummatches = 0
-  let firstmatchingbufnr = 0
-  while currbufnr <= bufcount
-    if(bufexists(currbufnr))
-      let currbufname = bufname(currbufnr)
-      if(match(currbufname, "term://") > -1)
-        echo currbufnr . ": ". bufname(currbufnr)
-        let nummatches += 1
-        let firstmatchingbufnr = currbufnr
-        break
-      endif
+    let bufcount = bufnr("$")
+    let currbufnr = 1
+    let nummatches = 0
+    let firstmatchingbufnr = 0
+    while currbufnr <= bufcount
+        if(bufexists(currbufnr))
+            let currbufname = bufname(currbufnr)
+            if(match(currbufname, "term://") > -1)
+                echo currbufnr . ": ". bufname(currbufnr)
+                let nummatches += 1
+                let firstmatchingbufnr = currbufnr
+                break
+            endif
+        endif
+        let currbufnr = currbufnr + 1
+    endwhile
+    if(nummatches >= 1)
+        execute ":sbuffer ". firstmatchingbufnr
+        startinsert
+    else
+        execute ":terminal"
     endif
-    let currbufnr = currbufnr + 1
-  endwhile
-  if(nummatches >= 1)
-    execute ":sbuffer ". firstmatchingbufnr
-    startinsert
-  else
-    execute ":terminal"
-  endif
 endfunction
 map <F12> :call TermEnter()<CR>
+" }}}
+
+" {{{ Autocmds 
+augroup mygroup
+    autocmd!
+    autocmd! BufWritePost * Neomake
+    " Git tweaks
+    autocmd Filetype gitcommit setlocal textwidth=72 
+    autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
+    " autocmd FileType unite call s:configure_unite_buffer()
+    " " Search highlighting tweaks
+    " autocmd InsertEnter * :set nohlsearch
+    " autocmd InsertLeave * :set hlsearch
+    " These next two prevent all the folds from opening beneath the cursor during edits
+    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+    " " This forces tabs in a makefile
+    " autocmd filetype make setlocal noexpandtab
+    " " Make text files do soft wrappping
+    " autocmd BufRead,BufNewFile *.txt set wrap linebreak nolist textwidth=0 wrapmargin=0
+    " NERDTree stuff
+    " autocmd VimEnter * if (0 == argc()) | NERDTree | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+" }}}
+
+" {{{ Plugin Config
+" clever-f prompt
+let g:clever_f_show_prompt = 1
+let g:clever_f_across_no_line = 1
+
+" airline
+if !exists("g:airline_symbols")
+  let g:airline_symbols = {}
+endif
+let g:airline_theme="powerlineish"
+let g:airline_powerline_fonts=1
+let g:airline#extensions#branch#empty_message  =  "no .git"
+let g:airline#extensions#whitespace#enabled    =  0
+let g:airline#extensions#syntastic#enabled     =  1
+let g:airline#extensions#tabline#enabled       =  1
+let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
+let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
+let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
+
+" Syntastic
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#deoplete_onmni_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
+let g:deoplete#deoplete_onmni_patterns.javascript = '[^. \t]\.\w*'
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Neomake
+let g:neomake_javascript_enabled_makers= ['eslint']
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" Unite
+let g:unite_data_directory='~/.config/nvim/.cache/unite'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_prompt='>> '
+let g:unite_split_rule = 'botright'
+let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'lib']
+
+" Polyglot
+" let g:polyglot_disabled=['javascript.jsx']
+
+" jsx highlighting in all js files and enable react syntax
+let g:jsx_ext_required = 0
+let g:used_javascript_libs = 'react'
+
+" git and ack stuff
+let g:gitgutter_enabled = 1
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+nnoremap <leader>G mG:Git! 
+nnoremap <leader>g :Git 
+nnoremap <leader>A :!ag 
+nnoremap <leader>a :Ag! 
+
+" EasyMotion
+let g:EasyMotion_smartcase = 1
+" }}}
+
+" {{{ BUG WORKAROUNDS
+" realign buffers when iterm goes fullscreen
+augroup FixProportionsOnResize
+  au!
+  au VimResized * exe "normal! \<c-w>="
+augroup END
+
+" vim mode-switch lag fix
+if ! has("gui_running")
+   "set ttimeoutlen=10
+   "augroup FastEscape
+   "    autocmd!
+   "    au InsertEnter * set timeoutlen=10
+   "    au InsertLeave * set timeoutlen=1000
+   "augroup END
+endif
+
+" macos vs linux clipboard
+if has("mac")
+  set clipboard+=unnamed
+else
+  set clipboard=unnamedplus
+endif
+
+" make C-a, C-x work properly
+set nrformats=
+
+" potential lag fix
+let g:matchparen_insert_timeout=1
+
+" fix bufexplorer bug with hidden
+let g:bufExplorerFindActive=0
+" }}}
+
+" {{{ COOL HACKS
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \     execute 'normal! g`"zvzz' |
+                \ endif
+augroup END
+
+" Visual Mode */# from Scrooloose
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
+
+" Text Highlighter = <leader>h[1-4]
+function! HiInterestingWord(n)
+    " Save our location.
+    normal! mz
+    " Yank the current word into the z register.
+    normal! "zyiw
+    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+    let mid = 86750 + a:n
+    " Clear existing matches, but don't worry if they don't exist.
+    silent! call matchdelete(mid)
+    " Construct a literal pattern that has to match at boundaries.
+    let pat = '\V\<' . escape(@z, '\') . '\>'
+    " Actually match the words.
+    call matchadd("InterestingWord" . a:n, pat, 1, mid)
+    " Move back to our original location.
+    normal! `z
+endfunction
+
+nnoremap <leader>hh :call clearmatches()<CR>:noh<CR>
+nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
+nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
+nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
+nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
+nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
+
+hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
+hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
+hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
+hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
+hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
+hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+
+highlight search ctermfg=white ctermbg=3423513
+
+" better retab
+fu! Retab()
+    :retab
+    :%s/\s\+$//
+endfunction
+
+" Make search results appear in the middle of the screen
+nnoremap <silent> <F4> :call <SID>SearchMode()<CR>
+function s:SearchMode()
+    if !exists('s:searchmode') || s:searchmode == 0
+        echo 'Search next: scroll hit to middle if not on same page'
+        nnoremap <silent> n n:call <SID>MaybeMiddle()<CR>
+        nnoremap <silent> N N:call <SID>MaybeMiddle()<CR>
+        let s:searchmode = 1
+    elseif s:searchmode == 1
+        echo 'Search next: scroll hit to middle'
+        nnoremap n nzz
+        nnoremap N Nzz
+        let s:searchmode = 2
+    else
+        echo 'Search next: normal'
+        nunmap n
+        nunmap N
+        let s:searchmode = 0
+    endif
+endfunction
+
+" If cursor is in first or last line of window, scroll to middle line.
+function s:MaybeMiddle()
+    if winline() == 1 || winline() == winheight(0)
+        normal! zz
+    endif
+endfunction
 " }}}
