@@ -162,6 +162,10 @@ nnoremap ∆ <C-w>j
 nnoremap ˚ <C-w>k
 nnoremap ¬ <C-w>l
 
+
+" Make paste audo indent correctly
+nnoremap p p=`]
+
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
