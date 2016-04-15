@@ -37,3 +37,7 @@ stopMongo() {
 e() {
     nvim $1
 }
+
+resizeimages() {
+    sips -Z $1 *
+}
