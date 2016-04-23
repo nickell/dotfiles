@@ -1,63 +1,45 @@
 " vim: set fdm=marker fmr={{{,}}}:
 
 " {{{ Plugins
-" not a vi
-set encoding=utf-8
-
-" start vundler
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
-    " core plugins
+    Plug 'airblade/vim-gitgutter'
+    Plug 'benekastah/neomake'
+    Plug 'dsimidzija/vim-nerdtree-ignore'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'edsono/vim-matchit'
+    Plug 'henrik/vim-indexed-search'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'kshenoy/vim-signature'
+    Plug 'Lokaltog/vim-easymotion'
+    Plug 'marijnh/tern_for_vim'
+    Plug 'mileszs/ack.vim'
+    Plug 'qpkorr/vim-bufkill'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'rking/ag.vim'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'sheerun/vim-polyglot'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/neoyank.vim'
+    Plug 'Shougo/unite.vim'
+    Plug 'SirVer/ultisnips'
+    Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-vinegar' " togglable panels
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-scripts/BufOnly.vim'
+    Plug 'vim-scripts/tComment'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-session'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    
+    " Colorschemes
     " Plug 'flazz/vim-colorschemes'
     Plug 'morhetz/gruvbox'
-    Plug 'Shougo/unite.vim'
-
-    " vim main plugins
-    Plug 'vim-airline/vim-airline'
-    Plug 'scrooloose/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-scripts/tComment'
-    Plug 'tpope/vim-surround'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'mileszs/ack.vim'
-    Plug 'rking/ag.vim'
-    Plug 'edsono/vim-matchit'
-    Plug 'tpope/vim-fugitive'
-    Plug 'henrik/vim-indexed-search'
-    Plug 'tpope/vim-abolish'
-    Plug 'tpope/vim-repeat'
-    Plug 'xolox/vim-session'
-    Plug 'xolox/vim-misc'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'Lokaltog/vim-easymotion'
-    Plug 'rhysd/clever-f.vim'
-    Plug 'qpkorr/vim-bufkill'
-    Plug 'vim-scripts/BufOnly.vim'
-    " Plug 'scrooloose/syntastic'
-
-    " togglable panels
-    Plug 'tpope/vim-vinegar'
-
-    " language vundles
-    Plug 'sheerun/vim-polyglot'
-    Plug 'marijnh/tern_for_vim'
-    " Plug 'plasticboy/vim-markdown'
-    
-    " Various javascript plugins
-    " Plug 'gavocanov/vim-js-indent'
-    " Plug 'pangloss/vim-javascript'
-    " Plug 'mxw/vim-jsx'
-    " Plug 'jelera/vim-javascript-syntax'
-    " Plug 'othree/yajs'
-    " Plug 'othree/javascript-libraries-syntax.vim'
-    " Plug 'othree/es.next.syntax.vim'
-
-    " autocomplete
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'benekastah/neomake'
 call plug#end()
 
 " enable all the plugins
@@ -114,162 +96,100 @@ colorscheme gruvbox
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" session management
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "yes"
-let g:session_autosave = "yes"
-let g:session_default_to_last = 1
-let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
-" NERDTree
-let g:NERDTreeWinSize = 24
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore=['node_modules$[[dir]]']
 " }}}
 
 " {{{ Key Bindings
 let mapleader = " "
-inoremap jk <ESC>
-" nnoremap , za
-nnoremap ; :
+
+" Normal
+nnoremap , za
 nnoremap 0 ^
-nnoremap <leader>w :w!<cr>
-" nnoremap <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
-nnoremap <leader>1 :tabp<return>
-nnoremap <leader>2 :tabn<return>
-nnoremap <leader>3 :tabm -1<return>
-nnoremap <leader>4 :tabm +1<return>
-nnoremap <leader>n :tabe<cr>
-nnoremap <leader><cr> :noh<cr>
-cmap w!! w !sudo tee > /dev/null %
-tnoremap <Leader>e <C-\><C-n>:bp<cr>
-tnoremap jk <C-\><C-n>
-nnoremap gp :bp<cr>
-nnoremap gn :bn<cr>
+nnoremap ; :
+nnoremap <cr> i<cr><Esc>==
 nnoremap gd :BD<cr>
-
-" tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap ˙ <C-w>h
-nnoremap ∆ <C-w>j
-nnoremap ˚ <C-w>k
-nnoremap ¬ <C-w>l
-
-
-" Make paste audo indent correctly
+nnoremap gn :bn<cr>
+nnoremap gp :bp<cr>
 nnoremap p p=`]
+nnoremap ¬ <c-w>l
+nnoremap ˙ <c-w>h
+nnoremap ˚ <c-w>k
+nnoremap ∆ <c-w>j
 
-" Reselect visual block after indent/outdent
+nmap s <Plug>(easymotion-s)
+
+" Insert
+inoremap jk <ESC>
+inoremap <expr><TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
+
+" Command
+cmap w!! w !sudo tee > /dev/null %
+
+" Visual
 vnoremap < <gv
 vnoremap > >gv
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <c-n> :NERDTreeToggle<cr>
 
-" Unite mappings
-nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
-nnoremap <leader>ug :<C-u>Unite -silent grep:.:<cr>
-nnoremap <leader>ul :<C-u>Unite line<cr>
-nnoremap <leader>bu :<C-u>Unite -auto-resize -start-insert buffer<cr>
-nnoremap <leader>uh :<C-u>Unite -auto-resize file_rec/async:~<cr>
-nnoremap <leader>e :<C-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
-
-nnoremap <leader>y :<C-u>Unite history/yank<CR>
-nnoremap <leader>ur <Plug>(unite_redraw)
-
-" Easymotion mappings
-nmap s <Plug>(easymotion-s)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-" nnoremap gp `[v`]
-
-"make enter break and do newlines
-nnoremap <CR> i<CR><Esc>==
-
-" open vimrc
-nnoremap <leader>v :e  ~/.config/nvim/init.vim<CR>
-
-" reload all open buffers
-nnoremap <leader>Ra :tabdo exec "windo e!"
-
-" Keep search matches in the middle of the window.
-"   nnoremap n nzzzv
-"   nnoremap N Nzzzv
-
-" Use sane regexes
-nnoremap <leader>/ /\v
-vnoremap <leader>/ /\v
-
-" Use :Subvert search
-nnoremap <leader>// :S /
-vnoremap <leader>// :S /
-
-" Use regular replace
-nnoremap <leader>s :%s /
-vnoremap <leader>s :%s /
-
-" Use :Subvert replace
+" {{{ Leader
+nnoremap <leader>1 :tabp<return>
+nnoremap <leader>2 :tabn<return>
+nnoremap <leader>3 :tabm -1<return>
+nnoremap <leader>4 :tabm +1<return>
+nnoremap <leader><cr> :noh<cr>
+nnoremap <leader>A :!ag
+nnoremap <leader>a :Ag!
+nnoremap <leader>cl :call ConsoleLog()<cr>
+nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
+nnoremap <leader>f :<c-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
+nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
+nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
+nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
+nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
+nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
+nnoremap <leader>hh :call clearmatches()<cr>:noh<cr>
+nmap     <leader>j <Plug>(easymotion-j)
+nmap     <leader>k <Plug>(easymotion-k)
+nnoremap <leader>l :<c-u>Unite line<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>S :%S /
-vnoremap <leader>S :%S /
+nnoremap <leader>s :%s /
+nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>y :<c-u>Unite history/yank<cr>
 
-tnoremap <F12> <C-\><C-n>
-autocmd WinEnter term://* startinsert
-set switchbuf+=useopen
-function! TermEnter()
-    let bufcount = bufnr("$")
-    let currbufnr = 1
-    let nummatches = 0
-    let firstmatchingbufnr = 0
-    while currbufnr <= bufcount
-        if(bufexists(currbufnr))
-            let currbufname = bufname(currbufnr)
-            if(match(currbufname, "term://") > -1)
-                echo currbufnr . ": ". bufname(currbufnr)
-                let nummatches += 1
-                let firstmatchingbufnr = currbufnr
-                break
-            endif
-        endif
-        let currbufnr = currbufnr + 1
-    endwhile
-    if(nummatches >= 1)
-        execute ":sbuffer ". firstmatchingbufnr
-        startinsert
-    else
-        execute ":terminal"
-    endif
-endfunction
-map <F12> :call TermEnter()<CR>
+" Visual
+vnoremap <leader>/ /\v
+vnoremap <leader>// :S /
+vnoremap <leader>cl :call ConsoleLog()<cr>
+vnoremap <leader>S :%S /
+vnoremap <leader>s :%s /
+" }}}
 " }}}
 
-" {{{ Autocmds 
+" {{{ Commands and functions
+" Clear trailing whitespace
+command! ClearTrailingWhitespace %s /\s\+$//g
+
+function! ConsoleLog()
+    normal! yiwOconsole.log(
+    normal! pA)
+endfunction
+
 augroup mygroup
     autocmd!
-    autocmd! BufWritePost * Neomake
+    autocmd BufWritePost * Neomake
     " Git tweaks
-    autocmd Filetype gitcommit setlocal textwidth=72 
+    autocmd Filetype gitcommit setlocal textwidth=72
     autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
-    " autocmd FileType unite call s:configure_unite_buffer()
-    " " Search highlighting tweaks
+    " Search highlighting tweaks
     " autocmd InsertEnter * :set nohlsearch
     " autocmd InsertLeave * :set hlsearch
     " These next two prevent all the folds from opening beneath the cursor during edits
     autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
     autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-    " " This forces tabs in a makefile
-    " autocmd filetype make setlocal noexpandtab
     " " Make text files do soft wrappping
     " autocmd BufRead,BufNewFile *.txt set wrap linebreak nolist textwidth=0 wrapmargin=0
     " NERDTree stuff
@@ -279,9 +199,31 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
-" clever-f prompt
+" Clever-f
 let g:clever_f_show_prompt = 1
 let g:clever_f_across_no_line = 1
+
+
+" Vim-Session
+let g:session_directory = "~/.config/nvim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "yes"
+let g:session_default_to_last = 1
+let g:session_command_aliases = 1
+
+" NERDTree
+let g:NERDTreeWinSize = 24
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeIgnore=['node_modules$[[dir]]']
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=["/Users/chad/.config/UltiSnips"]
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " airline
 if !exists("g:airline_symbols")
@@ -297,14 +239,10 @@ let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
 let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
-" Syntastic
-" let g:syntastic_javascript_checkers = ['eslint']
-
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#deoplete_onmni_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
 let g:deoplete#deoplete_onmni_patterns.javascript = '[^. \t]\.\w*'
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Neomake
 let g:neomake_javascript_enabled_makers= ['eslint']
@@ -321,19 +259,13 @@ let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup
 
 " Polyglot
 " let g:polyglot_disabled=['javascript.jsx']
+let g:jsx_ext_required = 0 " jsx highlighting in all js files and
+let g:used_javascript_libs = 'react' " enable react syntax
 
-" jsx highlighting in all js files and enable react syntax
-let g:jsx_ext_required = 0
-let g:used_javascript_libs = 'react'
-
-" git and ack stuff
+" GitGutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
-nnoremap <leader>G mG:Git! 
-nnoremap <leader>g :Git 
-nnoremap <leader>A :!ag 
-nnoremap <leader>a :Ag! 
 
 " EasyMotion
 let g:EasyMotion_smartcase = 1
@@ -390,8 +322,8 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
     let @@ = temp
 endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
+vnoremap * :<c-u>call <SID>VSetSearch()<cr>//<cr><c-o>
+vnoremap # :<c-u>call <SID>VSetSearch()<cr>??<cr><c-o>
 
 " Text Highlighter = <leader>h[1-4]
 function! HiInterestingWord(n)
@@ -411,13 +343,6 @@ function! HiInterestingWord(n)
     normal! `z
 endfunction
 
-nnoremap <leader>hh :call clearmatches()<CR>:noh<CR>
-nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
-nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
-nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
-nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
-nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
-nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
 
 hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
 hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
@@ -435,12 +360,12 @@ fu! Retab()
 endfunction
 
 " Make search results appear in the middle of the screen
-nnoremap <silent> <F4> :call <SID>SearchMode()<CR>
-function s:SearchMode()
+nnoremap <silent> <F4> :call <SID>SearchMode()<cr>
+function! s:SearchMode()
     if !exists('s:searchmode') || s:searchmode == 0
         echo 'Search next: scroll hit to middle if not on same page'
-        nnoremap <silent> n n:call <SID>MaybeMiddle()<CR>
-        nnoremap <silent> N N:call <SID>MaybeMiddle()<CR>
+        nnoremap <silent> n n:call <SID>MaybeMiddle()<cr>
+        nnoremap <silent> N N:call <SID>MaybeMiddle()<cr>
         let s:searchmode = 1
     elseif s:searchmode == 1
         echo 'Search next: scroll hit to middle'
@@ -456,7 +381,7 @@ function s:SearchMode()
 endfunction
 
 " If cursor is in first or last line of window, scroll to middle line.
-function s:MaybeMiddle()
+function! s:MaybeMiddle()
     if winline() == 1 || winline() == winheight(0)
         normal! zz
     endif
