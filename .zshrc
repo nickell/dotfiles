@@ -36,6 +36,11 @@ alias myserver="mosh chad@chadnickell.com tmux a"
 alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
 alias ns="npm start"
 alias tm="tmux new -s main"
+alias ga="git add ."
+alias gs="git status"
+alias gc="git commit"
+alias gp="git push"
+alias gl="git log"
 
 # Vim keybindings
 bindkey -v
