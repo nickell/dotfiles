@@ -41,3 +41,13 @@ e() {
 resizeimages() {
     sips -Z $1 *
 }
+
+backupGitlab() {
+    server='brllnt@git.brllnt.co'
+    dir='/var/opt/gitlab/backups'
+    dest=${1:-'/Volumes/Storage/gitlab-backups'}
+    ssh $server 'sudo gitlab-rake gitlab:backup:create'
+    newBackup=$(ssh $server "ls -t $dir | head -1")
+    scp $server:$dir/$newBackup $dest
+    ssh $server "sudo rm $dir/$newBackup"
+}
