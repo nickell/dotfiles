@@ -1,0 +1,73 @@
+snippet cl "console.log" b
+console.log(${1:'${2:here}'})
+endsnippet
+
+snippet fun "function (fun)"
+function ${1:name}(${2:args}) {
+	${0:${VISUAL:contents}}
+}
+endsnippet
+
+snippet classX "ES6 Class Extends" b
+class ${1:ClassName} extends ${2:Component} {
+	constructor(props) {
+		super(props)
+	}
+
+	render() {
+		${0:${VISUAL:contents}}
+	}
+}
+
+export default $1
+endsnippet
+
+snippet statelessComponent "Stateless React Component" b
+const ${1:ComponentName} = (${2:props}) => (
+	${0:${VISUAL:contents}}
+)
+endsnippet
+
+snippet statelessComponentX "Stateless React Component" b
+const ${1:ComponentName} = (${2:props}) => (
+	${0:${VISUAL:contents}}
+)
+
+export default $1
+endsnippet
+
+snippet e "Export" b
+export default $1
+endsnippet
+
+snippet t "HTML tag" b
+<${1:div}>${0:${VISUAL:contents}}</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet te "HTML tag expanded" b
+<${1:div}>
+	${0:${VISUAL:contents}}
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet ir "Import React" b
+import React from 'react'
+endsnippet
+
+snippet irc "Import React and Component" b
+import React, { Component } from 'react'
+endsnippet
+
+snippet ig "Import generic" b
+import $1 from '$2'
+endsnippet
+
+snippet eg "Export generic" b
+export $1 from './$1'
+endsnippet
+
+snippet st "setTimeout" b
+setTimeout(function() {
+	${1:${VISUAL:contents}}
+}, ${0:200});
+endsnippet

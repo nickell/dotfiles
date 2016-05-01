@@ -1,4 +1,4 @@
-" vim: set fdm=marker fmr={{{,}}}:
+" vim: set fdm=marker fmr={{{,}}} foldlevel=0:
 
 " {{{ Plugins
 filetype off
@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'marijnh/tern_for_vim'
     Plug 'mileszs/ack.vim'
     Plug 'qpkorr/vim-bufkill'
-    Plug 'rhysd/clever-f.vim'
     Plug 'rking/ag.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'sheerun/vim-polyglot'
@@ -101,10 +100,11 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " {{{ Key Bindings
 let mapleader = " "
 
+map ; :
+noremap ;; ;
+
 " Normal
-nnoremap , za
 nnoremap 0 ^
-nnoremap ; :
 nnoremap <cr> i<cr><Esc>==
 nnoremap gd :BD<cr>
 nnoremap gn :bn<cr>
@@ -140,6 +140,7 @@ nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>A :!ag
 nnoremap <leader>a :Ag!
 nnoremap <leader>cl :call ConsoleLog()<cr>
+nnoremap <leader>cs :BD<cr>:q<cr>
 nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
 nnoremap <leader>f :<c-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
 nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
@@ -156,6 +157,7 @@ nnoremap <leader>Q :q!<cr>
 nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s :%s /
+nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>y :<c-u>Unite history/yank<cr>
@@ -174,7 +176,7 @@ vnoremap <leader>s :%s /
 command! ClearTrailingWhitespace %s /\s\+$//g
 
 function! ConsoleLog()
-    normal! yiwOconsole.log(
+    normal! yiwoconsole.log(
     normal! pA)
 endfunction
 
@@ -199,11 +201,6 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
-" Clever-f
-let g:clever_f_show_prompt = 1
-let g:clever_f_across_no_line = 1
-
-
 " Vim-Session
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
@@ -216,7 +213,7 @@ let g:NERDTreeWinSize = 24
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeIgnore=['node_modules$[[dir]]']
+let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]']
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=["/Users/chad/.config/UltiSnips"]
