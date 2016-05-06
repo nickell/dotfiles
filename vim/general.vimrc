@@ -3,6 +3,10 @@
 " {{{ Plugins
 filetype off
 
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'benekastah/neomake'
@@ -13,13 +17,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'kshenoy/vim-signature'
     Plug 'Lokaltog/vim-easymotion'
-    Plug 'marijnh/tern_for_vim'
-    Plug 'mileszs/ack.vim'
+    Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+    Plug 'moll/vim-node'
     Plug 'qpkorr/vim-bufkill'
     Plug 'rking/ag.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'sheerun/vim-polyglot'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
     Plug 'Shougo/neoyank.vim'
     Plug 'Shougo/unite.vim'
     Plug 'SirVer/ultisnips'
@@ -27,7 +31,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-vinegar' " togglable panels
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-scripts/BufOnly.vim'
@@ -35,7 +38,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    
+
     " Colorschemes
     " Plug 'flazz/vim-colorschemes'
     Plug 'morhetz/gruvbox'
@@ -158,7 +161,7 @@ nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s :%s /
 nnoremap <leader>U :UltiSnipsEdit<cr>
-nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
+nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>y :<c-u>Unite history/yank<cr>
 
@@ -224,7 +227,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " airline
 if !exists("g:airline_symbols")
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_theme="powerlineish"
 let g:airline_powerline_fonts=1
@@ -271,25 +274,25 @@ let g:EasyMotion_smartcase = 1
 " {{{ BUG WORKAROUNDS
 " realign buffers when iterm goes fullscreen
 augroup FixProportionsOnResize
-  au!
-  au VimResized * exe "normal! \<c-w>="
+    au!
+    au VimResized * exe "normal! \<c-w>="
 augroup END
 
 " vim mode-switch lag fix
 if ! has("gui_running")
-   "set ttimeoutlen=10
-   "augroup FastEscape
-   "    autocmd!
-   "    au InsertEnter * set timeoutlen=10
-   "    au InsertLeave * set timeoutlen=1000
-   "augroup END
+    "set ttimeoutlen=10
+    "augroup FastEscape
+    "    autocmd!
+    "    au InsertEnter * set timeoutlen=10
+    "    au InsertLeave * set timeoutlen=1000
+    "augroup END
 endif
 
 " macos vs linux clipboard
 if has("mac")
-  set clipboard+=unnamed
+    set clipboard+=unnamed
 else
-  set clipboard=unnamedplus
+    set clipboard=unnamedplus
 endif
 
 " make C-a, C-x work properly

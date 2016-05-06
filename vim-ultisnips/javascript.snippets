@@ -2,10 +2,16 @@ snippet cl "console.log" b
 console.log(${1:'${2:here}'})
 endsnippet
 
-snippet fun "function (fun)"
+snippet func "Function declaration"
 function ${1:name}(${2:args}) {
 	${0:${VISUAL:contents}}
 }
+endsnippet
+
+snippet fun "Function Expression" b
+const ${1:ComponentName} = (${2:props}) => (
+	${0:${VISUAL:contents}}
+)
 endsnippet
 
 snippet classX "ES6 Class Extends" b
@@ -23,12 +29,6 @@ export default $1
 endsnippet
 
 snippet statelessComponent "Stateless React Component" b
-const ${1:ComponentName} = (${2:props}) => (
-	${0:${VISUAL:contents}}
-)
-endsnippet
-
-snippet statelessComponentX "Stateless React Component" b
 const ${1:ComponentName} = (${2:props}) => (
 	${0:${VISUAL:contents}}
 )

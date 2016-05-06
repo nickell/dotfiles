@@ -1,0 +1,7 @@
+[user]
+    name = Chad Nickell
+    email = chad@brllnt.co
+[credential]
+    helper = osxkeychain
+[core]
+    editor = nvim
