@@ -25,7 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.dotfiles/.zsh-prompt
 source $HOME/.dotfiles/.zsh-functions
@@ -46,3 +46,5 @@ alias gl="git log"
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
