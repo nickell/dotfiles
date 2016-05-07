@@ -1,4 +1,4 @@
-export ZSH=/Users/chad/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 ENABLE_CORRECTION="false"
