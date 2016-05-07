@@ -14,6 +14,7 @@ fi
 info 'Installing dotfiles'
 link_file $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 link_file $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+link_file $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 cp $HOME/.dotfiles/.gitconfig.local.example $HOME/.gitconfig.local
 
