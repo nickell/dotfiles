@@ -34,14 +34,6 @@ stopMongo() {
     fi
 }
 
-e() {
-    $EDITOR $1
-}
-
-f() {
-    find . | ag "$@" 
-}
-
 resizeimages() {
     sips -Z $1 *
 }

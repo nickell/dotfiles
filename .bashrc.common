@@ -1,0 +1,33 @@
+export PATH="$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export EDITOR='vim'
+export TERM="screen-256color"
+
+alias a="cal"
+alias ga="git add ."
+alias gc="git commit"
+alias gl="git log"
+alias gp="git push"
+alias gs="git status"
+alias ll="ls -aFhlG"
+alias ns="npm start"
+alias tm="tmux new -s main"
+
+alias bcodev="mosh chad@brllnt.co tmux a"
+alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
+alias myserver="mosh chad@chadnickell.com tmux a"
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Load fzf
+export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
+
+e() {
+    $EDITOR $1
+}
+
+f() {
+    find . | ag "$@" 
+}
+
