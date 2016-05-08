@@ -5,3 +5,5 @@
     helper = osxkeychain
 [core]
     editor = nvim
+[log]
+    date = format:%m/%d/%Y %H:%M
