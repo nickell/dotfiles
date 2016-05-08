@@ -1,52 +1,6 @@
 " vim: set fdm=marker fmr={{{,}}} foldlevel=0:
 
-" {{{ Plugins
-filetype off
-
-function! DoRemote(arg)
-    UpdateRemotePlugins
-endfunction
-
-call plug#begin('~/.config/nvim/plugged')
-    Plug 'airblade/vim-gitgutter'
-    Plug 'benekastah/neomake'
-    Plug 'dsimidzija/vim-nerdtree-ignore'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'edsono/vim-matchit'
-    Plug 'henrik/vim-indexed-search'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'kshenoy/vim-signature'
-    Plug 'Lokaltog/vim-easymotion'
-    Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-    Plug 'moll/vim-node'
-    Plug 'qpkorr/vim-bufkill'
-    Plug 'rking/ag.vim'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'sheerun/vim-polyglot'
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-    Plug 'Shougo/neoyank.vim'
-    Plug 'Shougo/unite.vim'
-    Plug 'SirVer/ultisnips'
-    Plug 'tpope/vim-abolish'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-surround'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-scripts/BufOnly.vim'
-    Plug 'vim-scripts/tComment'
-    Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-session'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-
-    " Colorschemes
-    " Plug 'flazz/vim-colorschemes'
-    Plug 'morhetz/gruvbox'
-call plug#end()
-
-" enable all the plugins
 filetype plugin indent on
-" }}}
 
 " {{{ Settings
 set expandtab
@@ -79,9 +33,9 @@ set foldnestmax=1
 set foldlevelstart=99
 
 " backup/persistance settings
-set undodir=~/.config/nvim/undo//
-set backupdir=~/.config/nvim/backup//
-set directory=~/.config/nvim/swap//
+let &undodir=g:vimDir.'/undo//'
+let &backupdir=g:vimDir.'/backup//'
+let &directory=g:vimDir.'/swap//'
 set backupskip=/tmp/*,/private/tmp/*"
 set backup
 set writebackup
@@ -95,9 +49,6 @@ set undolevels=100
 syntax on
 set background=dark
 colorscheme gruvbox
-
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
 " {{{ Key Bindings
@@ -157,7 +108,6 @@ nmap     <leader>j <Plug>(easymotion-j)
 nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>Q :q!<cr>
-nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s :%s /
 nnoremap <leader>U :UltiSnipsEdit<cr>
@@ -205,7 +155,7 @@ augroup END
 
 " {{{ Plugin Config
 " Vim-Session
-let g:session_directory = "~/.config/nvim/session"
+let g:session_directory = g:vimDir.'/session'
 let g:session_autoload = "no"
 let g:session_autosave = "yes"
 let g:session_default_to_last = 1
@@ -219,7 +169,7 @@ let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]']
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=["/Users/chad/.config/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim-ultisnips']
 let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -239,18 +189,8 @@ let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
 let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#deoplete_onmni_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
-let g:deoplete#deoplete_onmni_patterns.javascript = '[^. \t]\.\w*'
-
-" Neomake
-let g:neomake_javascript_enabled_makers= ['eslint']
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-
 " Unite
-let g:unite_data_directory='~/.config/nvim/.cache/unite'
+let g:unite_data_directory = g:vimDir.'/.cache/unite'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_prompt='>> '
