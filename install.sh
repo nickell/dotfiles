@@ -29,6 +29,4 @@ link_file $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 link_file $HOME/.dotfiles/.zshrc $HOME/.zshrc
 link_file $HOME/.dotfiles/.bashrc $HOME/.bashrc
 
-cp $HOME/.dotfiles/.gitconfig.local.example $HOME/.gitconfig.local
-
 success 'Done'
