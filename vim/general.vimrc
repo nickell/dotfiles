@@ -95,8 +95,6 @@ nnoremap <leader>A :!ag
 nnoremap <leader>a :Ag!
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>cs :BD<cr>:q<cr>
-nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
-nnoremap <leader>f :<c-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
 nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
 nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
@@ -135,7 +133,6 @@ endfunction
 
 augroup mygroup
     autocmd!
-    autocmd BufWritePost * Neomake
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
     autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
@@ -175,7 +172,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-" airline
+" Airline
 if !exists("g:airline_symbols")
     let g:airline_symbols = {}
 endif

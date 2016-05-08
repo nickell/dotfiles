@@ -28,13 +28,21 @@ let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 " }}}
 
+" {{{ Autocmds
+augroup neovim
+    autocmd BufWritePost * Neomake
+augroup END
+" }}}
+
 " {{{ Settings
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
+source $HOME/.dotfiles/vim/general.vimrc
+
 " {{{ Keymaps
+nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/neovim:<c-r>=expand('%:p:h')<cr><cr>
+nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
 nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
 " }}}
-
-source $HOME/.dotfiles/vim/general.vimrc

@@ -8,6 +8,7 @@ filetype off
 call plug#begin(g:vimDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
     Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'scrooloose/syntastic'
 call plug#end()
 " }}}
@@ -31,10 +32,24 @@ endif
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 " NeoComplete tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}}
 
-" {{{ Keymaps
-nnoremap <leader>r :so  ~/.vimrc<cr>
+" Syntastic config
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+if executable('ag')
+    let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup',  '--hidden', '-g', '']
+endif
 " }}}
 
 source $HOME/.dotfiles/vim/general.vimrc
+
+" {{{ Keymaps
+nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
+nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/async:.<cr>
+nnoremap <leader>r :so  ~/.vimrc<cr>
+" }}}
