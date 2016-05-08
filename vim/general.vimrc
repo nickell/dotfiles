@@ -22,7 +22,7 @@ set ls=2
 set nowrap
 set backspace=indent,eol,start
 set shell=/bin/bash
-set completeopt -=preview
+set completeopt-=preview
 set textwidth=100
 set wildmenu
 set wildignorecase

@@ -7,7 +7,9 @@ filetype off
 
 call plug#begin(g:vimDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
-    Plug 'Shougo/neocomplete.vim'
+    if has('lua')
+        Plug 'Shougo/neocomplete.vim'
+    endif
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'scrooloose/syntastic'
 call plug#end()
@@ -24,7 +26,6 @@ let g:neocomplete#auto_completion_start_length = 2
 let g:neocomplete#sources#buffer#cache_limit_size = 50000
 let g:neocomplete#data_directory = $HOME.'/.vim/cache/noecompl'
 let g:neocomplete#sources#dictionary#dictionaries = {} " This removes all the fluff from the autocomplete menu
-set completeopt-=preview " I'm not positive what this does but it's crucial I think
 " The next 4 lines are tweaks to make neocomplete play nicely with tern_for_vim
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
