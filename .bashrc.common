@@ -11,8 +11,8 @@ alias gp="git push"
 alias gs="git status"
 alias ll="ls -aFhlG"
 alias ns="npm start"
+alias nr="npm run"
 alias tm="tmux new -s main"
-alias r="ranger"
 
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
@@ -33,3 +33,12 @@ f() {
     find . | ag "$@" 
 }
 
+r() {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
