@@ -1,6 +1,6 @@
 " vim: set fdm=marker fmr={{{,}}} foldlevel=0:
 
-let g:vimDir = $HOME . '/.config/nvim'
+let g:configDir = $HOME . '/.config/nvim'
 
 " {{{ Plugins
 filetype off
@@ -9,7 +9,7 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-call plug#begin(g:vimDir.'/plugged')
+call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
     Plug 'benekastah/neomake'
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

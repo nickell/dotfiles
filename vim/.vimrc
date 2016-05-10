@@ -1,11 +1,11 @@
 " vim: set fdm=marker fmr={{{,}}} foldlevel=0:
 
-let g:vimDir = $HOME . '/.vim'
+let g:configDir = $HOME . '/.vim'
 
 " {{{ Plugins
 filetype off
 
-call plug#begin(g:vimDir.'/plugged')
+call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
     if has('lua')
         Plug 'Shougo/neocomplete.vim'

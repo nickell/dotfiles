@@ -1,6 +1,7 @@
 export PATH="$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export EDITOR='vim'
 export TERM="screen-256color"
+export RANGER_LOAD_DEFAULT_RC=false
 
 alias a="cal"
 alias ga="git add ."
@@ -11,6 +12,7 @@ alias gs="git status"
 alias ll="ls -aFhlG"
 alias ns="npm start"
 alias tm="tmux new -s main"
+alias r="ranger"
 
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"

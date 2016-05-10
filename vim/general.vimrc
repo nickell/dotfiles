@@ -33,9 +33,6 @@ set foldnestmax=1
 set foldlevelstart=99
 
 " backup/persistance settings
-let &undodir=g:vimDir.'/undo//'
-let &backupdir=g:vimDir.'/backup//'
-let &directory=g:vimDir.'/swap//'
 set backupskip=/tmp/*,/private/tmp/*"
 set backup
 set writebackup
@@ -95,6 +92,7 @@ nnoremap <leader>A :!ag
 nnoremap <leader>a :Ag!
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>cs :BD<cr>:q<cr>
+nnoremap <leader>ds lbhxelxb
 nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
 nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
@@ -107,7 +105,7 @@ nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>S :%S /
-nnoremap <leader>s :%s /
+nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
@@ -117,8 +115,9 @@ nnoremap <leader>y :<c-u>Unite history/yank<cr>
 vnoremap <leader>/ /\v
 vnoremap <leader>// :S /
 vnoremap <leader>cl :call ConsoleLog()<cr>
+vnoremap <leader>ds <esc>`>lx`<hx
 vnoremap <leader>S :%S /
-vnoremap <leader>s :%s /
+vnoremap <leader>s <esc>`>a <esc>`<i <esc>l
 " }}}
 " }}}
 
@@ -152,7 +151,7 @@ augroup END
 
 " {{{ Plugin Config
 " Vim-Session
-let g:session_directory = g:vimDir.'/session'
+let g:session_directory = g:configDir.'/session'
 let g:session_autoload = "no"
 let g:session_autosave = "yes"
 let g:session_default_to_last = 1
@@ -187,7 +186,7 @@ let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
 " Unite
-let g:unite_data_directory = g:vimDir.'/.cache/unite'
+let g:unite_data_directory = g:configDir.'/.cache/unite'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_prompt='>> '
@@ -206,6 +205,9 @@ let g:gitgutter_eager = 0
 
 " EasyMotion
 let g:EasyMotion_smartcase = 1
+
+" Ag
+let g:ag_prg = 'ag --hidden --vimgrep'
 " }}}
 
 " {{{ BUG WORKAROUNDS
@@ -323,4 +325,50 @@ function! s:MaybeMiddle()
         normal! zz
     endif
 endfunction
+
+function! InitBackupDir()
+    let l:backup = g:configDir . '/backup/'
+    let l:swap = g:configDir . '/swap/'
+    let l:undo = g:configDir . '/undo/'
+    if exists('*mkdir')
+        if !isdirectory(g:configDir)
+            call mkdir(g:configDir)
+        endif
+        if !isdirectory(l:backup)
+            call mkdir(l:backup)
+        endif
+        if !isdirectory(l:swap)
+            call mkdir(l:swap)
+        endif
+        if !isdirectory(l:undo)
+            call mkdir(l:undo)
+        endif
+    endif
+    let l:missing_dir = 0
+    if isdirectory(l:backup)
+        execute 'set backupdir=' . escape(l:backup, ' ') . '/,.'
+    else
+        let l:missing_dir = 1
+    endif
+    if isdirectory(l:swap)
+        execute 'set directory=' . escape(l:swap, ' ') . '/,.'
+    else
+        let l:missing_dir = 1
+    endif
+    if isdirectory(l:undo)
+        execute 'set undodir=' . escape(l:undo, ' ') . '/,.'
+    else
+        let l:missing_dir = 1
+    endif
+    if l:missing_dir
+        echo 'Warning: Unable to create backup directories:' l:backup 'and' l:swap ' and' l:undo
+        echo 'Try: mkdir -p' l:backup
+        echo 'and: mkdir -p' l:swap
+        echo 'and: mkdir -p' l:undo
+        set backupdir=.
+        set directory=.
+        set undodir=.
+    endif
+endfunction
+call InitBackupDir()
 " }}}
