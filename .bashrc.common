@@ -26,7 +26,11 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
 
 e() {
-    $EDITOR $1
+    if [ -f 'package.json' -a "$#" -eq 0 ]; then
+        $EDITOR package.json
+    else
+        $EDITOR $1
+    fi
 }
 
 f() {

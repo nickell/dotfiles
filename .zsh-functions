@@ -47,3 +47,7 @@ backupGitlab() {
     scp $server:$dir/$newBackup $dest
     ssh $server "sudo rm $dir/$newBackup"
 }
+
+# openIndexJsIfThere() {
+#     [ -f asdf ]
+# }

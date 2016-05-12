@@ -5,6 +5,8 @@ source $HOME/.dotfiles/scripts/colored_echos.sh
 source $HOME/.dotfiles/scripts/install_zsh.sh
 source $HOME/.dotfiles/scripts/install_ag.sh
 
+# Work on installing ranger automatically too
+
 install_zsh
 install_ag
 
@@ -28,5 +30,7 @@ link_file $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 link_file $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 link_file $HOME/.dotfiles/.zshrc $HOME/.zshrc
 link_file $HOME/.dotfiles/.bashrc $HOME/.bashrc
+link_file $HOME/.dotfiles/rc.conf $HOME/.config/ranger/rc.conf
+link_file $HOME/.dotfiles/rifle.conf $HOME/.config/ranger/rifle.conf
 
 success 'Done'

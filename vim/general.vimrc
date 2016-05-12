@@ -146,6 +146,7 @@ augroup mygroup
     " NERDTree stuff
     " autocmd VimEnter * if (0 == argc()) | NERDTree | endif
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window vim:" . fnamemodify(getcwd(), ':t'))
 augroup END
 " }}}
 
