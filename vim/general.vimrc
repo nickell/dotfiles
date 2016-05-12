@@ -103,6 +103,7 @@ nnoremap <leader>hh :call clearmatches()<cr>:noh<cr>
 nmap     <leader>j <Plug>(easymotion-j)
 nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
+nnoremap <leader>o :exe 'e ' . @+<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s lbi <esc>lea <esc>b
