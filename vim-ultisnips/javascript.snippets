@@ -1,5 +1,5 @@
-snippet cl "console.log" b
-console.log(${1:'${2:here}'})
+snippet clo "console.log" b
+console.log(${0:${VISUAL:'here'}})
 endsnippet
 
 snippet func "Function declaration"
@@ -15,7 +15,7 @@ const ${1:ComponentName} = (${2:props}) => (
 endsnippet
 
 snippet classX "ES6 Class Extends" b
-class ${1:ClassName} extends ${2:Component} {
+class ${1:ClassName} extends ${2:React.Component} {
 	constructor(props) {
 		super(props)
 	}

@@ -105,6 +105,8 @@ nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>o :exe 'e ' . @+<cr>
 nnoremap <leader>Q :q!<cr>
+nnoremap <leader>rb F{a <esc>%i <esc>
+nnoremap <leader>rf dt(f)a =><esc>
 nnoremap <leader>S :%S /
 nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>U :UltiSnipsEdit<cr>
@@ -133,6 +135,7 @@ endfunction
 
 augroup mygroup
     autocmd!
+    autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
     autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
