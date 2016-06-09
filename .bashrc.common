@@ -33,6 +33,14 @@ e() {
     fi
 }
 
+se() {
+    if [ -f 'package.json' -a "$#" -eq 0 ]; then
+        sudo $EDITOR package.json
+    else
+        sudo $EDITOR $1
+    fi
+}
+
 f() {
     find . | ag "$@" 
 }

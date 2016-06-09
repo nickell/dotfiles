@@ -28,3 +28,5 @@ source $HOME/.dotfiles/.zsh-functions
 source $HOME/.dotfiles/.bashrc.common
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
