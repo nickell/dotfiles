@@ -32,5 +32,6 @@ link_file $HOME/.dotfiles/.zshrc $HOME/.zshrc
 link_file $HOME/.dotfiles/.bashrc $HOME/.bashrc
 link_file $HOME/.dotfiles/rc.conf $HOME/.config/ranger/rc.conf
 link_file $HOME/.dotfiles/rifle.conf $HOME/.config/ranger/rifle.conf
+# link_file $HOME/.dotfiles/robbyrussell.zsh-theme $ZSH/custom/themes/robbyrussell.zsh-theme
 
 success 'Done'

@@ -1,4 +1,5 @@
 Plug 'airblade/vim-gitgutter'
+Plug 'diepm/vim-rest-console'
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'edsono/vim-matchit'
@@ -9,6 +10,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'moll/vim-node'
 Plug 'qpkorr/vim-bufkill'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'

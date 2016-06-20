@@ -52,5 +52,5 @@ source $HOME/.dotfiles/vim/general.vimrc
 " {{{ Keymaps
 nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/async:<c-r>=expand('%:p:h')<cr><cr>
 nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/async:.<cr>
-nnoremap <leader>r :so  ~/.vimrc<cr>
+nnoremap <leader>rc :so  ~/.vimrc<cr>
 " }}}

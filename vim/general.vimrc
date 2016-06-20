@@ -93,6 +93,8 @@ nnoremap <leader>a :Ag!
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>cs :BD<cr>:q<cr>
 nnoremap <leader>ds lbhxelxb
+" nnoremap <leader>e in specific configs
+" nnoremap <leader>f in specific configs
 nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
 nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
@@ -105,8 +107,11 @@ nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>o :exe 'e ' . @+<cr>
 nnoremap <leader>Q :q!<cr>
+nnoremap <leader>ra :%s/<c-r><c-w>/<c-r>"/g
 nnoremap <leader>rb F{a <esc>%i <esc>
+" nnoremap <leader>rc in specific configs
 nnoremap <leader>rf dt(f)a =><esc>
+nnoremap <leader>rr :set ft=rest<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>U :UltiSnipsEdit<cr>

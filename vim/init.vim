@@ -43,6 +43,7 @@ source $HOME/.dotfiles/vim/general.vimrc
 
 " {{{ Keymaps
 nnoremap <leader>e :<c-u>Unite -buffer-name=CurrentBufferDirectory -start-insert -auto-resize file_rec/neovim:<c-r>=expand('%:p:h')<cr><cr>
-nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
-nnoremap <leader>r :so  ~/.config/nvim/init.vim<cr>
+" nnoremap <leader>f :<C-u>Unite -buffer-name=WorkingDirectory -start-insert -auto-resize file_rec/neovim:.<cr>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 " }}}
