@@ -15,6 +15,7 @@ alias nr="npm run"
 alias tm="tmux new -s main"
 
 alias bcodev="mosh chad@brllnt.co tmux a"
+alias yag="mosh chad@yaguara.co tmux a"
 alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
 alias myserver="mosh chad@chadnickell.com tmux a"
 
