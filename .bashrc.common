@@ -13,7 +13,7 @@ alias ll="ls -aFhl"
 alias ns="npm start"
 alias nr="npm run"
 alias tmn="tmux new -s main"
-alias tma="tmux -a"
+alias tma="tmux a"
 
 alias bcodev="mosh chad@brllnt.co tmux a"
 alias yag="mosh chad@yaguara.co tmux a"

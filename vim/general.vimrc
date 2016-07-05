@@ -90,8 +90,10 @@ nnoremap <leader>4 :tabm +1<return>
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>A :!ag
 nnoremap <leader>a :Ag!
+nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
-nnoremap <leader>cs :BD<cr>:q<cr>
+" nnoremap <leader>cs :BD<cr>:q<cr>
+nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 nnoremap <leader>ds lbhxelxb
 " nnoremap <leader>e in specific configs
 " nnoremap <leader>f in specific configs
