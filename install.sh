@@ -11,6 +11,7 @@ install_zsh
 install_ag
 
 vimPlug="$HOME/.vim/autoload/plug.vim"
+ohMyZsh="$HOME/.oh-my-zsh"
 nvm="$HOME/.nvm"
 tpm="$HOME/.tmux/plugins/tpm"
 
@@ -20,9 +21,14 @@ then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+if [ ! -f $ohMyZsh ]
+then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
 if [ ! -d $nvm ]
 then
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 fi
 
 if [ ! -d $tpm ]
@@ -38,6 +44,5 @@ link_file $HOME/.dotfiles/.zshrc $HOME/.zshrc
 link_file $HOME/.dotfiles/.bashrc $HOME/.bashrc
 link_file $HOME/.dotfiles/rc.conf $HOME/.config/ranger/rc.conf
 link_file $HOME/.dotfiles/rifle.conf $HOME/.config/ranger/rifle.conf
-# link_file $HOME/.dotfiles/robbyrussell.zsh-theme $ZSH/custom/themes/robbyrussell.zsh-theme
 
 success 'Done'

@@ -15,6 +15,8 @@ compinit
 
 source $ZSH/oh-my-zsh.sh
 
+test -e "${HOME}/.bin/tmuxinator.zsh" && source "${HOME}/.bin/tmuxinator.zsh"
+
 # Setup fzf
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -25,8 +27,11 @@ bindkey '^R' history-incremental-search-backward
 
 source $HOME/.dotfiles/.zsh-prompt
 source $HOME/.dotfiles/.zsh-functions
-source $HOME/.dotfiles/.bashrc.common
+
+export EDITOR='vim'
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+source $HOME/.dotfiles/.bashrc.common
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

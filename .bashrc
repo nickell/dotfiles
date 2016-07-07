@@ -2,7 +2,6 @@ set -o vi
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias gd="git diff"
 
 e() {
     $EDITOR $1
@@ -19,6 +18,8 @@ export PS1="\[\033[36m\]\u:\[\033[33;1m\]\w\[\033[m\]\[\033[32m\]\$(parse_git_br
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
-source $HOME/.dotfiles/.bashrc.common
+export EDITOR='vim'
 
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
+
+source $HOME/.dotfiles/.bashrc.common
