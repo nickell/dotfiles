@@ -13,6 +13,7 @@ alias nr="npm run"
 alias tmn="tmux new -s main"
 alias tma="tmux a"
 alias mux="tmuxinator"
+alias ip="curl ipecho.net/plain;echo"
 
 alias bcodev="mosh brllnt@brllnt.co -- tmux attach"
 alias yag="mosh chad@yaguara.co -- tmux attach"
