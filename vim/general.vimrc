@@ -89,7 +89,7 @@ nnoremap <leader>3 :tabm -1<return>
 nnoremap <leader>4 :tabm +1<return>
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>A :!ag
-nnoremap <leader>a :Ag!
+nnoremap <leader>a :Ack! 
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 " nnoremap <leader>cs :BD<cr>:q<cr>
@@ -219,8 +219,10 @@ let g:gitgutter_eager = 0
 " EasyMotion
 let g:EasyMotion_smartcase = 1
 
-" Ag
-let g:ag_prg = 'ag --hidden --vimgrep'
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --hidden --vimgrep'
+endif
 " }}}
 
 " {{{ BUG WORKAROUNDS

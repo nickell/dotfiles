@@ -9,10 +9,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 Plug 'qpkorr/vim-bufkill'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/neoyank.vim'
