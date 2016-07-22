@@ -1,6 +1,7 @@
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'diepm/vim-rest-console'
+" Plug 'diepm/vim-rest-console'
+Plug 'aquach/vim-http-client'
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'edsono/vim-matchit'
@@ -32,4 +33,5 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Colorschemes
 " Plug 'flazz/vim-colorschemes'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'bounceme/highwayman'

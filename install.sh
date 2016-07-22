@@ -11,6 +11,7 @@ install_zsh
 install_ag
 
 vimPlug="$HOME/.vim/autoload/plug.vim"
+zshAutocompletePlug="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 ohMyZsh="$HOME/.oh-my-zsh"
 nvm="$HOME/.nvm"
 tpm="$HOME/.tmux/plugins/tpm"
@@ -24,6 +25,11 @@ fi
 if [ ! -f $ohMyZsh ]
 then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+if [ ! -f $zshAutocompletePlug ]
+then
+    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
 
 if [ ! -d $nvm ]

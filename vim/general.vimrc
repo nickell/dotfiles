@@ -45,7 +45,7 @@ set undolevels=100
 
 syntax on
 set background=dark
-colorscheme gruvbox
+colorscheme highwayman
 " }}}
 
 " {{{ Key Bindings
@@ -92,7 +92,7 @@ nnoremap <leader>A :!ag
 nnoremap <leader>a :Ack! 
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
-" nnoremap <leader>cs :BD<cr>:q<cr>
+nnoremap <leader>cs <C-W>l:BD<cr>:q<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 nnoremap <leader>ds lbhxelxb
 " nnoremap <leader>e in specific configs
@@ -223,6 +223,9 @@ let g:EasyMotion_smartcase = 1
 if executable('ag')
   let g:ackprg = 'ag --hidden --vimgrep'
 endif
+
+" Vim-HTTP-Client
+let g:http_client_focus_output_window=0
 " }}}
 
 " {{{ BUG WORKAROUNDS

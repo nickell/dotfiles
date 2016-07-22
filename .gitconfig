@@ -21,7 +21,8 @@
     co = checkout
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
-    cm = !git add -A && git commit -m
+    cm = !git commit -m
+    cma = !git add -A && git commit -m
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT}; }; f"
     undo = reset HEAD~1 --mixed
     ec = config --global -e

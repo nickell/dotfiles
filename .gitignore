@@ -1,1 +1,3 @@
 .nerdtreeignore
+.agignore
+Session.vim
