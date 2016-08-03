@@ -11,7 +11,7 @@ endfunction
 
 call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
-    Plug 'benekastah/neomake'
+    Plug 'neomake/neomake'
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 call plug#end()
 " }}}

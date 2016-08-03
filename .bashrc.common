@@ -1,5 +1,4 @@
 export PATH="$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export TERM="screen-256color"
 export RANGER_LOAD_DEFAULT_RC=false
 
 source $HOME/.dotfiles/.bash_aliases

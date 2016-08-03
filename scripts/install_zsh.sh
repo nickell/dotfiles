@@ -3,13 +3,11 @@
 install_zsh () {
     # Test to see if zshell is installed.  If it is:
     if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-        # Clone my oh-my-zsh repository from GitHub only if it isn't already present
-        if [[ ! -d $HOME/oh-my-zsh/ ]]; then
-            git clone http://github.com/robbyrussell/oh-my-zsh.git
-        fi
         # Set the default shell to zsh if it isn't currently set to zsh
         if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
             chsh -s $(which zsh)
+        else
+            echo "Zsh already installed."
         fi
     else
         # If zsh isn't installed, get the platform of the current machine
