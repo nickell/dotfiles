@@ -119,6 +119,7 @@ nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
+nnoremap <leader>W :W<cr>
 nnoremap <leader>y :<c-u>Unite history/yank<cr>
 
 " Visual
@@ -134,6 +135,8 @@ vnoremap <leader>s <esc>`>a <esc>`<i <esc>l
 " {{{ Commands and functions
 " Clear trailing whitespace
 command! ClearTrailingWhitespace %s /\s\+$//g
+
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 function! ConsoleLog()
     normal! yiwoconsole.log(
