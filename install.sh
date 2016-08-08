@@ -50,5 +50,6 @@ link_file $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
 link_file $HOME/.zprezto/runcoms/zprofile $HOME/.zprofile
 link_file $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
 link_file $HOME/.dotfiles/.zpreztorc $HOME/.zpreztorc
+link_file $HOME/.dotfiles/.agignore $HOME/.agignore
 
 success 'Done'
