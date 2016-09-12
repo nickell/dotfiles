@@ -21,3 +21,6 @@ alias yag="mosh chad@yaguara.co"
 alias rival="mosh brllnt@dev.therival.news"
 alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
 alias chad="mosh chad@chadnickell.com"
+alias coexist="mosh brllnt@dev.coexistcampaign.com"
+
+alias z='fasd_cd -d'

@@ -82,6 +82,9 @@ vnoremap > >gv
 " NERDTree
 map <c-n> :NERDTreeToggle<cr>
 
+" Macros
+let @e = 'cs(}$ireturn l%lkw=%'
+
 " {{{ Leader
 nnoremap <leader>1 :tabp<return>
 nnoremap <leader>2 :tabn<return>
@@ -162,6 +165,7 @@ augroup mygroup
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
     autocmd VimLeave * call system("tmux setw automatic-rename") " Consider adding FocusLost to this?
+    autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 augroup END
 " }}}
 
