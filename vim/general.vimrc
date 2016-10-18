@@ -14,6 +14,7 @@ set hidden
 set ignorecase
 set smartcase
 set showmatch
+set nowritebackup
 set incsearch
 set hls
 set number
@@ -45,7 +46,7 @@ set undolevels=100
 
 syntax on
 set background=dark
-colorscheme highwayman
+colorscheme gruvbox
 " }}}
 
 " {{{ Key Bindings
@@ -84,6 +85,9 @@ map <c-n> :NERDTreeToggle<cr>
 
 " Macros
 let @e = 'cs(}$ireturn l%lkw=%'
+let @s = 'ysa"}wcs"`'
+let @o = 'o.do(console.log.bind(console=='
+
 
 " {{{ Leader
 nnoremap <leader>1 :tabp<return>

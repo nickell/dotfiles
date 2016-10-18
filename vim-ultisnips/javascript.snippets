@@ -1,3 +1,25 @@
+snippet of "Open fold" b
+// {{{ $0
+endsnippet
+
+snippet cf "Close fold" b
+// }}}
+endsnippet
+
+snippet ic "Redux connect" b
+import { connect } from 'react-redux'
+endsnippet
+
+snippet enhance "Recompose enhance function" b
+const enhance = compose(
+	connect(mapStateToProps)
+)
+endsnippet
+
+snippet doconsole ".do(console.log.bind(console))" b
+.do(console.log.bind(console))
+endsnippet
+
 snippet div "div with className" b
 <div className=${1:className}>
 	${0:contents}

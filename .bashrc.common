@@ -1,4 +1,4 @@
-export PATH="$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export RANGER_LOAD_DEFAULT_RC=false
 
 source $HOME/.dotfiles/.bash_aliases

@@ -33,5 +33,5 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Colorschemes
 " Plug 'flazz/vim-colorschemes'
-" Plug 'morhetz/gruvbox'
-Plug 'bounceme/highwayman'
+Plug 'morhetz/gruvbox'
+" Plug 'bounceme/highwayman'
