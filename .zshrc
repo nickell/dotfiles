@@ -19,3 +19,5 @@ export EDITOR='vim'
 
 source $HOME/.dotfiles/.zsh-functions
 source $HOME/.dotfiles/.bashrc.common
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

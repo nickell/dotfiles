@@ -25,3 +25,5 @@ alias chad="mosh chad@chadnickell.com"
 alias coexist="mosh brllnt@dev.coexistcampaign.com"
 
 alias z='fasd_cd -d'
+
+alias x='exit'
