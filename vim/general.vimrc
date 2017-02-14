@@ -31,7 +31,7 @@ set noshowmode
 set cmdheight=1
 set foldmethod=syntax
 set foldnestmax=1
-set foldlevelstart=99
+set foldlevelstart=0
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -57,6 +57,7 @@ noremap ;; ;
 
 " Normal
 nnoremap 0 ^
+nnoremap , za
 nnoremap <cr> i<cr><Esc>==
 nnoremap gd :BD<cr>
 nnoremap gn :bn<cr>
@@ -128,6 +129,7 @@ nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>W :W<cr>
 nnoremap <leader>y :<c-u>Unite history/yank<cr>
+nmap =j :%!python -m json.tool<CR>
 
 " Visual
 vnoremap <leader>/ /\v
@@ -152,7 +154,8 @@ endfunction
 
 augroup mygroup
     autocmd!
-    autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " autocmd FileType javascript set formatprg=prettier-eslint\ --stdin\ --tab-width=4\ --single-quotes\ --jsx-bracket-same-line
+    " autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
     autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
@@ -186,7 +189,7 @@ let g:NERDTreeWinSize = 24
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]']
+let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim-ultisnips']

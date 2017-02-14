@@ -11,22 +11,16 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
 
 e() {
-    if [ "$#" -eq 0 ]; then
-        if [ -f 'Session.vim' ]; then
-            $EDITOR -S Session.vim -c "!rm Session.vim"
-        elif [ -f 'package.json' ]; then
-            $EDITOR package.json
-        else
-            $EDITOR $1
-        fi
+    if [ -f 'Session.vim' -a "$#" -eq 0 ]; then
+        $EDITOR -S Session.vim -c "!rm Session.vim"
     else
         $EDITOR $1
     fi
 }
 
 se() {
-    if [ -f 'package.json' -a "$#" -eq 0 ]; then
-        sudo $EDITOR package.json
+    if [ -f 'Session.vim' -a "$#" -eq 0 ]; then
+        sudo $EDITOR -S Session.vim -c "!rm Session.vim"
     else
         sudo $EDITOR $1
     fi

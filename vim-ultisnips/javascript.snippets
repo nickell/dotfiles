@@ -1,3 +1,7 @@
+snippet ramda "Import ramda" b
+import R from 'ramda'
+endsnippet
+
 snippet of "Open fold" b
 // {{{ $0
 endsnippet
@@ -91,7 +95,7 @@ import $1 from '$2'
 endsnippet
 
 snippet eg "Export generic" b
-export $1 from './$1'
+export { default as $1 } from './$1'
 endsnippet
 
 snippet st "setTimeout" b

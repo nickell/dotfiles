@@ -11,8 +11,9 @@ endfunction
 
 call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
+    Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 " }}}
 
@@ -26,6 +27,14 @@ let g:deoplete#deoplete_onmni_patterns.javascript = '[^. \t]\.\w*'
 let g:neomake_javascript_enabled_makers= ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" Neoformat
+" let g:neoformat_try_formatprg = 1
+" let g:neoformat_javascript_prettiereslint = {
+"         \ 'exe': 'prettier-eslint',
+"         \ 'args': ['--stdin', '--single-quote', '--jsx-bracket-same-line', '--tab-width=4', '--trailing-comma=false'],
+"         \ 'stdin': 1,
+"         \ }
 " }}}
 
 " {{{ Autocmds
