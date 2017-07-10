@@ -3,35 +3,36 @@
 filetype plugin indent on
 
 " {{{ Settings
-set expandtab
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
 set autoindent
-set ruler
-set hidden
-set ignorecase
-set smartcase
-set showmatch
-set nowritebackup
-set incsearch
-set hls
-set number
-set relativenumber
-set ls=2
-set nowrap
 set backspace=indent,eol,start
-set shell=/bin/bash
-set completeopt-=preview
-set textwidth=100
-set wildmenu
-set wildignorecase
-set noshowmode
 set cmdheight=1
+set completeopt-=preview
+set expandtab
+set foldlevelstart=99
 set foldmethod=syntax
 set foldnestmax=1
-set foldlevelstart=0
+set hidden
+set hls
+set ignorecase
+set incsearch
+set ls=2
+set noshowmode
+set nowrap
+set nowritebackup
+set number
+set relativenumber
+set ruler
+set shell=/bin/bash
+set shiftwidth=4
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=4
+set tabstop=4
+set textwidth=100
+set viewoptions=cursor,folds,slash,unix
+set wildignorecase
+set wildmenu
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -57,12 +58,11 @@ noremap ;; ;
 
 " Normal
 nnoremap 0 ^
-nnoremap , za
+nnoremap , zazz
 nnoremap <cr> i<cr><Esc>==
 nnoremap gd :BD<cr>
 nnoremap gn :bn<cr>
 nnoremap gp :bp<cr>
-nnoremap p p=`]
 nnoremap ¬ <c-w>l
 nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
@@ -97,7 +97,7 @@ nnoremap <leader>3 :tabm -1<return>
 nnoremap <leader>4 :tabm +1<return>
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>A :!ag
-nnoremap <leader>a :Ack! 
+nnoremap <leader>a :Ack!
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>cs <C-W>l:BD<cr>:q<cr>
@@ -115,6 +115,7 @@ nnoremap <leader>hh :call clearmatches()<cr>:noh<cr>
 nmap     <leader>j <Plug>(easymotion-j)
 nmap     <leader>k <Plug>(easymotion-k)
 nnoremap <leader>l :<c-u>Unite line<cr>
+nnoremap <leader>p p=`]
 nnoremap <leader>o :exe 'e ' . @+<cr>
 nnoremap <leader>Q :q!<cr>
 nnoremap <leader>ra :%s/<c-r><c-w>/<c-r>"/g
@@ -129,7 +130,6 @@ nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>W :W<cr>
 nnoremap <leader>y :<c-u>Unite history/yank<cr>
-nmap =j :%!python -m json.tool<CR>
 
 " Visual
 vnoremap <leader>/ /\v
@@ -154,29 +154,31 @@ endfunction
 
 augroup mygroup
     autocmd!
-    " autocmd FileType javascript set formatprg=prettier-eslint\ --stdin\ --tab-width=4\ --single-quotes\ --jsx-bracket-same-line
-    " autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
     autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
-    " Search highlighting tweaks
-    " autocmd InsertEnter * :set nohlsearch
-    " autocmd InsertLeave * :set hlsearch
-    " These next two prevent all the folds from opening beneath the cursor during edits
+
+    " Prevent folds from opening beneath the cursor in insert mode
     autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
     autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-    " " Make text files do soft wrappping
-    " autocmd BufRead,BufNewFile *.txt set wrap linebreak nolist textwidth=0 wrapmargin=0
+
     " NERDTree stuff
-    " autocmd VimEnter * if (0 == argc()) | NERDTree | endif
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    " Rename tmux window to vim working directory
     autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
+    " Rename the tmux window on leaving vim
     autocmd VimLeave * call system("tmux setw automatic-rename") " Consider adding FocusLost to this?
+
+    " Automatically update diff on save of either file
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-foldtext
+let g:Foldtext_enable = 1
+
 " Vim-Session
 let g:session_directory = g:configDir.'/session'
 let g:session_autoload = "no"
@@ -184,9 +186,13 @@ let g:session_autosave = "yes"
 let g:session_default_to_last = 1
 let g:session_command_aliases = 1
 
+" hindent
+let g:hindent_line_length = 80
+
 " NERDTree
 let g:NERDTreeWinSize = 24
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
@@ -216,11 +222,13 @@ let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
 " Unite
 let g:unite_data_directory = g:configDir.'/.cache/unite'
-let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
-let g:unite_prompt='>> '
-let g:unite_split_rule = 'botright'
 let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g']
+call unite#custom#profile('default', 'context', {
+            \     'start_insert': 1,
+            \     'prompt': '>> ',
+            \     'direction': 'botright'
+            \ })
 
 " Polyglot
 " let g:polyglot_disabled=['javascript.jsx']
@@ -242,6 +250,22 @@ endif
 
 " Vim-HTTP-Client
 let g:http_client_focus_output_window=0
+
+" Startify
+let g:startify_bookmarks = [ {'y': '~/Sites/yaguara'}, {'d': '~/.dotfiles'} ]
+let g:startify_change_to_vcs_root = 1
+let g:startify_list_order = [
+            \ ['   Bookmarks:'],
+            \ 'bookmarks',
+            \ ['   My most recently used files'],
+            \ 'files',
+            \ ['   My most recently used files in the current directory:'],
+            \ 'dir',
+            \ ['   These are my sessions:'],
+            \ 'sessions',
+            \ ['   These are my commands:'],
+            \ 'commands',
+            \ ]
 " }}}
 
 " {{{ BUG WORKAROUNDS

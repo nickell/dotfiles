@@ -23,3 +23,5 @@ source $HOME/.dotfiles/.bashrc.common
 [ -f $HOME/.zshrc.post-local ] && source $HOME/.zshrc.post-local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$PATH"

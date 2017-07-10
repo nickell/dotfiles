@@ -1,4 +1,22 @@
-snippet ramda "Import ramda" b
+snippet enhance "Recompose enhance function" b
+const enhance = compose(
+	connect(mapStateToProps, actions)
+)
+endsnippet
+
+snippet recompose "Import recompose" b
+import { compose } from 'recompose'
+endsnippet
+
+snippet ru "Import util" b
+const util = require('util')
+endsnippet
+
+snippet rra "Import ramda" b
+const R = require('ramda')
+endsnippet
+
+snippet ira "Import ramda" b
 import R from 'ramda'
 endsnippet
 
@@ -12,12 +30,6 @@ endsnippet
 
 snippet ic "Redux connect" b
 import { connect } from 'react-redux'
-endsnippet
-
-snippet enhance "Recompose enhance function" b
-const enhance = compose(
-	connect(mapStateToProps)
-)
 endsnippet
 
 snippet doconsole ".do(console.log.bind(console))" b
@@ -88,6 +100,10 @@ endsnippet
 
 snippet irc "Import React and Component" b
 import React, { Component } from 'react'
+endsnippet
+
+snippet rg "Require generic" b
+const $1 = require('$2')
 endsnippet
 
 snippet ig "Import generic" b

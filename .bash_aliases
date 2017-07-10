@@ -13,18 +13,17 @@ alias ys="yarn start"
 alias yr="yarn run"
 alias ns="npm start"
 alias nr="npm run"
+alias nt="npm test"
+alias nsd="npm run start:debug"
 alias tmn="tmux new -s main"
 alias tma="tmux a"
+alias tf="terraform"
 alias mux="tmuxinator"
 alias ip="curl ipecho.net/plain;echo"
 
-alias bcodev="mosh brllnt@brllnt.co"
-alias yag="mosh chad@yaguara.co"
+alias yag="mosh chad@investor.yaguara.co"
 alias rival="mosh brllnt@therival.news"
-alias gitlab="mosh brllnt@git.brllnt.co"
-alias inforvellor="ssh ec2-user@ec2-54-191-19-166.us-west-2.compute.amazonaws.com"
 alias chad="mosh chad@chadnickell.com"
-alias coexist="mosh brllnt@dev.coexistcampaign.com"
 
 alias z='fasd_cd -d'
 

@@ -1,3 +1,5 @@
 .nerdtreeignore
+.vscode
+.stack-work
 .agignore
 Session.vim
