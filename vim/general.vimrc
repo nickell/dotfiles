@@ -2,15 +2,15 @@
 
 filetype plugin indent on
 
-" {{{ Settings
+" Settings {{{
 set autoindent
 set backspace=indent,eol,start
 set cmdheight=1
 set completeopt-=preview
 set expandtab
 set foldlevelstart=99
-set foldmethod=syntax
-set foldnestmax=1
+set foldmethod=manual
+set foldnestmax=4
 set hidden
 set hls
 set ignorecase
@@ -22,7 +22,7 @@ set nowritebackup
 set number
 set relativenumber
 set ruler
-set shell=/bin/bash
+" set shell=/bin/bash
 set shiftwidth=4
 set showmatch
 set smartcase
@@ -53,26 +53,37 @@ colorscheme gruvbox
 " {{{ Key Bindings
 let mapleader = " "
 
-map ; :
-noremap ;; ;
+" noremap ; :
+" noremap : ;
+noremap X :bd<cr>
+noremap <M-,> zazz
+" This mapping is taken care of by vim-easyclip
+" map Y y$
 
 " Normal
 nnoremap 0 ^
-nnoremap , zazz
+" nnoremap , zazz
 nnoremap <cr> i<cr><Esc>==
-nnoremap gd :BD<cr>
+" nnoremap gd :BD<cr>
+nnoremap gd :bd<cr>
 nnoremap gn :bn<cr>
+nnoremap <M-l> :bn<cr>
+noremap <M-o> :OpenSession<cr>
+" Remap gm to m because of vim-easyclip
+nnoremap gm m
 nnoremap gp :bp<cr>
+nnoremap <M-h> :bp<cr>
 nnoremap ¬ <c-w>l
 nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
+nmap QQ :q!<cr>
 
 nmap s <Plug>(easymotion-s)
 
 " Insert
-inoremap jk <ESC>
-inoremap <expr><TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
+" inoremap jk <ESC>
+" inoremap <expr><TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
 
 " Command
 cmap w!! w !sudo tee > /dev/null %
@@ -82,7 +93,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " NERDTree
-map <c-n> :NERDTreeToggle<cr>
+" map <c-n> :NERDTreeToggle<cr>
 
 " Macros
 let @e = 'cs(}$ireturn l%lkw=%'
@@ -96,40 +107,29 @@ nnoremap <leader>2 :tabn<return>
 nnoremap <leader>3 :tabm -1<return>
 nnoremap <leader>4 :tabm +1<return>
 nnoremap <leader><cr> :noh<cr>
-nnoremap <leader>A :!ag
 nnoremap <leader>a :Ack!
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
-nnoremap <leader>cs <C-W>l:BD<cr>:q<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
-nnoremap <leader>ds lbhxelxb
 " nnoremap <leader>e in specific configs
 " nnoremap <leader>f in specific configs
-nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
-nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
-nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
-nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
-nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
-nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
-nnoremap <leader>hh :call clearmatches()<cr>:noh<cr>
 nmap     <leader>j <Plug>(easymotion-j)
 nmap     <leader>k <Plug>(easymotion-k)
-nnoremap <leader>l :<c-u>Unite line<cr>
+" nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>p p=`]
-nnoremap <leader>o :exe 'e ' . @+<cr>
+nnoremap <leader>o :OpenSession<cr>
 nnoremap <leader>Q :q!<cr>
+" Replace word under cursor with word in register
 nnoremap <leader>ra :%s/<c-r><c-w>/<c-r>"/g
-nnoremap <leader>rb F{a <esc>%i <esc>
 " nnoremap <leader>rc in specific configs
+" Change javascript function statement to ES6
 nnoremap <leader>rf dt(f)a =><esc>
-nnoremap <leader>rr :set ft=rest<cr>
 nnoremap <leader>S :%S /
 nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>W :W<cr>
-nnoremap <leader>y :<c-u>Unite history/yank<cr>
+" nnoremap <leader>y :<c-u>Unite history/yank<cr>
 
 " Visual
 vnoremap <leader>/ /\v
@@ -145,8 +145,7 @@ vnoremap <leader>s <esc>`>a <esc>`<i <esc>l
 " Clear trailing whitespace
 command! ClearTrailingWhitespace %s /\s\+$//g
 
-command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-
+" Surround word with console.log statement
 function! ConsoleLog()
     normal! yiwoconsole.log(
     normal! pA)
@@ -156,11 +155,13 @@ augroup mygroup
     autocmd!
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
-    autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
+    " autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
+
+    autocmd bufreadpre *.md setlocal textwidth=80
 
     " Prevent folds from opening beneath the cursor in insert mode
-    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+    " autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    " autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
     " NERDTree stuff
     " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -176,26 +177,46 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" netrw
+let g:netrw_liststyle=0         " thin (change to 3 for tree)
+let g:netrw_banner=0            " no banner
+let g:netrw_altv=1              " open files on right
+let g:netrw_preview=1           " open previews vertically
+
 " vim-foldtext
-let g:Foldtext_enable = 1
+" let g:Foldtext_enable = 1
+
+" vim-easyclip
+" let g:EasyClipUseSubstituteDefaults = 1
 
 " Vim-Session
 let g:session_directory = g:configDir.'/session'
 let g:session_autoload = "no"
 let g:session_autosave = "yes"
-let g:session_default_to_last = 1
-let g:session_command_aliases = 1
+let g:session_verbose_messages = 0
+let g:session_lock_enabled = 0
+let g:session_default_to_last = 0
+" let g:session_command_aliases = 1
+let g:session_default_name = fnamemodify(getcwd(), ':t')
+set sessionoptions=blank,buffers,curdir,folds
+" set sessionoptions=folds
+" set sessionoptions+=curdir
+" set sessionoptions+=buffers
+" set sessionoptions+=tabpages
 
 " hindent
 let g:hindent_line_length = 80
 
 " NERDTree
-let g:NERDTreeWinSize = 24
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMapJumpNextSibling = ''
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
+" let g:NERDTreeWinSize = 24
+" let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeMapJumpNextSibling = ''
+" let g:NERDTreeShowHidden = 1
+" let g:NERDTreeShowLineNumbers = 1
+" let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim-ultisnips']
@@ -221,14 +242,14 @@ let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
 " Unite
-let g:unite_data_directory = g:configDir.'/.cache/unite'
-let g:unite_source_history_yank_enable=1
-let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g']
-call unite#custom#profile('default', 'context', {
-            \     'start_insert': 1,
-            \     'prompt': '>> ',
-            \     'direction': 'botright'
-            \ })
+" let g:unite_data_directory = g:configDir.'/.cache/unite'
+" let g:unite_source_history_yank_enable=1
+" let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g']
+" call unite#custom#profile('default', 'context', {
+"             \     'start_insert': 1,
+"             \     'prompt': '>> ',
+"             \     'direction': 'botright'
+"             \ })
 
 " Polyglot
 " let g:polyglot_disabled=['javascript.jsx']
@@ -248,24 +269,21 @@ if executable('ag')
   let g:ackprg = 'ag --hidden --vimgrep'
 endif
 
-" Vim-HTTP-Client
-let g:http_client_focus_output_window=0
-
 " Startify
-let g:startify_bookmarks = [ {'y': '~/Sites/yaguara'}, {'d': '~/.dotfiles'} ]
-let g:startify_change_to_vcs_root = 1
-let g:startify_list_order = [
-            \ ['   Bookmarks:'],
-            \ 'bookmarks',
-            \ ['   My most recently used files'],
-            \ 'files',
-            \ ['   My most recently used files in the current directory:'],
-            \ 'dir',
-            \ ['   These are my sessions:'],
-            \ 'sessions',
-            \ ['   These are my commands:'],
-            \ 'commands',
-            \ ]
+" let g:startify_bookmarks = [ {'y': '~/Sites/yaguara'}, {'d': '~/.dotfiles'} ]
+" let g:startify_change_to_vcs_root = 1
+" let g:startify_list_order = [
+"             \ ['   Bookmarks:'],
+"             \ 'bookmarks',
+"             \ ['   My most recently used files'],
+"             \ 'files',
+"             \ ['   My most recently used files in the current directory:'],
+"             \ 'dir',
+"             \ ['   These are my sessions:'],
+"             \ 'sessions',
+"             \ ['   These are my commands:'],
+"             \ 'commands',
+"             \ ]
 " }}}
 
 " {{{ BUG WORKAROUNDS
@@ -276,14 +294,14 @@ augroup FixProportionsOnResize
 augroup END
 
 " vim mode-switch lag fix
-if ! has("gui_running")
+" if ! has("gui_running")
     "set ttimeoutlen=10
     "augroup FastEscape
     "    autocmd!
     "    au InsertEnter * set timeoutlen=10
     "    au InsertLeave * set timeoutlen=1000
     "augroup END
-endif
+" endif
 
 " macos vs linux clipboard
 if has("mac")
@@ -311,50 +329,6 @@ augroup line_return
                 \     execute 'normal! g`"zvzz' |
                 \ endif
 augroup END
-
-" Visual Mode */# from Scrooloose
-function! s:VSetSearch()
-    let temp = @@
-    norm! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@ = temp
-endfunction
-vnoremap * :<c-u>call <SID>VSetSearch()<cr>//<cr><c-o>
-vnoremap # :<c-u>call <SID>VSetSearch()<cr>??<cr><c-o>
-
-" Text Highlighter = <leader>h[1-4]
-function! HiInterestingWord(n)
-    " Save our location.
-    normal! mz
-    " Yank the current word into the z register.
-    normal! "zyiw
-    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-    let mid = 86750 + a:n
-    " Clear existing matches, but don't worry if they don't exist.
-    silent! call matchdelete(mid)
-    " Construct a literal pattern that has to match at boundaries.
-    let pat = '\V\<' . escape(@z, '\') . '\>'
-    " Actually match the words.
-    call matchadd("InterestingWord" . a:n, pat, 1, mid)
-    " Move back to our original location.
-    normal! `z
-endfunction
-
-
-hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-
-highlight search ctermfg=white ctermbg=3423513
-
-" better retab
-fu! Retab()
-    :retab
-    :%s/\s\+$//
-endfunction
 
 " Make search results appear in the middle of the screen
 nnoremap <silent> <F4> :call <SID>SearchMode()<cr>
@@ -429,4 +403,13 @@ function! InitBackupDir()
     endif
 endfunction
 call InitBackupDir()
+
+" Underline function from here: http://vim.wikia.com/wiki/Underline_using_dashes_automatically
+function! s:Underline(chars)
+  let chars = empty(a:chars) ? '-' : a:chars
+  let nr_columns = virtcol('$') - 1
+  let uline = repeat(chars, (nr_columns / len(chars)) + 1)
+  put =strpart(uline, 0, nr_columns)
+endfunction
+command! -nargs=? Underline call s:Underline(<q-args>)
 " }}}

@@ -1,1 +1,16 @@
 export EDITOR='nvim'
+
+command_not_found_handler() {
+  # Do not run within a pipe
+  if test ! -t 1; then
+    >&2 echo "command not found: $1"
+    return 127
+  fi
+  echo "$1 not found. Trying with npx..." >&2
+  if ! [[ $1 =~ @ ]]; then
+    npx --no-install "$@"
+  else
+    npx "$@"
+  fi
+  return $?
+}
