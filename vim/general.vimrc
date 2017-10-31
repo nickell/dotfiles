@@ -77,23 +77,20 @@ nnoremap ¬ <c-w>l
 nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
-nmap QQ :q!<cr>
+nmap QQ :q<cr>
+nmap Q! :q!<cr>
 
 nmap s <Plug>(easymotion-s)
 
-" Insert
-" inoremap jk <ESC>
-" inoremap <expr><TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
-
 " Command
+" Expand w!! to write a file with sudo
 cmap w!! w !sudo tee > /dev/null %
+" Expand %% to the directory path of the current buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Visual
 vnoremap < <gv
 vnoremap > >gv
-
-" NERDTree
-" map <c-n> :NERDTreeToggle<cr>
 
 " Macros
 let @e = 'cs(}$ireturn l%lkw=%'
@@ -156,6 +153,11 @@ augroup mygroup
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72
     " autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
+
+    " Get rid of <cr> mapping in quickfix list
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+    " Get rid of <cr> mapping in quickfix list for futitive's Ggrep command
+    autocmd QuickFixCmdPost *grep* cwindow | nnoremap <buffer> <CR> <CR>
 
     autocmd bufreadpre *.md setlocal textwidth=80
 

@@ -1,4 +1,5 @@
 Plug 'Lokaltog/vim-easymotion'
+Plug 'janko-m/vim-test'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
@@ -15,12 +16,12 @@ Plug 'mileszs/ack.vim'
 Plug 'moll/vim-node'
 " Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'bronson/vim-visual-star-search'
 " Plug 'svermeulen/vim-easyclip'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -38,6 +39,10 @@ Plug 'xolox/vim-session'
 Plug 'sheerun/vim-polyglot'
 Plug 'alx741/vim-hindent'
 Plug 'fleischie/vim-styled-components'
+" Using tcomment here because it can handle embedded jsx within js files
+" Plug 'vim-scripts/tComment'
+" Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 
 " NERDTree
 Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }

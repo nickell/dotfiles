@@ -18,6 +18,7 @@
 [log]
 	abbrevCommit = true
 [alias]
+    m = merge
     co = checkout
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
