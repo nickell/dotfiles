@@ -1,3 +1,7 @@
+snippet flow "Flow declaration"
+// @flow
+endsnippet
+
 snippet co "Comment" b
 /**
  * $0
@@ -34,6 +38,14 @@ snippet cf "Close fold" b
 // }}}
 endsnippet
 
+snippet ih "Helmet" b
+import Helmet from 'react-helmet'
+endsnippet
+
+snippet ip "PropTypes" b
+import PropTypes from 'prop-types'
+endsnippet
+
 snippet ic "Redux connect" b
 import { connect } from 'react-redux'
 endsnippet
@@ -64,18 +76,20 @@ const ${1:ComponentName} = (${2:props}) => (
 )
 endsnippet
 
-snippet classX "ES6 Class Extends" b
+snippet rc "React Component" b
 class ${1:ClassName} extends ${2:React.Component} {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
-		${0:${VISUAL:contents}}
+		${0:${VISUAL}}
 	}
 }
+endsnippet
 
-export default $1
+snippet rp "React PureComponent" b
+class ${1:ClassName} extends ${2:React.PureComponent} {
+	render() {
+		${0:${VISUAL}}
+	}
+}
 endsnippet
 
 snippet statelessComponent "Stateless React Component" b
@@ -102,6 +116,14 @@ endsnippet
 
 snippet ir "Import React" b
 import React from 'react'
+endsnippet
+
+snippet it "Import type" b
+import type { ${1} } from '${2}'
+endsnippet
+
+snippet ity "Import @yaguara/types" b
+import type { ${1} } from '@yaguara/types${0}'
 endsnippet
 
 snippet irc "Import React and Component" b

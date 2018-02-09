@@ -67,6 +67,7 @@ nnoremap <cr> i<cr><Esc>==
 " nnoremap gd :BD<cr>
 nnoremap gd :bd<cr>
 nnoremap gn :bn<cr>
+nnoremap Y y$
 nnoremap <M-l> :bn<cr>
 noremap <M-o> :OpenSession<cr>
 " Remap gm to m because of vim-easyclip
@@ -110,8 +111,14 @@ nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 " nnoremap <leader>e in specific configs
 " nnoremap <leader>f in specific configs
-nmap     <leader>j <Plug>(easymotion-j)
-nmap     <leader>k <Plug>(easymotion-k)
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gp :echo @%<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nmap     <leader>j <Plug>(ale_next_wrap)
+nmap     <leader>k <Plug>(ale_previous_wrap)
+" nmap     <leader>k <Plug>(easymotion-k)
+" nmap     <leader>j <Plug>(easymotion-j)
+" nmap     <leader>k <Plug>(easymotion-k)
 " nnoremap <leader>l :<c-u>Unite line<cr>
 nnoremap <leader>p p=`]
 nnoremap <leader>o :OpenSession<cr>
@@ -155,9 +162,9 @@ augroup mygroup
     " autocmd FileType javascript,jsx,javascript.jsx setlocal omnifunc=tern#Complete
 
     " Get rid of <cr> mapping in quickfix list
-    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+    " autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
     " Get rid of <cr> mapping in quickfix list for futitive's Ggrep command
-    autocmd QuickFixCmdPost *grep* cwindow | nnoremap <buffer> <CR> <CR>
+    " autocmd QuickFixCmdPost *grep* cwindow | nnoremap <buffer> <CR> <CR>
 
     autocmd bufreadpre *.md setlocal textwidth=80
 
@@ -254,9 +261,15 @@ let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 "             \ })
 
 " Polyglot
-" let g:polyglot_disabled=['javascript.jsx']
-let g:jsx_ext_required = 0 " jsx highlighting in all js files and
-let g:used_javascript_libs = 'react' " enable react syntax
+" let g:polyglot_disabled=['javascript.jsx', 'javascript']
+" let g:jsx_ext_required = 0 " jsx highlighting in all js files and
+" let g:used_javascript_libs = 'react' " enable react syntax
+
+" vim-javascript
+let g:javascript_plugin_flow = 1
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 " GitGutter
 let g:gitgutter_enabled = 1

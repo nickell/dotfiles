@@ -13,9 +13,10 @@ call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'w0rp/ale'
+    Plug 'wokalski/autocomplete-flow'
     " Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
     " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-    " Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
+    " Plug 'flowtype/vim-flow'
 call plug#end()
 " }}}
 
@@ -63,12 +64,19 @@ let g:deoplete#auto_complete_start_length = 0
 
 " set completeopt=longest,menuone,preview
 
+" autocomplete-flow
+let g:autocomplete_flow#insert_paren_after_function = 0
+
 " ALE
 " let g:ale_history_log_output = 1
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --tab-width 4 --jsx-bracket-same-line --semi false'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --tab-width 4 --jsx-bracket-same-line --no-semi'
+let g:ale_linters = {
+    \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
+    \ 'javascript': ['eslint', 'flow']
+    \}
 " }}}
 
 " {{{ Settings

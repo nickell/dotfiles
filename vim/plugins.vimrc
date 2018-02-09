@@ -5,7 +5,6 @@ Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'danro/rename.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'henrik/vim-indexed-search' " At match x of y matches
 Plug 'jiangmiao/auto-pairs'
@@ -21,6 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
 Plug 'bronson/vim-visual-star-search'
 " Plug 'svermeulen/vim-easyclip'
 Plug 'vim-airline/vim-airline'
@@ -37,22 +37,31 @@ Plug 'xolox/vim-session'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'alx741/vim-hindent'
-Plug 'fleischie/vim-styled-components'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'othree/html5.vim'
+" Plug 'othree/yajs.vim'
+" Plug 'othree/es.next.syntax.vim'
+" Plug 'alx741/vim-hindent'
+" Plug 'fleischie/vim-styled-components'
 " Using tcomment here because it can handle embedded jsx within js files
 " Plug 'vim-scripts/tComment'
 " Plug 'tpope/vim-commentary'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 
 " NERDTree
-Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'dsimidzija/vim-nerdtree-ignore', { 'on': 'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
+" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+" Plug 'dsimidzija/vim-nerdtree-ignore', { 'on': 'NERDTreeToggle' }
 
 " Colorschemes
 " Plug 'flazz/vim-colorschemes'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+" Plug 'sickill/vim-monokai'
 " Plug 'bounceme/highwayman'
+Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'mhartington/oceanic-next'
+Plug 'ryanoasis/vim-devicons'
 
 " This function is for euclio/vim-markdown-composer
 " Instructions for installing rust: https://github.com/euclio/vim-markdown-composer
