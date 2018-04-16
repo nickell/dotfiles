@@ -1,5 +1,4 @@
 export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export RANGER_LOAD_DEFAULT_RC=false
 
 source $HOME/.dotfiles/.bash_aliases
 
@@ -22,12 +21,12 @@ f() {
     find . | ag "$@" 
 }
 
-r() {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
+# r() {
+#     tempfile="$(mktemp -t tmp.XXXXXX)"
+#     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+#     test -f "$tempfile" &&
+#     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+#         cd -- "$(cat "$tempfile")"
+#     fi
+#     rm -f -- "$tempfile"
+# }

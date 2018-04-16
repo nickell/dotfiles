@@ -84,6 +84,22 @@ class ${1:ClassName} extends ${2:React.Component} {
 }
 endsnippet
 
+snippet rce "React Component" b
+// @flow
+
+import * as React from 'react'
+
+type Props = {}
+
+class ${1:ClassName} extends ${2:React.Component<Props>} {
+	render() {
+		${0:${VISUAL}}
+	}
+}
+
+export default $1
+endsnippet
+
 snippet rp "React PureComponent" b
 class ${1:ClassName} extends ${2:React.PureComponent} {
 	render() {
@@ -115,7 +131,7 @@ snippet te "HTML tag expanded" b
 endsnippet
 
 snippet ir "Import React" b
-import React from 'react'
+import * as React from 'react'
 endsnippet
 
 snippet it "Import type" b
@@ -124,10 +140,6 @@ endsnippet
 
 snippet ity "Import @yaguara/types" b
 import type { ${1} } from '@yaguara/types${0}'
-endsnippet
-
-snippet irc "Import React and Component" b
-import React, { Component } from 'react'
 endsnippet
 
 snippet rg "Require generic" b

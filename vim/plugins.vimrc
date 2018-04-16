@@ -17,6 +17,7 @@ Plug 'moll/vim-node'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-db'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -29,6 +30,7 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes', { 'on': 'Note' }
 Plug 'xolox/vim-session'
+Plug 'Yggdroot/indentLine'
 
 " Folds
 " Plug 'Konfekt/FastFold'
@@ -48,10 +50,15 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'vim-scripts/tComment'
 " Plug 'tpope/vim-commentary'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
+" Plug 'Quramy/tsuquyomi'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'mhartington/nvim-typescript'
 
 " NERDTree
-" Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
-" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'rafaqz/ranger.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " Plug 'dsimidzija/vim-nerdtree-ignore', { 'on': 'NERDTreeToggle' }
 
 " Colorschemes
@@ -62,17 +69,3 @@ Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and 
 Plug 'rafi/awesome-vim-colorschemes'
 " Plug 'mhartington/oceanic-next'
 Plug 'ryanoasis/vim-devicons'
-
-" This function is for euclio/vim-markdown-composer
-" Instructions for installing rust: https://github.com/euclio/vim-markdown-composer
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }

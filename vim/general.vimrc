@@ -33,6 +33,8 @@ set textwidth=100
 set viewoptions=cursor,folds,slash,unix
 set wildignorecase
 set wildmenu
+set list
+set lcs=tab:\|\
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -69,6 +71,7 @@ nnoremap gd :bd<cr>
 nnoremap gn :bn<cr>
 nnoremap Y y$
 nnoremap <M-l> :bn<cr>
+map <C-n> :NERDTreeToggle<CR>
 noremap <M-o> :OpenSession<cr>
 " Remap gm to m because of vim-easyclip
 nnoremap gm m
@@ -98,7 +101,6 @@ let @e = 'cs(}$ireturn l%lkw=%'
 let @s = 'ysa"}wcs"`'
 let @o = 'o.do(console.log.bind(console=='
 
-
 " {{{ Leader
 nnoremap <leader>1 :tabp<return>
 nnoremap <leader>2 :tabn<return>
@@ -109,7 +111,7 @@ nnoremap <leader>a :Ack!
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
-" nnoremap <leader>e in specific configs
+nnoremap <leader>e :!cd %:p:h;
 " nnoremap <leader>f in specific configs
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :echo @%<cr>
@@ -120,16 +122,27 @@ nmap     <leader>k <Plug>(ale_previous_wrap)
 " nmap     <leader>j <Plug>(easymotion-j)
 " nmap     <leader>k <Plug>(easymotion-k)
 " nnoremap <leader>l :<c-u>Unite line<cr>
-nnoremap <leader>p p=`]
+nnoremap <leader>n :NERDTreeFind<cr>
+nnoremap <leader>p :ALEFix<cr>
+" nnoremap <leader>p p=`]
 nnoremap <leader>o :OpenSession<cr>
 nnoremap <leader>Q :q!<cr>
 " Replace word under cursor with word in register
-nnoremap <leader>ra :%s/<c-r><c-w>/<c-r>"/g
+" nnoremap <leader>ra :%s/<c-r><c-w>/<c-r>"/g
+map <leader>ra :RangerAppend<cr>
+map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+map <leader>ri :RangerInsert<cr>
+map <leader>rr :RangerEdit<cr>
+map <leader>rs :RangerSplit<cr>
+map <leader>rt :RangerTab<cr>
+map <leader>rv :RangerVSplit<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
 nnoremap <leader>rf dt(f)a =><esc>
 nnoremap <leader>S :%S /
 nnoremap <leader>s lbi <esc>lea <esc>b
+nnoremap <leader>ta :call ToggleAleFix()<cr>
+nnoremap <leader>tp :call ToggleAleFix()<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
@@ -149,10 +162,22 @@ vnoremap <leader>s <esc>`>a <esc>`<i <esc>l
 " Clear trailing whitespace
 command! ClearTrailingWhitespace %s /\s\+$//g
 
+command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
 " Surround word with console.log statement
 function! ConsoleLog()
     normal! yiwoconsole.log(
     normal! pA)
+endfunction
+
+function! ToggleAleFix()
+    if g:ale_fix_on_save
+        let g:ale_fix_on_save = 0
+        echo "Ale fix on save off"
+    else
+        let g:ale_fix_on_save = 1
+        echo "Ale fix on save on"
+    endif
 endfunction
 
 augroup mygroup
@@ -166,14 +191,20 @@ augroup mygroup
     " Get rid of <cr> mapping in quickfix list for futitive's Ggrep command
     " autocmd QuickFixCmdPost *grep* cwindow | nnoremap <buffer> <CR> <CR>
 
+    " Set filetype to docker for anything that starts with Dockerfile
+    autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
+
     autocmd bufreadpre *.md setlocal textwidth=80
+
+    autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+    autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
     " Prevent folds from opening beneath the cursor in insert mode
     " autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
     " autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
     " NERDTree stuff
-    " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
     " Rename tmux window to vim working directory
     autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
@@ -187,16 +218,22 @@ augroup END
 
 " {{{ Plugin Config
 " netrw
-let g:netrw_liststyle=0         " thin (change to 3 for tree)
-let g:netrw_banner=0            " no banner
-let g:netrw_altv=1              " open files on right
-let g:netrw_preview=1           " open previews vertically
+" let g:netrw_liststyle=0         " thin (change to 3 for tree)
+" let g:netrw_banner=0            " no banner
+" let g:netrw_altv=1              " open files on right
+" let g:netrw_preview=1           " open previews vertically
+
+" auto-pairs
+let g:AutoPairsShortcutToggle = ''
 
 " vim-foldtext
 " let g:Foldtext_enable = 1
 
 " vim-easyclip
 " let g:EasyClipUseSubstituteDefaults = 1
+
+" vim-indexed-search
+let g:indexed_search_mappings=0
 
 " Vim-Session
 let g:session_directory = g:configDir.'/session'
@@ -216,13 +253,38 @@ set sessionoptions=blank,buffers,curdir,folds
 " hindent
 let g:hindent_line_length = 80
 
+" vim-devicons
+let g:webdevicons_enable_nerdtree = 0
+
 " NERDTree
 " let g:NERDTreeWinSize = 24
-" let g:NERDTreeMinimalUI = 1
-" let g:NERDTreeMapJumpNextSibling = ''
-" let g:NERDTreeShowHidden = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeMapJumpNextSibling = ''
+let g:NERDTreeMapJumpPrevSibling = ''
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeShowHidden = 1
 " let g:NERDTreeShowLineNumbers = 1
-" let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
+" " let g:NERDTreeIgnore=['node_modules$[[dir]]','.git$[[dir]]','build$[[dir]]','.sass-cache$[[dir]]','\.DS_Store$']
+"
+" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+"  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+"  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+" endfunction
+"
+" call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+" call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+" call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+" call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+" call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+" call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+" call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -250,18 +312,8 @@ let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
 let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
-" Unite
-" let g:unite_data_directory = g:configDir.'/.cache/unite'
-" let g:unite_source_history_yank_enable=1
-" let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g']
-" call unite#custom#profile('default', 'context', {
-"             \     'start_insert': 1,
-"             \     'prompt': '>> ',
-"             \     'direction': 'botright'
-"             \ })
-
 " Polyglot
-" let g:polyglot_disabled=['javascript.jsx', 'javascript']
+" let g:polyglot_disabled=['typescript']
 " let g:jsx_ext_required = 0 " jsx highlighting in all js files and
 " let g:used_javascript_libs = 'react' " enable react syntax
 
@@ -283,22 +335,6 @@ let g:EasyMotion_smartcase = 1
 if executable('ag')
   let g:ackprg = 'ag --hidden --vimgrep'
 endif
-
-" Startify
-" let g:startify_bookmarks = [ {'y': '~/Sites/yaguara'}, {'d': '~/.dotfiles'} ]
-" let g:startify_change_to_vcs_root = 1
-" let g:startify_list_order = [
-"             \ ['   Bookmarks:'],
-"             \ 'bookmarks',
-"             \ ['   My most recently used files'],
-"             \ 'files',
-"             \ ['   My most recently used files in the current directory:'],
-"             \ 'dir',
-"             \ ['   These are my sessions:'],
-"             \ 'sessions',
-"             \ ['   These are my commands:'],
-"             \ 'commands',
-"             \ ]
 " }}}
 
 " {{{ BUG WORKAROUNDS
