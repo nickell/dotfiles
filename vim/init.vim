@@ -12,7 +12,7 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 0
+let g:deoplete#auto_complete_start_length = 1
 
 " autocomplete-flow
 let g:autocomplete_flow#insert_paren_after_function = 0
