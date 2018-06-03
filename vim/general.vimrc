@@ -56,7 +56,7 @@ source $HOME/.dotfiles/vim/colors.vimrc
 let mapleader = " "
 
 noremap X :bd<cr>
-noremap <M-,> zazz
+noremap <M-,> zAzz
 
 " Normal
 nnoremap 0 ^
@@ -76,6 +76,7 @@ nnoremap ¬ <c-w>l
 nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
+nmap gsib gsi{
 nmap QQ :q<cr>
 nmap Q! :q!<cr>
 
