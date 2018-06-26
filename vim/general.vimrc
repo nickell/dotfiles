@@ -58,6 +58,9 @@ let mapleader = " "
 noremap X :bd<cr>
 noremap <M-,> zAzz
 
+" Insert
+inoremap jk <Esc>
+
 " Normal
 nnoremap 0 ^
 nnoremap - dd
