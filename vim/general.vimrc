@@ -135,6 +135,21 @@ command! ClearTrailingWhitespace %s /\s\+$//g
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
+let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
+
+function! VimTodoListsCustomMappings()
+  nnoremap <buffer> o :VimTodoListsCreateNewItemBelow<CR>
+  nnoremap <buffer> O :VimTodoListsCreateNewItemAbove<CR>
+  nnoremap <buffer> <leader>j ddp
+  nnoremap <buffer> <leader>k ddkp
+  nnoremap <buffer> j :VimTodoListsGoToNextItem<CR>
+  nnoremap <buffer> k :VimTodoListsGoToPreviousItem<CR>
+  nnoremap <buffer> <CR> :VimTodoListsToggleItem<CR>
+  vnoremap <buffer> <CR> :VimTodoListsToggleItem<CR>
+  inoremap <buffer> <CR> <CR><ESC>:VimTodoListsCreateNewItem<CR>
+  noremap <buffer> <leader>e :silent call VimTodoListsSetNormalMode()<CR>
+endfunction
+
 " Surround word with console.log statement
 function! ConsoleLog()
     normal! yiwoconsole.log(
@@ -181,6 +196,7 @@ augroup END
 " {{{ Plugin Config
 " auto-pairs
 let g:AutoPairsShortcutToggle = ''
+let g:AutoPairsShortcutJump = ''
 
 " vim-indexed-search
 let g:indexed_search_mappings=0

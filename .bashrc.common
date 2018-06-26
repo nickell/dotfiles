@@ -11,7 +11,7 @@ export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
 
 # The following alias is defined in ~/.zprezto/modules/utility/init.zsh
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'
-alias se="sudo ${aliases[e]}"
+alias se="sudoedit"
 
 muxe() {
     e ~/.tmuxinator/$1.yml

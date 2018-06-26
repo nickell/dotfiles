@@ -52,6 +52,9 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes', { 'on': 'Note' }
 Plug 'xolox/vim-session'
 
+" Notes
+Plug 'aserebryakov/vim-todo-lists'
+
 " Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'pedrohdz/vim-yaml-folds'

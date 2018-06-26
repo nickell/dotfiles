@@ -1,17 +1,11 @@
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob nomatch
+HISTSIZE=100
+SAVEHIST=100
+setopt appendhistory autocd extendedglob nomatch hist_ignore_dups
 unsetopt beep
-zstyle :compinstall filename '/Users/chad/.zshrc'
-autoload -Uz compinit
-compinit
 
 # Source Prezto.
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
-
-# Setup fzf
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 export EDITOR='vim'
 
@@ -23,11 +17,3 @@ source $HOME/.dotfiles/.bashrc.common
 [ -f $HOME/.zshrc.post-local ] && source $HOME/.zshrc.post-local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chad/.google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chad/.google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/chad/.google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/chad/.google-cloud-sdk/completion.zsh.inc'; fi
