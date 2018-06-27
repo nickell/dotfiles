@@ -4,7 +4,7 @@ source $HOME/.dotfiles/.bash_aliases
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
@@ -12,10 +12,6 @@ export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
 # The following alias is defined in ~/.zprezto/modules/utility/init.zsh
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'
 alias se="sudoedit"
-
-muxe() {
-    e ~/.tmuxinator/$1.yml
-}
 
 f() {
     find . | ag "$@" 

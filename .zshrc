@@ -1,6 +1,6 @@
 HISTFILE=~/.histfile
-HISTSIZE=100
-SAVEHIST=100
+HISTSIZE=1000
+SAVEHIST=1000
 setopt appendhistory autocd extendedglob nomatch hist_ignore_dups
 unsetopt beep
 
