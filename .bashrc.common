@@ -3,8 +3,8 @@ export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbi
 source $HOME/.dotfiles/.bash_aliases
 
 # Load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
