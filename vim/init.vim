@@ -40,3 +40,9 @@ source $HOME/.dotfiles/vim/general.vimrc
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 " }}}
+
+try
+  source ~/.vimrc.local
+catch
+  " No such file? No problem; just ignore it.
+endtry
