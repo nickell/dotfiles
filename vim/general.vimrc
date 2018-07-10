@@ -81,6 +81,7 @@ nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
 nmap gsib gsi{
+nmap QQ :q<cr>
 nmap Q! :q!<cr>
 
 nmap s <Plug>(easymotion-s)
