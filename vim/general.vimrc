@@ -81,7 +81,6 @@ nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
 nmap gsib gsi{
-nmap QQ :q<cr>
 nmap Q! :q!<cr>
 
 nmap s <Plug>(easymotion-s)
@@ -188,9 +187,9 @@ augroup mygroup
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
     " Rename tmux window to vim working directory
-    autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
+    " autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
     " Rename the tmux window on leaving vim
-    autocmd VimLeave * call system("tmux setw automatic-rename") " Consider adding FocusLost to this?
+    " autocmd VimLeave * call system("tmux setw automatic-rename") " Consider adding FocusLost to this?
 
     " Automatically update diff on save of either file
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
