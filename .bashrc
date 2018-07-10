@@ -16,8 +16,6 @@ export PS1="\[\033[36m\]\u:\[\033[33;1m\]\w\[\033[m\]\[\033[32m\]\$(parse_git_br
 # Setup fzf
 [ -f $HOME/.fzf.bash ] && source ~/.fzf.bash
 
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
 export EDITOR='vim'
 
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
