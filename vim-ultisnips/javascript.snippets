@@ -1,5 +1,82 @@
+# vim: fdm=marker foldlevel=0
+
+# {{{ Imports and requires
+# {{{ Imports
 snippet iu "@yaguara/utils import statement" b
 import utils from '@yaguara/utils'
+endsnippet
+
+snippet recompose "Import recompose" b
+import { compose } from 'recompose'
+endsnippet
+
+snippet ira "Import ramda" b
+import * as R from 'ramda'
+endsnippet
+
+snippet imph "Helmet" b
+import Helmet from 'react-helmet'
+endsnippet
+
+snippet impc "Redux connect" b
+import { connect } from 'react-redux'
+endsnippet
+
+snippet ig "Import generic" b
+import $1 from '$2'
+endsnippet
+
+snippet iga "Import generic all" b
+import * as $1 from '$2'
+endsnippet
+
+snippet ir "Import React" b
+import * as React from 'react'
+endsnippet
+
+snippet it "Import type" b
+import type { ${1} } from '${2}'
+endsnippet
+
+snippet ity "Import @yaguara/types" b
+import type { ${1} } from '@yaguara/types${0}'
+endsnippet
+# }}}
+
+# {{{ Requires
+snippet ru "Require util" b
+const util = require('util')
+endsnippet
+
+snippet rra "Require ramda" b
+const R = require('ramda')
+endsnippet
+
+snippet rg "Require generic" b
+const $1 = require('$2')
+endsnippet
+
+snippet eg "Export generic" b
+export { default as $1 } from './$1'
+endsnippet
+# }}}
+# }}}
+
+# {{{ Redux
+snippet reduxmapstate "Redux mapStateToProps function" b
+const mapStateToProps = state => ({})
+endsnippet
+
+snippet reduxmakemapstate "Redux mapStateToProps function" b
+const makeMapStateToProps = () {
+	const mapStateToProp = state => ({})
+	return mapStateToProps
+}
+endsnippet
+# }}}
+
+snippet todo "TODO" b
+// TODO: ${1:desc} `!v strftime("%D %I:%M %p")` `echo $USER`
 endsnippet
 
 snippet flow "Flow declaration" b
@@ -12,28 +89,6 @@ snippet co "Comment" b
  */
 endsnippet
 
-snippet enhance "Recompose enhance function" b
-const enhance = compose(
-	connect(mapStateToProps, actions)
-)
-endsnippet
-
-snippet recompose "Import recompose" b
-import { compose } from 'recompose'
-endsnippet
-
-snippet ru "Import util" b
-const util = require('util')
-endsnippet
-
-snippet rra "Import ramda" b
-const R = require('ramda')
-endsnippet
-
-snippet ira "Import ramda" b
-import * as R from 'ramda'
-endsnippet
-
 snippet of "Open fold" b
 // {{{ $0
 endsnippet
@@ -42,42 +97,8 @@ snippet cf "Close fold" b
 // }}}
 endsnippet
 
-snippet ih "Helmet" b
-import Helmet from 'react-helmet'
-endsnippet
-
-snippet ip "PropTypes" b
-import PropTypes from 'prop-types'
-endsnippet
-
-snippet ic "Redux connect" b
-import { connect } from 'react-redux'
-endsnippet
-
-snippet doconsole ".do(console.log.bind(console))" b
-.do(console.log.bind(console))
-endsnippet
-
-snippet div "div with className" b
-<div className=${1:className}>
-	${0:contents}
-</div>
-endsnippet
-
 snippet clo "console.log" b
 console.log(${0:${VISUAL:'here'}})
-endsnippet
-
-snippet func "Function declaration"
-function ${1:name}(${2:args}) {
-	${0:${VISUAL:contents}}
-}
-endsnippet
-
-snippet fun "Function Expression" b
-const ${1:ComponentName} = (${2:props}) => (
-	${0:${VISUAL:contents}}
-)
 endsnippet
 
 snippet rc "React Component" b
@@ -112,54 +133,18 @@ class ${1:ClassName} extends ${2:React.PureComponent} {
 }
 endsnippet
 
-snippet statelessComponent "Stateless React Component" b
-const ${1:ComponentName} = (${2:props}) => (
-	${0:${VISUAL:contents}}
-)
-
-export default $1
-endsnippet
-
 snippet e "Export" b
 export default $1
 endsnippet
 
 snippet t "HTML tag"
-<${1:div}>${0:${VISUAL:contents}}</${1/(\w+).*/$1/}>
+<${1:div}>${0:${VISUAL:contents}}</${1/([\w.]+).*/$1/}>
 endsnippet
 
 snippet te "HTML tag expanded" b
 <${1:div}>
 	${0:${VISUAL:contents}}
-</${1/(\w+).*/$1/}>
-endsnippet
-
-snippet ir "Import React" b
-import * as React from 'react'
-endsnippet
-
-snippet it "Import type" b
-import type { ${1} } from '${2}'
-endsnippet
-
-snippet ity "Import @yaguara/types" b
-import type { ${1} } from '@yaguara/types${0}'
-endsnippet
-
-snippet rg "Require generic" b
-const $1 = require('$2')
-endsnippet
-
-snippet ig "Import generic" b
-import $1 from '$2'
-endsnippet
-
-snippet iga "Import generic all" b
-import * as $1 from '$2'
-endsnippet
-
-snippet eg "Export generic" b
-export { default as $1 } from './$1'
+</${1/([\w.]+).*/$1/}>
 endsnippet
 
 snippet st "setTimeout" b

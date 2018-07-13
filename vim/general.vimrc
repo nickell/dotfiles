@@ -32,6 +32,7 @@ set wildignorecase
 set wildmenu
 set list
 set listchars=tab:\|\
+set fileformat=unix " Possible fix to lots of odd line endings showing up
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
