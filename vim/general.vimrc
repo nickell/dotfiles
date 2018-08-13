@@ -118,8 +118,9 @@ nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
 nnoremap <leader>rf dt(f)a =><esc>
+nnoremap <leader>si :SortImport<cr>
 " Surround with spaces
-nnoremap <leader>s lbi <esc>lea <esc>b
+" nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>ta :call ToggleAleFix()<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
@@ -199,6 +200,9 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-sort-imports
+let g:import_sort_auto = 0
+
 " auto-pairs
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutJump = ''
