@@ -1,0 +1,9 @@
+[Unit]
+Description=Run usage-export weekly
+
+[Timer]
+OnCalendar=Sun *-*-* 05:00:00
+WakeSystem=true
+
+[Install]
+WantedBy=timers.target

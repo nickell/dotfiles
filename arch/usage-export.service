@@ -1,0 +1,10 @@
+[Unit]
+Description=Usage query export
+
+[Service]
+Type=oneshot
+ExecStart=/home/chad/.bin/export-usage-query
+User=chad
+
+[Install]
+WantedBy=default.target

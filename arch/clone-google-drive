@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+rclone sync drive: /home/chad/GoogleDrive

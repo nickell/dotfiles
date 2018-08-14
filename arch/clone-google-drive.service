@@ -1,0 +1,10 @@
+[Unit]
+Description=Clone Google Drive
+
+[Service]
+Type=oneshot
+ExecStart=/home/chad/.bin/clone-google-drive
+User=chad
+
+[Install]
+WantedBy=default.target
