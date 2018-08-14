@@ -1,4 +1,4 @@
-export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 source $HOME/.dotfiles/.bash_aliases
 
