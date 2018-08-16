@@ -109,6 +109,8 @@ nnoremap <leader>e :!cd %:p:h;
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>is ceimport<esc>f=cf(from <esc>f)x0j
+nnoremap <leader>ia ceimport * as<esc>f=cf(from <esc>f)x0j
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nnoremap <leader>n :NERDTreeFind<cr>

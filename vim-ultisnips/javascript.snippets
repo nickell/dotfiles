@@ -64,12 +64,12 @@ endsnippet
 
 # {{{ Redux
 snippet reduxmapstate "Redux mapStateToProps function" b
-const mapStateToProps = state => ({})
+const mapStateToProps = (state, props) => ({$1})
 endsnippet
 
 snippet reduxmakemapstate "Redux mapStateToProps function" b
 const makeMapStateToProps = () {
-	const mapStateToProp = state => ({})
+	const mapStateToProp = (state, props) => ({})
 	return mapStateToProps
 }
 endsnippet
