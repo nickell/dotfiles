@@ -8,6 +8,7 @@ call plug#begin(g:configDir.'/plugged')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'w0rp/ale'
     Plug 'wokalski/autocomplete-flow'
+    Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
