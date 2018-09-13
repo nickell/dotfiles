@@ -27,6 +27,11 @@ let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
     \ 'javascript': ['eslint', 'flow'],
     \}
+let g:ale_pattern_options = {
+    \ 'node_modules': {'ale_linters': [], 'ale_fixers': []},
+    \ 'lib': {'ale_linters': [], 'ale_fixers': []},
+    \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+    \}
 " }}}
 
 " {{{ Settings
