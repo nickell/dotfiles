@@ -120,6 +120,7 @@ nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
 nnoremap <leader>rf dt(f)a =><esc>
+nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>si :SortImport<cr>
 " Surround with spaces
 " nnoremap <leader>s lbi <esc>lea <esc>b
