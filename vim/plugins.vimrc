@@ -5,6 +5,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jeetsukumaran/vim-indentwise'
 
 " Git
 Plug 'airblade/vim-gitgutter'

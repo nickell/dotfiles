@@ -125,6 +125,8 @@ nnoremap <leader>si :SortImport<cr>
 " Surround with spaces
 " nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>ta :call ToggleAleFix()<cr>
+nnoremap <leader>td :TSDef<cr>
+nnoremap <leader>tl :ALEDetail<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
