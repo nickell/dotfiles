@@ -7,14 +7,14 @@ source $HOME/.dotfiles/.bash_aliases
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # Load fzf
-export FZF_DEFAULT_COMMAND='ag --ignore ".*.swp" --hidden -l -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # The following alias is defined in ~/.zprezto/modules/utility/init.zsh
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'
 alias se="sudoedit"
 
 f() {
-    find . | ag "$@" 
+    find . | rg "$@"
 }
 
 # r() {

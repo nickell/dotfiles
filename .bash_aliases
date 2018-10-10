@@ -2,6 +2,7 @@ alias alr="source $HOME/.dotfiles/.bash_aliases"
 alias ale="$EDITOR $HOME/.dotfiles/.bash_aliases"
 
 alias a="cal"
+alias aria="aria2c"
 alias c="clear"
 alias g="git"
 alias ga="git add -A"

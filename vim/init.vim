@@ -7,13 +7,16 @@ call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'w0rp/ale'
-    Plug 'wokalski/autocomplete-flow'
+    " Plug 'wokalski/autocomplete-flow'
     Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
 
+" deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 1
+call deoplete#custom#option({
+\ 'auto_complete_delay': 20,
+\ 'min_pattern_length': 2
+\ })
 
 " autocomplete-flow
 let g:autocomplete_flow#insert_paren_after_function = 0
@@ -22,7 +25,12 @@ let g:autocomplete_flow#insert_paren_after_function = 0
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier']
+let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
+let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
+let g:ale_lint_delay = 100
+" let g:ale_lint_on_text_changed = 'normal'
+let g:ale_linters_ignore = {'typescript': ['tslint', 'eslint']}
 let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
     \ 'javascript': ['eslint', 'flow'],

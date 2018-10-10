@@ -6,6 +6,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise'
+" Plug 'majutsushi/tagbar'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -16,14 +17,15 @@ Plug 'SirVer/ultisnips'
 
 " Files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Search
 Plug 'mileszs/ack.vim'
 Plug 'bronson/vim-visual-star-search'
 
 " Javascript
-Plug 'moll/vim-node'
-Plug 'ruanyl/vim-sort-imports'
+" Plug 'moll/vim-node'
+" Plug 'ruanyl/vim-sort-imports'
 
 " tpope {{{
 " :S command, change case (crs, crc, etc.)
@@ -50,12 +52,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Xolox plugins, :Note, :OpenSession
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes', { 'on': 'Note' }
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-notes', { 'on': 'Note' }
+" Plug 'xolox/vim-session'
 
 " Notes
-Plug 'aserebryakov/vim-todo-lists'
+" Plug 'aserebryakov/vim-todo-lists'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'

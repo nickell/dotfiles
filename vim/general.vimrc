@@ -60,7 +60,7 @@ noremap X :bd<cr>
 noremap <M-,> zAzz
 
 " Insert
-inoremap jk <Esc>
+" inoremap jk <Esc>
 
 " Normal
 nnoremap 0 ^
@@ -125,7 +125,9 @@ nnoremap <leader>si :SortImport<cr>
 " Surround with spaces
 " nnoremap <leader>s lbi <esc>lea <esc>b
 nnoremap <leader>ta :call ToggleAleFix()<cr>
+nnoremap <leader>tb :TagbarToggle<cr>
 nnoremap <leader>td :TSDef<cr>
+nnoremap <leader>tt :TSType<cr>
 nnoremap <leader>tl :ALEDetail<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
@@ -167,6 +169,17 @@ function! ConsoleLog()
     normal! pA)
 endfunction
 
+function! ProfileStart()
+    profile start profile.log
+    profile func *
+    profile file *
+endfunction
+
+function! ProfileEnd()
+    profile pause
+    noautocmd qall!
+endfunction
+
 function! ToggleAleFix()
     if g:ale_fix_on_save
         let g:ale_fix_on_save = 0
@@ -205,6 +218,21 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" tagbar
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
+
 " vim-sort-imports
 let g:import_sort_auto = 0
 
@@ -282,7 +310,9 @@ let g:gitgutter_eager = 0
 let g:EasyMotion_smartcase = 1
 
 " Ack
-if executable('ag')
+if executable('rg')
+  let g:ackprg = 'rg --hidden --vimgrep --glob "!.git/*"'
+elseif executable('ag')
   let g:ackprg = 'ag --hidden --vimgrep'
 endif
 " }}}
