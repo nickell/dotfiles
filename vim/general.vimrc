@@ -233,6 +233,7 @@ augroup END
 augroup filetype_quickfix
     autocmd!
     autocmd BufWinEnter quickfix nnoremap <silent> <buffer> q :cclose<cr>:lclose<cr>
+    autocmd BufWinEnter quickfix nnoremap <silent> <buffer> <cr> :.cc<cr>
 augroup END
 " }}}
 
@@ -344,13 +345,6 @@ let g:gitgutter_eager = 0
 
 " EasyMotion
 let g:EasyMotion_smartcase = 1
-
-" Ack
-if executable('rg')
-  let g:ackprg = 'rg --hidden --vimgrep --glob "!.git/*"'
-elseif executable('ag')
-  let g:ackprg = 'ag --hidden --vimgrep'
-endif
 " }}}
 
 " {{{ BUG WORKAROUNDS
