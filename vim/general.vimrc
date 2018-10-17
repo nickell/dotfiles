@@ -33,6 +33,10 @@ set wildmenu
 set list
 set listchars=tab:\|\
 set fileformat=unix " Possible fix to lots of odd line endings showing up
+" Decided to set these because of here:
+" https://www.reddit.com/r/vim/comments/7fqpny/slow_vim_scrolling_and_cursor_moving_in_iterm_and/
+set regexpengine=1
+set synmaxcol=200
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -82,8 +86,8 @@ nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
 nmap gsib gsi{
-nmap QQ :q<cr>
-nmap Q! :q!<cr>
+" nmap QQ :q<cr>
+" nmap Q! :q!<cr>
 
 nmap s <Plug>(easymotion-s)
 
@@ -113,6 +117,10 @@ nnoremap <leader>is ceimport<esc>f=cf(from <esc>f)x0j
 nnoremap <leader>ia ceimport * as<esc>f=cf(from <esc>f)x0j
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+ " <leader>l --- lint namespaced mappings
+nnoremap <leader>ld :ALEDetail<cr>
+nnoremap <leader>lf :call ToggleAleFix()<cr>
+ " /<leader>l
 nnoremap <leader>n :NERDTreeFind<cr>
 nnoremap <leader>p :ALEFix<cr>
 nnoremap <leader>o :OpenSession<cr>
@@ -124,11 +132,11 @@ nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>si :SortImport<cr>
 " Surround with spaces
 " nnoremap <leader>s lbi <esc>lea <esc>b
-nnoremap <leader>ta :call ToggleAleFix()<cr>
+ " <leader>t --- typescript namespaced mappings
 nnoremap <leader>tb :TagbarToggle<cr>
 nnoremap <leader>td :TSDef<cr>
 nnoremap <leader>tt :TSType<cr>
-nnoremap <leader>tl :ALEDetail<cr>
+ " /<leader>t
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
@@ -214,6 +222,11 @@ augroup mygroup
 
     " Automatically update diff on save of either file
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
+augroup END
+
+augroup filetype_help
+    autocmd!
+    autocmd BufWinEnter * if &l:buftype ==# 'help' | nnoremap q :bd<cr> | endif
 augroup END
 " }}}
 

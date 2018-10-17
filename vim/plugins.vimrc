@@ -6,7 +6,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise'
-" Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " Git
 Plug 'airblade/vim-gitgutter'
