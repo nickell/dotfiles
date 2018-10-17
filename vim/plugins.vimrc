@@ -63,6 +63,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
+Plug 'alvan/vim-closetag'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'

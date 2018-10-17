@@ -238,9 +238,12 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+
 " FZF
 " CTRL-A CTRL-Q to select all and build quickfix list
-
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
