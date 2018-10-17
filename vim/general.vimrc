@@ -86,7 +86,7 @@ nnoremap ˙ <c-w>h
 nnoremap ˚ <c-w>k
 nnoremap ∆ <c-w>j
 nmap gsib gsi{
-" nmap QQ :q<cr>
+nmap QQ :q<cr>
 " nmap Q! :q!<cr>
 
 nmap s <Plug>(easymotion-s)
@@ -103,7 +103,7 @@ vnoremap > >gv
 
 " {{{ Leader
 nnoremap <leader><cr> :noh<cr>
-nnoremap <leader>a :Ack!
+nnoremap <leader>a :Rg 
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
@@ -119,6 +119,7 @@ nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
  " <leader>l --- lint namespaced mappings
 nnoremap <leader>ld :ALEDetail<cr>
+nnoremap <leader>li :ALEInfo<cr>
 nnoremap <leader>lf :call ToggleAleFix()<cr>
  " /<leader>l
 nnoremap <leader>n :NERDTreeFind<cr>
@@ -228,9 +229,31 @@ augroup filetype_help
     autocmd!
     autocmd BufWinEnter * if &l:buftype ==# 'help' | nnoremap q :bd<cr> | endif
 augroup END
+
+augroup filetype_quickfix
+    autocmd!
+    autocmd BufWinEnter quickfix nnoremap <silent> <buffer> q :cclose<cr>:lclose<cr>
+augroup END
 " }}}
 
 " {{{ Plugin Config
+" FZF
+" CTRL-A CTRL-Q to select all and build quickfix list
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
 " tagbar
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',

@@ -7,7 +7,7 @@ source $HOME/.dotfiles/.bash_aliases
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # Load fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --follow'
 
 # The following alias is defined in ~/.zprezto/modules/utility/init.zsh
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'

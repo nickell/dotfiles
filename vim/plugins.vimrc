@@ -20,7 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Search
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim' Replaced by fzf.vim's Rg command
 Plug 'bronson/vim-visual-star-search'
 
 " Javascript

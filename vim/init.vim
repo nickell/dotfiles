@@ -15,8 +15,12 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 \ 'auto_complete_delay': 20,
-\ 'min_pattern_length': 2
+\ 'min_pattern_length': 2,
+\ 'ignore_sources': {
+    \ 'typescript': ['buffer'],
+    \}
 \ })
+
 
 " autocomplete-flow
 let g:autocomplete_flow#insert_paren_after_function = 0
@@ -30,7 +34,7 @@ let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 100
 " let g:ale_lint_on_text_changed = 'normal'
-let g:ale_linters_ignore = {'typescript': ['tslint', 'eslint']}
+let g:ale_linters_ignore = {'typescript': ['tslint', 'eslint', 'typecheck']}
 let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
     \ 'javascript': ['eslint', 'flow'],
@@ -51,7 +55,7 @@ set mouse=a
 source $HOME/.dotfiles/vim/general.vimrc
 
 " {{{ Keymaps
-nnoremap <leader>f :FZF<cr>
+nnoremap <leader>f :Files<cr>
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 " }}}
 
