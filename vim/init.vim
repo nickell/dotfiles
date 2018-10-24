@@ -19,6 +19,7 @@ call plug#end()
 
 " ncm2
 augroup ncm
+    autocmd!
     autocmd BufEnter * call ncm2#enable_for_buffer()
 augroup END
 set completeopt=noinsert,menuone,noselect
