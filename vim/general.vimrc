@@ -228,7 +228,7 @@ augroup END
 
 augroup filetype_help
     autocmd!
-    autocmd BufWinEnter * if &l:buftype ==# 'help' | nnoremap q :bd<cr> | endif
+    autocmd BufWinEnter * if &l:buftype ==# 'help' | nnoremap <silent> <buffer> q :bd<cr> | endif
 augroup END
 
 augroup filetype_quickfix
