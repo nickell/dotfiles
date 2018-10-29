@@ -37,7 +37,7 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 100
 " let g:ale_lint_on_text_changed = 'normal'
 let g:ale_linters_ignore = {
-\ 'typescript': ['tslint', 'eslint', 'typecheck'],
+\ 'typescript': ['eslint', 'typecheck'],
 \}
 let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],

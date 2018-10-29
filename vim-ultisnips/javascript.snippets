@@ -109,14 +109,24 @@ class ${1:ClassName} extends ${2:React.Component} {
 }
 endsnippet
 
-snippet rce "React Component" b
-// @flow
+snippet try "Try catch" b
+try {
+	${1:${VISUAL}}
+} catch (err) {
+	${0:${VISUAL}}
+}
+endsnippet
 
+snippet if "If statement" b
+if (${1:Condition}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet rce "React Component" b
 import * as React from 'react'
 
-type Props = {}
-
-class ${1:ClassName} extends ${2:React.Component<Props>} {
+class ${1:ClassName} extends ${2:React.Component} {
 	render() {
 		${0:${VISUAL}}
 	}

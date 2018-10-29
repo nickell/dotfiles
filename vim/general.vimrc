@@ -235,6 +235,7 @@ augroup filetype_quickfix
     autocmd!
     autocmd BufWinEnter quickfix nnoremap <silent> <buffer> q :cclose<cr>:lclose<cr>
     autocmd BufWinEnter quickfix nnoremap <silent> <buffer> <cr> :.cc<cr>
+    autocmd BufWinEnter quickfix nnoremap <silent> <buffer> o :.cc<cr>
 augroup END
 " }}}
 
