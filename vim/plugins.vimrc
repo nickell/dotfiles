@@ -48,8 +48,11 @@ Plug 'tpope/vim-eunuch'
 " }}}
 
 " Status and tab line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
+Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Xolox plugins, :Note, :OpenSession
 " Plug 'xolox/vim-misc'
@@ -60,6 +63,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'aserebryakov/vim-todo-lists'
 
 " Syntax
+Plug 'lifepillar/pgsql.vim'
 Plug 'chr4/nginx.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -85,7 +89,7 @@ Plug 'gerw/vim-HiLinkTrace'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'fneu/breezy'
 Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'sickill/vim-monokai'
 " Plug 'bounceme/highwayman'
 " Plug 'rafi/awesome-vim-colorschemes'

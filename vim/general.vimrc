@@ -57,7 +57,7 @@ set undolevels=100
 syntax on
 set background=dark
 set termguicolors
-colorscheme palenight
+colorscheme gruvbox
 source $HOME/.dotfiles/vim/colors.vimrc
 " }}}
 
@@ -337,23 +337,36 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
+" pgsql.vim
+let g:sql_type_default = 'pgsql'
+
+" Lightline
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'active': {
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype' ] ]
+  \ },
+  \ }
+
 " Airline
-if !exists("g:airline_symbols")
-    let g:airline_symbols = {}
-endif
-let g:airline_theme="cobalt2"
-let g:airline_powerline_fonts=1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#branch#empty_message  =  "no .git"
-let g:airline#extensions#whitespace#enabled    =  0
-let g:airline#extensions#syntastic#enabled     =  1
-let g:airline#extensions#tabline#enabled       =  1
-let g:airline#extensions#tabline#show_buffers  =  1
-let g:airline#extensions#tabline#show_tabs     =  0
-let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
-let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
-let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
+" if !exists("g:airline_symbols")
+"     let g:airline_symbols = {}
+" endif
+" let g:airline_theme="cobalt2"
+" let g:airline_powerline_fonts=1
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline#extensions#branch#empty_message  =  "no .git"
+" let g:airline#extensions#whitespace#enabled    =  0
+" let g:airline#extensions#syntastic#enabled     =  1
+" let g:airline#extensions#tabline#enabled       =  1
+" let g:airline#extensions#tabline#show_buffers  =  1
+" let g:airline#extensions#tabline#show_tabs     =  0
+" let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
+" let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
+" let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
