@@ -34,8 +34,8 @@ let g:ale_fixers['typescript'] = ['prettier']
 let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
-let g:ale_lint_delay = 100
-" let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_delay = 1000
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_linters_ignore = {
 \ 'typescript': ['eslint', 'typecheck'],
 \}

@@ -1,6 +1,10 @@
 filetype plugin indent on
 
 " Settings {{{
+" debugging
+" set verbose=9
+" set verbosefile=/home/chad/Documents/vim-debug.txt
+
 set autoindent
 set backspace=indent,eol,start
 set cmdheight=1
@@ -51,9 +55,9 @@ set undolevels=100
 
 " Colors
 syntax on
-" set background=dark
+set background=dark
 set termguicolors
-colorscheme cobalt2
+colorscheme palenight
 source $HOME/.dotfiles/vim/colors.vimrc
 " }}}
 
@@ -224,6 +228,9 @@ augroup mygroup
 
     " Automatically update diff on save of either file
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
+
+    " Set yaml folds to 2 space
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 augroup filetype_help
@@ -240,9 +247,20 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-jsx-pretty
+let g:vim_jsx_pretty_colorful_config = 1
+
+" json stuff
+let g:vim_json_syntax_concealcursor = 0
+" indentLine json stuff
+let g:indentLine_concealcursor = ""
+
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+
+" polyglot
+" let g:polyglot_disabled = ['typescript', 'javascript', 'javascript.jsx', 'typescript.jsx', 'typescript.tsx']
 
 " FZF
 " CTRL-A CTRL-Q to select all and build quickfix list

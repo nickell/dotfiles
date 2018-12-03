@@ -1,10 +1,4 @@
-# export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
 source $HOME/.dotfiles/.bash_aliases
-
-# Load NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='rg --files --follow'
@@ -16,13 +10,3 @@ alias se="sudoedit"
 f() {
     find . | rg "$@"
 }
-
-# r() {
-#     tempfile="$(mktemp -t tmp.XXXXXX)"
-#     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-#     test -f "$tempfile" &&
-#     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-#         cd -- "$(cat "$tempfile")"
-#     fi
-#     rm -f -- "$tempfile"
-# }

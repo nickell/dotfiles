@@ -60,10 +60,17 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'aserebryakov/vim-todo-lists'
 
 " Syntax
-Plug 'sheerun/vim-polyglot'
+Plug 'chr4/nginx.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'jason0x43/vim-js-indent'
+" Plug 'sheerun/vim-polyglot'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
+Plug 'elzr/vim-json'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -72,11 +79,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Colorschemes
 Plug 'Yggdroot/indentLine'
-Plug 'flazz/vim-colorschemes'
+" Plug 'ajh17/Spacegray.vim'
+" Plug 'flazz/vim-colorschemes'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'fneu/breezy'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'sickill/vim-monokai'
 " Plug 'bounceme/highwayman'
 " Plug 'rafi/awesome-vim-colorschemes'
