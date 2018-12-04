@@ -255,6 +255,9 @@ let g:vim_json_syntax_concealcursor = 0
 " indentLine json stuff
 let g:indentLine_concealcursor = ""
 
+" buftabline
+let g:buftabline_indicators = 1
+
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
@@ -317,7 +320,7 @@ set sessionoptions=blank,buffers,curdir,folds
 let g:hindent_line_length = 80
 
 " vim-devicons
-let g:webdevicons_enable_nerdtree = 0
+let g:webdevicons_enable_nerdtree = 1
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1

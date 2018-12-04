@@ -68,13 +68,13 @@ Plug 'chr4/nginx.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jason0x43/vim-js-indent'
-" Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
+" Plug 'sheerun/vim-polyglot'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
