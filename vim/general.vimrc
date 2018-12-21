@@ -252,6 +252,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 " json stuff
 let g:vim_json_syntax_concealcursor = 0
+
 " indentLine json stuff
 let g:indentLine_concealcursor = ""
 
@@ -261,9 +262,6 @@ let g:buftabline_indicators = 1
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
-
-" polyglot
-" let g:polyglot_disabled = ['typescript', 'javascript', 'javascript.jsx', 'typescript.jsx', 'typescript.tsx']
 
 " FZF
 " CTRL-A CTRL-Q to select all and build quickfix list
@@ -302,9 +300,6 @@ let g:import_sort_auto = 0
 " auto-pairs
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutJump = ''
-
-" vim-indexed-search
-let g:indexed_search_mappings=0
 
 " Vim-Session
 let g:session_directory = g:configDir.'/session'
@@ -347,9 +342,14 @@ let g:sql_type_default = 'pgsql'
 let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
   \              [ 'filetype' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head'
   \ },
   \ }
 
@@ -405,9 +405,6 @@ set nrformats=
 
 " potential lag fix
 let g:matchparen_insert_timeout=1
-
-" fix bufexplorer bug with hidden
-let g:bufExplorerFindActive=0
 " }}}
 
 " {{{ COOL HACKS

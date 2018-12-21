@@ -20,12 +20,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Search
-" Plug 'mileszs/ack.vim' Replaced by fzf.vim's Rg command
 Plug 'bronson/vim-visual-star-search'
 
 " Javascript
 " Plug 'moll/vim-node'
-" Plug 'ruanyl/vim-sort-imports'
+Plug 'ruanyl/vim-sort-imports'
 
 " tpope {{{
 " :S command, change case (crs, crc, etc.)
@@ -51,16 +50,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'shinchu/lightline-gruvbox.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-
-" Xolox plugins, :Note, :OpenSession
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-notes', { 'on': 'Note' }
-" Plug 'xolox/vim-session'
-
-" Notes
-" Plug 'aserebryakov/vim-todo-lists'
 
 " Syntax
 Plug 'lifepillar/pgsql.vim'
