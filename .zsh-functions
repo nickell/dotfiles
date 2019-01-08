@@ -1,3 +1,7 @@
 resizeimages() {
     sips -Z $1 *
 }
+
+t() {
+    tmux split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; last-pane \; select-layout tiled
+}
