@@ -63,6 +63,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
+Plug 'suan/vim-instant-markdown'
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree
