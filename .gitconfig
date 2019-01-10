@@ -18,13 +18,15 @@
 [log]
     abbrevCommit = true
 [alias]
-    m = merge
-    p = pull
+    ba = branch --all --verbose
+    bd = branch --delete
+    cm = !git commit -m
+    cma = !git add -A && git commit -m
     co = checkout
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
-    cm = !git commit -m
-    cma = !git add -A && git commit -m
+    ec = config --global -e
+    m = merge
+    p = pull
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT}; }; f"
     undo = reset HEAD~1 --mixed
-    ec = config --global -e
