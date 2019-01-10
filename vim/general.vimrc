@@ -141,6 +141,7 @@ nnoremap <leader>si :SortImport<cr>
  " <leader>t --- typescript namespaced mappings
 nnoremap <leader>tb :TagbarToggle<cr>
 nnoremap <leader>td :TSDef<cr>
+nnoremap <leader>to :TSDoc<cr>
 nnoremap <leader>tt :TSType<cr>
  " /<leader>t
 nnoremap <leader>U :UltiSnipsEdit<cr>
