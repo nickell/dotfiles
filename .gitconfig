@@ -8,6 +8,8 @@
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
     required = true
+[fetch]
+    prune = true
 [color]
     diff = auto
     status = auto
@@ -26,6 +28,7 @@
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
     ec = config --global -e
+    f = fetch
     m = merge
     p = pull
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT}; }; f"
