@@ -82,8 +82,6 @@ nnoremap <M-l> :bn<cr>
 nnoremap <M-h> :bp<cr>
 map <C-n> :NERDTreeToggle<CR>
 noremap <M-o> :OpenSession<cr>
-" Remap gm to m because of vim-easyclip
-nnoremap gm m
 nnoremap gp :bp<cr>
 nnoremap ¬ <c-w>l
 nnoremap ˙ <c-w>h
