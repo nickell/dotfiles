@@ -28,7 +28,7 @@
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
     ec = config --global -e
-    f = fetch
+    f = fetch -p
     m = merge
     p = pull
     pod = push origin --delete
