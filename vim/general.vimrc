@@ -218,6 +218,9 @@ augroup mygroup
     autocmd Filetype javascript,typescript setlocal ts=2 sts=2 sw=2
 
     " NERDTree stuff
+    autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
+
+    " NERDTree stuff
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
     " Rename tmux window to vim working directory

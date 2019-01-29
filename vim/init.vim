@@ -64,6 +64,15 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 " }}}
 
+if exists('g:gui_oni')
+    " Statements here
+     " overwrite oni mapping
+    function! Unmap_gd(timer)
+      nnoremap gd :bd<cr>
+    endfunction
+    call timer_start(1, 'Unmap_gd')
+endif
+
 try
   source ~/.vimrc.local
 catch
