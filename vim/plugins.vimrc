@@ -64,6 +64,7 @@ Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and 
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown'
+Plug 'vim-scripts/changesqlcase.vim'
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree

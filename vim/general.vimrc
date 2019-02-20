@@ -134,6 +134,7 @@ nnoremap <leader>rf dt(f)a =><esc>
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
 nnoremap <leader>si :SortImport<cr>
+vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
 " nnoremap <leader>s lbi <esc>lea <esc>b
  " <leader>t --- typescript namespaced mappings
