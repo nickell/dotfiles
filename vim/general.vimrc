@@ -123,9 +123,10 @@ nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
 nnoremap <leader>lf :call ToggleAleFix()<cr>
+nnoremap <leader>lt :ALEToggle<cr>
  " /<leader>l
 nnoremap <leader>n :NERDTreeFind<cr>
-nnoremap <leader>p :ALEFix<cr>
+nnoremap <leader>p :PrettierAsync<cr>
 nnoremap <leader>o :OpenSession<cr>
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
@@ -250,6 +251,10 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 " vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
 

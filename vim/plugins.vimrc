@@ -25,6 +25,9 @@ Plug 'bronson/vim-visual-star-search'
 " Javascript
 " Plug 'moll/vim-node'
 Plug 'ruanyl/vim-sort-imports'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " tpope {{{
 " :S command, change case (crs, crc, etc.)

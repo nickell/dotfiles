@@ -29,8 +29,6 @@ let g:autocomplete_flow#insert_paren_after_function = 0
 
 " ALE
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['typescript'] = ['prettier']
 let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
