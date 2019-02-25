@@ -21,7 +21,7 @@
     abbrevCommit = true
 [alias]
     ba = branch --all --verbose
-    bd = branch --delete
+    bd = branch -D
     cm = !git commit -m
     cma = !git add -A && git commit -m
     co = checkout
