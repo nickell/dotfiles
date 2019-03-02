@@ -3,6 +3,7 @@ alias ale="$EDITOR $HOME/.dotfiles/.bash_aliases"
 
 alias a="cal"
 alias aria="aria2c"
+alias au="sudo apt update && sudo apt upgrade -y"
 alias c="clear"
 alias g="git"
 alias ga="git add -A"
