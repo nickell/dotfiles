@@ -24,6 +24,7 @@ Plug 'bronson/vim-visual-star-search'
 
 " Javascript
 " Plug 'moll/vim-node'
+Plug 'dgraham/vim-eslint'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
