@@ -17,6 +17,9 @@ call plug#begin(g:configDir.'/plugged')
     Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
 
+" nvim-typescript
+let g:nvim_typescript#diagnostics_enable=0
+
 " ncm2
 augroup ncm
     autocmd!
@@ -34,12 +37,13 @@ let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_linters_ignore = {
-\ 'typescript': ['eslint', 'typecheck'],
-\}
+" let g:ale_linters_ignore = {
+" \ 'typescript': ['eslint'],
+" \}
 let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
     \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint', 'tsserver'],
     \}
 let g:ale_pattern_options = {
     \ 'node_modules': {'ale_linters': [], 'ale_fixers': []},
