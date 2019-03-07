@@ -57,7 +57,6 @@ set undolevels=100
 syntax on
 set background=dark
 set termguicolors
-colorscheme gruvbox
 source $HOME/.dotfiles/vim/colors.vimrc
 " }}}
 
@@ -251,6 +250,11 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" onedark
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+colorscheme onedark
+
 " vim-prettier
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -348,7 +352,7 @@ let g:sql_type_default = 'pgsql'
 
 " Lightline
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'onedark',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],

@@ -66,6 +66,7 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 " }}}
 
+" {{{ Hacks
 if exists('g:gui_oni')
     " Statements here
      " overwrite oni mapping
@@ -80,3 +81,4 @@ try
 catch
   " No such file? No problem; just ignore it.
 endtry
+" }}}

@@ -25,7 +25,7 @@ multi_line_mode = psql
 # Destructive warning mode will alert you before executing a sql statement
 # that may cause harm to the database such as "drop table", "drop database"
 # or "shutdown".
-destructive_warning = True
+destructive_warning = False
 
 # Enables expand mode, which is similar to `\x` in psql.
 expand = False
@@ -70,7 +70,7 @@ log_level = INFO
 
 # Order of columns when expanding * to column list
 # Possible values: "table_order" and "alphabetic"
-asterisk_column_order = table_order
+asterisk_column_order = alphabetic
 
 # Whether to qualify with table alias/name when suggesting columns
 # Possible values: "always", never" and "if_more_than_one_table"
