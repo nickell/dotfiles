@@ -234,6 +234,11 @@ augroup mygroup
 
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+    " fzf hide statusline
+    autocmd! FileType fzf
+    autocmd  FileType fzf set laststatus=0 noshowmode noruler
+        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler 
 augroup END
 
 augroup filetype_help
