@@ -70,8 +70,8 @@ noremap <M-,> zAzz
 " inoremap jk <Esc>
 
 " Normal
-nnoremap 0 ^
-nnoremap ^ 0
+" nnoremap 0 ^
+" nnoremap ^ 0
 nnoremap - dd
 nnoremap <cr> i<cr><Esc>==
 nnoremap gd :bd<cr>
