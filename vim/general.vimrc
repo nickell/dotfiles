@@ -255,10 +255,16 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" gruvbox
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_contrast_dark = 'soft'
+colorscheme gruvbox
+
 " onedark
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-colorscheme onedark
+" let g:onedark_hide_endofbuffer=1
+" let g:onedark_terminal_italics=1
+" colorscheme onedark
 
 " vim-prettier
 let g:prettier#autoformat = 0
@@ -274,6 +280,7 @@ let g:vim_json_syntax_concealcursor = 0
 let g:indentLine_concealcursor = ""
 
 " buftabline
+let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
 " closetag
@@ -357,7 +364,7 @@ let g:sql_type_default = 'pgsql'
 
 " Lightline
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
+  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \           [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
