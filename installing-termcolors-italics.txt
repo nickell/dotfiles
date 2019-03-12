@@ -1,0 +1,7 @@
+Run these commands to install the custom terminfo files:
+tic -x xterm-256color-italic.terminfo
+tic -x tmux-256color.terminfo
+
+Add this to .tmux.conf to use the new definitions
+set -g default-terminal 'tmux-256color'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
