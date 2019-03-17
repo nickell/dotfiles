@@ -1,7 +1,7 @@
 source $HOME/.dotfiles/.bash_aliases
 
 # Load fzf
-export FZF_DEFAULT_COMMAND='rg --files --follow'
+export FZF_DEFAULT_COMMAND='rg --files --follow --ignore-file ~/.rgignore'
 
 # The following alias is defined in ~/.zprezto/modules/utility/init.zsh
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'

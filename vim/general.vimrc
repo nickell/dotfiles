@@ -303,6 +303,14 @@ let g:fzf_action = {
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --ignore-file ~/.rgignore --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+
 " tagbar
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',
