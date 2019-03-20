@@ -7,7 +7,7 @@ unsetopt beep
 # Source Prezto.
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
-unalias rm
+# unalias rm
 
 export EDITOR='vim'
 
