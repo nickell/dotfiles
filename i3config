@@ -465,4 +465,7 @@ exec setxkbmap -option 'caps:escape'
 
 # Adjust key repeat and delay (200ms and 30hz)
 exec xset r rate 200 30
+
+# Turn screen off after 5 minutes
+exec xset s 300
 # }}}
