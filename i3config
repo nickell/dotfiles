@@ -485,11 +485,11 @@ bindsym $mod+Ctrl+l exec --no-startup-id i3exit lock, mode "default"
 
 # {{{ Exec commands
 # Set caps lock to be an additional escape
-exec setxkbmap -option 'caps:escape'
+exec_always setxkbmap -option 'caps:escape'
 
 # Adjust key repeat and delay (200ms and 30hz)
-exec xset r rate 200 30
+exec_always xset r rate 200 30
 
 # Turn screen off after 5 minutes
-exec xset s 300
+exec_always xset s 300
 # }}}
