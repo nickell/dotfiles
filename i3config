@@ -6,7 +6,7 @@
 set $mod Mod4
 
 # set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
+workspace_layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
@@ -111,9 +111,9 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+Shift+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -122,7 +122,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -225,7 +225,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -418,6 +418,9 @@ mode "$mode_gaps_outer" {
 }
 
 # My customizations
+# {{{ Variables
+set $browser GTK_THEME=Adapta:light firefox
+# }}}
 
 # {{{ Keybindings
 # {{{ Movements
@@ -455,10 +458,17 @@ bindsym $mod+Return exec konsole
 # Change browser shortcut to chrome
 bindsym $mod+c exec google-chrome-stable
 
-for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move scratchpad
+for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
+for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
+for_window [class="Firefox" title="Yaguara Slack - Mozilla Firefox"] move to workspace Slack
+for_window [class="Spotify"] move to workspace Spotify
 
 # Connect to home wifi
 bindsym $mod+Shift+w exec nmcli con up Home
+
+bindsym $mod+e workspace Email
+bindsym $mod+s workspace Slack
+bindsym $mod+o workspace Spotify
 
 set $monitor_mode Monitor config: [a]uto [h]dmi left [d]p1 left [m]edium res [l]ow res [x]tra low res
 bindsym $mod+m mode $monitor_mode
@@ -481,11 +491,14 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [f]irefox [s]potify
+set $launch_app_mode Launch app: [f]irefox [s]potify [p]ersonal email [w]ork email s[l]ack
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym s exec spotify
-        bindsym f exec GTK_THEME=Adapta:light firefox
+        bindsym f exec $browser
+        bindsym p exec $browser 'https://mail.google.com/mail/u/0/#inbox'
+        bindsym w exec $browser 'https://mail.google.com/mail/u/1/#inbox'
+        bindsym l exec $browser 'https://yaguara.slack.com/'
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
