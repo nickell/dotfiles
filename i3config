@@ -491,14 +491,14 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [f]irefox [s]potify [p]ersonal email [w]ork email s[l]ack
+set $launch_app_mode Launch app: [f]irefox | sp[o]tify | [p]ersonal email | [w]ork email | s[l]ack
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
-        bindsym s exec spotify
+        bindsym o exec spotify
         bindsym f exec $browser
         bindsym p exec $browser 'https://mail.google.com/mail/u/0/#inbox'
         bindsym w exec $browser 'https://mail.google.com/mail/u/1/#inbox'
-        bindsym l exec $browser 'https://yaguara.slack.com/'
+        bindsym s exec $browser 'https://yaguara.slack.com/'
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
