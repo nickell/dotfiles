@@ -518,7 +518,4 @@ exec_always xset r rate 200 30
 
 # Turn screen off after 5 minutes
 exec_always xset s 300
-
-# Hide cursor when typing
-exec_always --no-startup-id xbanish
 # }}}
