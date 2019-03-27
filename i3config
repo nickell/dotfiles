@@ -460,6 +460,8 @@ bindsym $mod+c exec google-chrome-stable
 
 for_window [class="Google-chrome" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
 for_window [class="Google-chrome" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
+for_window [class="Google-chrome" title="Yaguara - Calendar"] move to workspace Email
+for_window [class="Google-chrome" title="Google Calendar - "] move to workspace Email
 for_window [class="Google-chrome" title="Yaguara Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
 
@@ -491,7 +493,7 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack
+set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | c[a]lendars
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -499,6 +501,7 @@ mode "$launch_app_mode" {
         bindsym p exec $browser --app='https://mail.google.com/mail/u/0/#inbox'
         bindsym w exec $browser --app='https://mail.google.com/mail/u/1/#inbox'
         bindsym s exec $browser --app='https://yaguara.slack.com/'
+        bindsym a exec $browser --app='https://calendar.google.com/calendar/b/1/r'; exec $browser --app='https://calendar.google.com/calendar/r'
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
