@@ -493,7 +493,7 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | c[a]lendars
+set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | work c[a]lendar | persona[l] calendar
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -501,7 +501,8 @@ mode "$launch_app_mode" {
         bindsym p exec $browser --app='https://mail.google.com/mail/u/0/#inbox'
         bindsym w exec $browser --app='https://mail.google.com/mail/u/1/#inbox'
         bindsym s exec $browser --app='https://yaguara.slack.com/'
-        bindsym a exec $browser --app='https://calendar.google.com/calendar/b/1/r'; exec $browser --app='https://calendar.google.com/calendar/r'
+        bindsym a exec $browser --app='https://calendar.google.com/calendar/b/1/r'
+        bindsym l exec $browser --app='https://calendar.google.com/calendar'
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
@@ -514,10 +515,10 @@ bindsym $mod+Ctrl+l exec --no-startup-id i3exit lock, mode "default"
 
 # {{{ Exec commands
 # Set caps lock to be an additional escape
-exec_always setxkbmap -option 'caps:escape'
+# exec_always setxkbmap -option 'caps:escape'
 
 # Adjust key repeat and delay (200ms and 30hz)
-exec_always xset r rate 200 30
+# exec_always xset r rate 200 30
 
 # Turn screen off after 5 minutes
 exec_always xset s 300
