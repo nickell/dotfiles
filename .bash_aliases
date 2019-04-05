@@ -34,6 +34,7 @@ alias ranm="rm -rf node_modules && rnm && rm yarn.lock"
 alias rc="source ranger"
 alias remove-node-modules="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 alias remove-lib="find . -name 'lib' -type d -prune -exec rm -rf '{}' +"
+alias sc='echo "\x1B[?25h"'
 alias ssh='TERM=xterm-256color ssh'
 alias tf="terraform"
 alias tm="tmux"

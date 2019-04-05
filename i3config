@@ -465,7 +465,9 @@ for_window [class="Google-chrome" title="nickell.chad@gmail.com - Gmail"] move t
 for_window [class="Google-chrome" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
 for_window [class="Google-chrome" title="Yaguara - Calendar"] move to workspace Email
 for_window [class="Google-chrome" title="Google Calendar - "] move to workspace Email
+
 for_window [class="Google-chrome" title="Yaguara Slack"] move to workspace Slack
+for_window [class="Google-chrome" title="Yaguara Community Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
 
 # Connect to home wifi
@@ -496,7 +498,7 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | work c[a]lendar | persona[l] calendar
+set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | co[m]munity slack | work c[a]lendar | persona[l] calendar
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -504,6 +506,7 @@ mode "$launch_app_mode" {
         bindsym p exec $browser --app='https://mail.google.com/mail/u/0/#inbox'
         bindsym w exec $browser --app='https://mail.google.com/mail/u/1/#inbox'
         bindsym s exec $browser --app='https://yaguara.slack.com/'
+        bindsym m exec $browser --app='https://yaguaracommunity.slack.com/'
         bindsym a exec $browser --app='https://calendar.google.com/calendar/b/1/r'
         bindsym l exec $browser --app='https://calendar.google.com/calendar'
 
