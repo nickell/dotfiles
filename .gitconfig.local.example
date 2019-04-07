@@ -1,9 +1,2 @@
-[user]
-    name = Chad Nickell
-    email = chad@yaguara.co
 [credential]
     helper = osxkeychain
-[core]
-    editor = nvim
-[log]
-    date = format:%m/%d/%Y %H:%M

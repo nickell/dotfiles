@@ -1,8 +1,12 @@
+[user]
+    name = Chad Nickell
+    email = chad@yaguara.co
 [include]
     path = ~/.gitconfig.local
 [push]
     default = simple
 [core]
+    editor = nvim
     excludesfile = ~/.dotfiles/.gitignore
 [filter "lfs"]
     clean = git-lfs clean %f
@@ -18,6 +22,7 @@
 [format]
     pretty = format:%Cgreen%h%Creset %an %Cred::%Creset %s %Cred::%Creset %ad (%Cblue%ar%Creset)
 [log]
+    date = format:%m/%d/%Y %H:%M
     abbrevCommit = true
 [alias]
     ba = branch --all --verbose

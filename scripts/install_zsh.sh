@@ -14,6 +14,10 @@ install_zsh () {
         platform=$(uname);
         # If the platform is Linux, try an apt-get to install zsh and then recurse
         if [[ $platform == 'Linux' ]]; then
+            if [[ -f /etc/arch-release ]]; then
+                sudo pacman -S zsh
+                install_zsh
+            fi
             if [[ -f /etc/redhat-release ]]; then
                 sudo yum install zsh
                 install_zsh

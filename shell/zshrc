@@ -9,13 +9,13 @@ unsetopt beep
 
 unalias rm
 
-export EDITOR='vim'
+export EDITOR='nvim'
+export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-file ~/.rgignore'
+
+export PATH="$HOME/.local/bin:$HOME/.bin:$PATH"
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-source $HOME/.dotfiles/.zsh-functions
-source $HOME/.dotfiles/.bashrc.common
+source $HOME/.dotfiles/shell/aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f $HOME/.zshrc.post-local ] && source $HOME/.zshrc.post-local
