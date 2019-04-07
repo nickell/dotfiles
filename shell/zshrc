@@ -4,18 +4,27 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob nomatch hist_ignore_dups
 unsetopt beep
 
-# Source Prezto.
+# Source Prezto and remove an alias from it
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
-
 unalias rm
 
+# Source FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use neovim by default
 export EDITOR='nvim'
+
+# Set up ripgrep as fzf's backend
 export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-file ~/.rgignore'
 
+# Export path to include:
+# node from NVM
+# .local/bin (yarn)
+# $HOME/.bin for my custom scripts
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
 
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
+# Set up aliases
 source $HOME/.dotfiles/shell/aliases
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Support local modifications
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
