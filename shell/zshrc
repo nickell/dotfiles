@@ -12,7 +12,7 @@ unalias rm
 export EDITOR='nvim'
 export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-file ~/.rgignore'
 
-export PATH="$HOME/.local/bin:$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
