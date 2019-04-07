@@ -145,7 +145,7 @@ nnoremap <leader>tt :TSType<cr>
  " /<leader>t
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
-nnoremap <leader>w :w!<cr>
+nnoremap <leader>w :PrettierAsync<cr>:w!<cr>
 
 " Visual
 vnoremap <leader>cl :call ConsoleLog()<cr>
@@ -268,7 +268,7 @@ colorscheme gruvbox
 
 " vim-prettier
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
