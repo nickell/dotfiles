@@ -4,7 +4,6 @@ Plug 'ervandew/supertab'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'majutsushi/tagbar'
 
@@ -48,6 +47,9 @@ Plug 'tpope/vim-unimpaired'
 
 " Vim sugar for unix shell commands :Delete, :Rename, :Move, etc.
 Plug 'tpope/vim-eunuch'
+
+" Automatically end vim/bash functions and if statements (and others)
+Plug 'tpope/vim-endwise'
 " }}}
 
 " Status and tab line
