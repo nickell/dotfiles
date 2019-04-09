@@ -145,7 +145,7 @@ nnoremap <leader>tt :TSType<cr>
  " /<leader>t
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
-nnoremap <leader>w :PrettierAsync<cr>:w!<cr>
+nnoremap <leader>w :w!<cr>
 
 " Visual
 vnoremap <leader>cl :call ConsoleLog()<cr>
@@ -235,6 +235,8 @@ augroup mygroup
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
+
     " fzf hide statusline
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
@@ -268,6 +270,7 @@ colorscheme gruvbox
 
 " vim-prettier
 let g:prettier#autoformat = 0
+" Moved this logic to a save mapping that only gets set for these file types
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " vim-jsx-pretty
