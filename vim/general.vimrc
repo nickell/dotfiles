@@ -216,7 +216,7 @@ augroup mygroup
 
     autocmd bufreadpre *.md setlocal textwidth=80
 
-    autocmd Filetype javascript,typescript setlocal ts=2 sts=2 sw=2
+    autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2
 
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
@@ -234,7 +234,7 @@ augroup mygroup
 
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
+    
     autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
 
     " fzf hide statusline
