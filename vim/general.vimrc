@@ -263,6 +263,13 @@ let g:gruvbox_bold = 1
 let g:gruvbox_contrast_dark = 'soft'
 colorscheme gruvbox
 
+" let g:onedark_terminal_italics = 1
+" colorscheme onedark
+
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+
 " onedark
 " let g:onedark_hide_endofbuffer=1
 " let g:onedark_terminal_italics=1
