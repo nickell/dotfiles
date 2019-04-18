@@ -71,6 +71,8 @@ Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/changesqlcase.vim'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree
@@ -80,6 +82,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Colorschemes
 Plug 'Yggdroot/indentLine'
+" Plug 'gertjanreynaert/cobalt2-vim-theme'
 " Plug 'ajh17/Spacegray.vim'
 " Plug 'flazz/vim-colorschemes'
 Plug 'gerw/vim-HiLinkTrace'
@@ -87,7 +90,7 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'fneu/breezy'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'sickill/vim-monokai'

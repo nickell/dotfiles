@@ -258,13 +258,13 @@ augroup END
 
 " {{{ Plugin Config
 " gruvbox
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
-let g:gruvbox_contrast_dark = 'soft'
-colorscheme gruvbox
+" let g:gruvbox_italic = 1
+" let g:gruvbox_bold = 1
+" let g:gruvbox_contrast_dark = 'soft'
+" colorscheme gruvbox
 
-" let g:onedark_terminal_italics = 1
-" colorscheme onedark
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 " let g:oceanic_next_terminal_bold = 1
 " let g:oceanic_next_terminal_italic = 1
@@ -382,7 +382,7 @@ let g:sql_type_default = 'pgsql'
 
 " Lightline
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'onedark',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
