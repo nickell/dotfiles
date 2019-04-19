@@ -133,6 +133,7 @@ nnoremap <leader>Q :q!<cr>
 nnoremap <leader>rf dt(f)a =><esc>
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
+nnoremap <leader>sa :wa<cr>
 nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
