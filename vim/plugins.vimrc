@@ -72,7 +72,7 @@ Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree
