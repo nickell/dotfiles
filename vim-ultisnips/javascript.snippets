@@ -126,10 +126,8 @@ endsnippet
 snippet rce "React Component" b
 import * as React from 'react'
 
-class ${1:ClassName} extends ${2:React.Component} {
-	render() {
-		${0:${VISUAL}}
-	}
+const ${1:ComponentName} = () => {
+	${0:${VISUAL}}
 }
 
 export default $1
