@@ -36,6 +36,6 @@
     f = fetch -p
     m = merge
     p = pull
-    pod = push origin --delete
+    pod = push origin --delete --no-verify
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT} --no-verify; }; f"
     undo = reset HEAD~1 --mixed
