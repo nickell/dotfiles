@@ -28,6 +28,7 @@ set shiftwidth=4
 set showmatch
 set smartcase
 set smarttab
+set mouse=a
 set softtabstop=4
 set tabstop=4
 set textwidth=100
@@ -110,50 +111,35 @@ nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 " Run command in current buffer's directory
 nnoremap <leader>e :!cd %:p:h;
-" nnoremap <leader>f in specific configs
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gp :echo @%<cr>
+nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>is ceimport<esc>f=cf(from <esc>f)x0j
-nnoremap <leader>ia ceimport * as<esc>f=cf(from <esc>f)x0j
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
- " <leader>l --- lint namespaced mappings
+nnoremap <leader>gp :echo @%<cr>
+nnoremap <leader>gs :Gstatus<cr>
+" nmap <leader>j in specific configs
+" nmap <leader>k in specific configs
+" <leader>t --- lint namespaced mappings
 nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
-nnoremap <leader>lf :call ToggleAleFix()<cr>
-nnoremap <leader>lt :ALEToggle<cr>
- " /<leader>l
 nnoremap <leader>n :NERDTreeFind<cr>
 nnoremap <leader>p :PrettierAsync<cr>
-nnoremap <leader>o :OpenSession<cr>
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
-nnoremap <leader>rf dt(f)a =><esc>
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
 nnoremap <leader>sa :wa<cr>
 nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
-" nnoremap <leader>s lbi <esc>lea <esc>b
- " <leader>t --- typescript namespaced mappings
-nnoremap <leader>tb :TagbarToggle<cr>
+" <leader>t --- typescript namespaced mappings
 nnoremap <leader>td :TSDef<cr>
 nnoremap <leader>to :TSDoc<cr>
 nnoremap <leader>tt :TSType<cr>
- " /<leader>t
 nnoremap <leader>U :UltiSnipsEdit<cr>
-nnoremap <leader>v :e  ~/.dotfiles/vim/general.vimrc<cr>
 nnoremap <leader>w :w!<cr>
 
 " Visual
 vnoremap <leader>cl :call ConsoleLog()<cr>
-" Delete surrounding characters
-vnoremap <leader>ds <esc>`>lx`<hx
-" Surround with spaces
-vnoremap <leader>s <esc>`>a <esc>`<i <esc>l
 " }}}
 " }}}
 
@@ -320,22 +306,6 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-
-
-" tagbar
-let g:tagbar_type_typescript = {
-  \ 'ctagstype': 'typescript',
-  \ 'kinds': [
-    \ 'c:classes',
-    \ 'n:modules',
-    \ 'f:functions',
-    \ 'v:variables',
-    \ 'v:varlambdas',
-    \ 'm:members',
-    \ 'i:interfaces',
-    \ 'e:enums',
-  \ ]
-\ }
 
 " vim-sort-imports
 let g:import_sort_auto = 0

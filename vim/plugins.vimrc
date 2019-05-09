@@ -5,7 +5,6 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'jeetsukumaran/vim-indentwise'
-Plug 'majutsushi/tagbar'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -23,7 +22,7 @@ Plug 'bronson/vim-visual-star-search'
 
 " Javascript
 " Plug 'moll/vim-node'
-Plug 'dgraham/vim-eslint'
+" Plug 'dgraham/vim-eslint'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -72,6 +71,7 @@ Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'sheerun/vim-polyglot'
 
@@ -88,7 +88,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'fneu/breezy'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 " Plug 'mhartington/oceanic-next'
 " Plug 'cocopon/iceberg.vim'

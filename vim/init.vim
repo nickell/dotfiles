@@ -5,17 +5,16 @@ filetype off
 
 call plug#begin(g:configDir.'/plugged')
     source $HOME/.dotfiles/vim/plugins.vimrc
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-ultisnips'
-    " Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
     Plug 'w0rp/ale'
-    " Plug 'wokalski/autocomplete-flow'
     Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
+
+source $HOME/.dotfiles/vim/general.vimrc
 
 " nvim-typescript
 let g:nvim_typescript#diagnostics_enable=0
@@ -27,9 +26,6 @@ augroup ncm
 augroup END
 set completeopt=noinsert,menuone,noselect
 
-" autocomplete-flow
-let g:autocomplete_flow#insert_paren_after_function = 0
-
 " ALE
 let g:ale_fixers = {}
 let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
@@ -37,9 +33,6 @@ let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_text_changed = 'always'
-" let g:ale_linters_ignore = {
-" \ 'typescript': ['eslint'],
-" \}
 let g:ale_linters = {
     \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
     \ 'javascript': ['eslint'],
@@ -52,30 +45,18 @@ let g:ale_pattern_options = {
 " \ 'lib': {'ale_linters': [], 'ale_fixers': []},
 " }}}
 
-" {{{ Settings
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set mouse=a
-" }}}
-
-source $HOME/.dotfiles/vim/general.vimrc
-
 " {{{ Keymaps
-imap <silent> <c-x><c-o> <Plug>(ncm2_manual_trigger)
-nnoremap <leader>f :Files<cr>
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
+
+" ncm
+imap <silent> <c-x><c-o> <Plug>(ncm2_manual_trigger)
+
+" ale
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 " }}}
 
 " {{{ Hacks
-if exists('g:gui_oni')
-    " Statements here
-     " overwrite oni mapping
-    function! Unmap_gd(timer)
-      nnoremap gd :bd<cr>
-    endfunction
-    call timer_start(1, 'Unmap_gd')
-endif
-
 try
   source ~/.vimrc.local
 catch
