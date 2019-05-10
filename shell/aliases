@@ -4,10 +4,11 @@ alias a="cal"
 alias aria="aria2c"
 alias au="sudo pacman -Syu"
 alias c="clear"
+alias ctl="systemctl --user"
 alias g="git"
+alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
-alias gd="git diff"
 alias ip="curl ipecho.net/plain;echo"
 alias k="kubectl"
 alias kprod="k config use-context prod"
@@ -35,3 +36,12 @@ alias tmn="tmux new -s main"
 alias x='exit'
 alias y="yarn"
 alias z='fasd_cd -d'
+
+# Functions
+logs () {
+    if [ $1 = "front-end" ]; then
+        journalctl --user -f -o cat -u $1
+    else
+        journalctl --user -f -o cat -u $1 | npx bunyan -o short
+    fi
+}
