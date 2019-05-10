@@ -39,9 +39,5 @@ alias z='fasd_cd -d'
 
 # Functions
 logs () {
-    if [ $1 = "front-end" ]; then
-        journalctl --user -f -o cat -u $1
-    else
-        journalctl --user -f -o cat -u $1 | npx bunyan -o short
-    fi
+    journalctl --user -f -o cat -u $1 | npx bunyan -o short
 }
