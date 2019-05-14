@@ -27,11 +27,6 @@ alias remove-node-modules="find . -name 'node_modules' -type d -prune -exec rm -
 alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
 alias ssh='TERM=xterm-256color ssh'
-alias t="tmux split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
-    last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
-    last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
-    last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
-    last-pane \; select-layout tiled"
 alias tmn="tmux new -s main"
 alias x='exit'
 alias y="yarn"
@@ -39,5 +34,23 @@ alias z='fasd_cd -d'
 
 # Functions
 logs () {
-    journalctl --user -f -o cat -u $1 | npx bunyan -o short
+    journalctl --user -f -o cat -u $1 | bunyan -o short
+}
+
+t () {
+    tmux split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
+        last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
+        last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
+        last-pane \; split-window -v -p 9 \; last-pane \; split-window -v -p 9 \; \
+        last-pane \; select-layout tiled
+
+    tmux select-pane -t:.8
+    tmux send-keys -t:.0 'logs front-end' Enter
+    tmux send-keys -t:.1 'logs api' Enter
+    tmux send-keys -t:.2 'logs api-watch' Enter
+    tmux send-keys -t:.3 'logs profectus' Enter
+    tmux send-keys -t:.4 'logs websockets' Enter
+    tmux send-keys -t:.5 'logs etl' Enter
+    tmux send-keys -t:.6 'logs mailer' Enter
+    tmux send-keys -t:.7 'logs cronjobs' Enter
 }
