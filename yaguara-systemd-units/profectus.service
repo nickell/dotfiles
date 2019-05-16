@@ -1,0 +1,12 @@
+[Unit]
+Description=Yaguara profectus service
+PartOf=app.service
+After=app.service
+
+[Service]
+WorkingDirectory=/home/chad/Sites/yaguara/packages/profectus
+ExecStart=/home/chad/.nvm/versions/node/v10.15.3/bin/npm run watch
+
+[Install]
+WantedBy=app.service
+WantedBy=front-end.service

@@ -1,0 +1,7 @@
+[Unit]
+Description=Yaguara backend
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+RemainAfterExit=yes

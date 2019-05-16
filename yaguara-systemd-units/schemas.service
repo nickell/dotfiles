@@ -1,0 +1,12 @@
+[Unit]
+Description=Yaguara schemas service
+PartOf=app.service
+After=app.service
+
+[Service]
+WorkingDirectory=/home/chad/Sites/yaguara/packages/schemas
+ExecStart=/home/chad/.nvm/versions/node/v10.15.3/bin/npm run watch
+
+[Install]
+WantedBy=app.service
+WantedBy=backend.service
