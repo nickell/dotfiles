@@ -58,7 +58,6 @@ set undolevels=100
 syntax on
 set background=dark
 set termguicolors
-source $HOME/.dotfiles/vim/colors.vimrc
 " }}}
 
 " {{{ Key Bindings
