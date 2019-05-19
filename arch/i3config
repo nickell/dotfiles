@@ -468,6 +468,27 @@ bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
 bindsym $mod+i workspace Jira
 
+set $monitor_mode Monitor: (a)uto (h)dmi left (d)p1 left (m)edium res (l)ow res (x)tra low res
+bindsym $mod+m mode $monitor_mode
+mode "$monitor_mode" {
+        # Auto detect monitors
+        bindsym a exec xrandr --auto
+        # Make HDMI2 left of laptop
+        bindsym h exec xrandr --output HDMI2 --left-of eDP1
+        # Make DP1 left of laptop
+        bindsym d exec xrandr --output DP1 --left-of eDP1
+        # Laptop medium resolution
+        bindsym m exec xrandr --output eDP1 --mode 1920x1200
+        # Laptop low resolution
+        bindsym l exec xrandr --output eDP1 --mode 1680x1050
+        # Laptop extra low resolution
+        bindsym x exec xrandr --output eDP1 --mode 1280x800
+
+        # exit monitor mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | work c(a)lendar | persona(l) calendar | j(i)ra
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
