@@ -1,7 +1,9 @@
 # vim: set fdm=marker fmr={{{,}}} fdl=0:
+
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# {{{ Built-in config
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -66,8 +68,6 @@ bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -232,7 +232,7 @@ bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id /home/chad/.bin/lock-screen.sh, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -283,7 +283,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker /home/chad/.bin/lock-screen.sh
+# exec --no-startup-id xautolock -time 10 -locker /home/chad/.bin/lock-screen.sh
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -416,6 +416,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# }}}
 
 # My customizations
 # {{{ Variables
@@ -438,48 +439,36 @@ bindsym $mod+Shift+l move right
 
 # Move worskpace to output
 bindsym $mod+Shift+Left move workspace to output left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move workspace to output up
 bindsym $mod+Shift+Right move workspace to output right
 # }}}
 
-# This allows toggling mute
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +20%
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20%
-
-# Change terminal to konsole
+# App shortcuts
 bindsym $mod+Return exec konsole
-
-# Change browser shortcut to chrome
 bindsym $mod+c exec google-chrome-stable
+# }}}
 
+# {{{ Scripting
 for_window [class="Google-chrome" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
 for_window [class="Google-chrome" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
 for_window [class="Google-chrome" title="Yaguara - Calendar"] move to workspace Email
 for_window [class="Google-chrome" title="Google Calendar - "] move to workspace Email
-
 for_window [class="Google-chrome" title="Yaguara Slack"] move to workspace Slack
 for_window [class="Google-chrome" title="Yaguara Community Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
 for_window [class="Google-chrome" title="YAG board - Agile Board - Jira"] move to workspace Jira
-
-# Connect to home wifi
-bindsym $mod+Shift+w exec nmcli con up Home
 
 bindsym $mod+e workspace Email
 bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
 bindsym $mod+i workspace Jira
 
-set $monitor_mode Monitor config: [a]uto [h]dmi left [d]p1 left [m]edium res [l]ow res [x]tra low res
+set $monitor_mode Monitor: (a)uto (h)dmi left (d)p1 left (m)edium res (l)ow res (x)tra low res
 bindsym $mod+m mode $monitor_mode
 mode "$monitor_mode" {
         # Auto detect monitors
@@ -500,7 +489,7 @@ mode "$monitor_mode" {
         bindsym Escape mode "default"
 }
 
-set $launch_app_mode Launch app: [c]hrome | sp[o]tify | [p]ersonal email | [w]ork email | [s]lack | co[m]munity slack | work c[a]lendar | persona[l] calendar | j[i]ra
+set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | work c(a)lendar | persona(l) calendar | j(i)ra
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -518,17 +507,17 @@ mode "$launch_app_mode" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-# bindsym $mod+Ctrl+l exec --no-startup-id i3exit lock, mode "default"
+set $print_mode Print screen: (w)indow | (s)elect area | (p)rint screen
+bindsym $mod+p mode $print_mode
+mode "$print_mode" {
+        bindsym p --release exec --no-startup-id i3-scrot, mode "default"
+        bindsym w --release exec --no-startup-id i3-scrot -w, mode "default"
+        bindsym s --release exec --no-startup-id i3-scrot -s, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 # }}}
 
 # {{{ Exec commands
-# Set caps lock to be an additional escape
-# exec_always setxkbmap -option 'caps:escape'
-
-# Adjust key repeat and delay (200ms and 30hz)
-# exec_always xset r rate 200 30
-
-# Turn screen off after 5 minutes
-exec_always xset s 300
 # }}}
