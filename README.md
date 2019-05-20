@@ -22,8 +22,27 @@ Notes from [here](https://forum.manjaro.org/t/howto-properly-disable-avahi-syste
 - sudo rm /etc/systemd/system/avahi-daemon.{service,socket}
 - sudo ln -sf /usr/lib/systemd/system/avahi-daemon.service /etc/systemd/system/dbus-org.freedesktop.Avahi.service
 
+#### Keyboard
+
 ##### Set key repeat rate/delay for lightdm
 
 - edit /etc/lightdm/lightdm.conf
 - Add this under `[Seat:*]`
 - xserver-command=X -ardelay 200 -arinterval 30
+
+#### Dev TLD
+
+- add /etc/NetworkManager/conf.d/dns.conf:
+
+```
+[main]
+dns=dnsmasq
+```
+
+- add /etc/NetworkManager/dnsmasq.d/dev-tld.conf
+
+```
+address=/dev/127.0.0.1
+```
+
+- `> sudo systemctl restart NetworkManager`
