@@ -10,9 +10,6 @@ set backspace=indent,eol,start
 set cmdheight=1
 set completeopt-=preview
 set expandtab
-set foldlevelstart=99
-set foldmethod=syntax
-set foldnestmax=4
 set hidden
 set hlsearch
 set ignorecase
