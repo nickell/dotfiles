@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 parentServices=(app backend)
-individualServices=(api api-watch websockets cronjobs etl mailer front-end profectus schemas)
+individualServices=(api api-watch websockets cronjobs etl mailer front-end profectus)
 
 allServices=("${parentServices[@]}")
 allServices+=("${individualServices[@]}")
