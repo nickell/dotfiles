@@ -519,4 +519,5 @@ mode "$print_mode" {
 # }}}
 
 # {{{ Exec commands
+exec --no-startup-id blueman-applet
 # }}}
