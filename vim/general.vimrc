@@ -16,6 +16,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set noshowmode
+set colorcolumn=81
 set nowrap
 set nowritebackup
 set number
