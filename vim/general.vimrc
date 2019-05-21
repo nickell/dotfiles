@@ -16,7 +16,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set noshowmode
-set colorcolumn=81
 set nowrap
 set nowritebackup
 set number
@@ -203,7 +202,7 @@ augroup mygroup
     autocmd Filetype markdown setlocal textwidth=80
 
     " Javascript/typescript tab width, fold method
-    autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2 fdm=syntax foldlevel=99
+    autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
 
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
