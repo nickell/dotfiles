@@ -16,7 +16,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set noshowmode
-set colorcolumn=81
 set nowrap
 set nowritebackup
 set number
@@ -193,16 +192,17 @@ endfunction
 augroup mygroup
     autocmd!
     " Git tweaks
-    autocmd Filetype gitcommit setlocal textwidth=72
+    autocmd Filetype gitcommit setlocal textwidth=72 colorcolumn=51
     
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
 
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 
-    autocmd bufreadpre *.md setlocal textwidth=80
+    autocmd Filetype markdown setlocal textwidth=80
 
-    autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2
+    " Javascript/typescript tab width, fold method
+    autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
 
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
@@ -210,17 +210,13 @@ augroup mygroup
     " NERDTree stuff
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-    " Rename tmux window to vim working directory
-    " autocmd BufReadPost,FileReadPost,FocusGained,BufNewFile * call system("tmux rename-window ' vim " . fnamemodify(getcwd(), ':t') . "'")
-    " Rename the tmux window on leaving vim
-    " autocmd VimLeave * call system("tmux setw automatic-rename") " Consider adding FocusLost to this?
-
     " Automatically update diff on save of either file
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     
+    " Update save mapping to format with prettier in compatible filetypes
     autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
 
     " fzf hide statusline
