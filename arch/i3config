@@ -445,7 +445,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 
 # App shortcuts
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec konsole --profile Tmux
+bindsym $mod+Shift+Return exec konsole
 bindsym $mod+c exec google-chrome-stable
 
 # Lock screen
