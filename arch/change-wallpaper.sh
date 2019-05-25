@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-wget https://source.unsplash.com/collection/1065396/1920x1080 -O ~/.wallpaper.jpg
+collections='220388'
+
+wget https://source.unsplash.com/collection/220388/1920x1080 -O ~/.wallpaper.jpg
 feh --bg-fill ~/.wallpaper.jpg
