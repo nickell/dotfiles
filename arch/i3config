@@ -504,4 +504,5 @@ mode "$print_mode" {
 # }}}
 
 # {{{ Exec commands
+exec --no-startup-id feh --bg-fill /home/chad/.dotfiles/arch/wallpaper.jpg
 # }}}
