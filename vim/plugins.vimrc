@@ -49,6 +49,10 @@ Plug 'tpope/vim-eunuch'
 
 " Automatically end vim/bash functions and if statements (and others)
 Plug 'tpope/vim-endwise'
+
+" Comment shortcut gcc
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring' " contexts for jsx regions
 " }}}
 
 " Status and tab line
@@ -65,7 +69,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'pedrohdz/vim-yaml-folds'
-Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
+" Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown'
