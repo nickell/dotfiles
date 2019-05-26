@@ -453,7 +453,7 @@ bindsym $mod+c exec google-chrome-stable
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
 
 # Wallpaper
-bindsym $mod+Shift+w exec --no-startup-id /home/chad/.dotfiles/arch/change-wallpaper.sh
+# bindsym $mod+Shift+w exec --no-startup-id /home/chad/.dotfiles/arch/change-wallpaper.sh
 # }}}
 
 # {{{ Scripting
