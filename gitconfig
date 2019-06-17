@@ -24,6 +24,8 @@
 [log]
     date = format:%m/%d/%Y %H:%M
     abbrevCommit = true
+[commit]
+    template = ~/.dotfiles/git_commit_msg
 [alias]
     ba = branch --all --verbose
     bd = branch -D
