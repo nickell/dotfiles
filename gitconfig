@@ -24,6 +24,8 @@
 [log]
     date = format:%m/%d/%Y %H:%M
     abbrevCommit = true
+[commit]
+    template = ~/.dotfiles/git_commit_msg
 [alias]
     ba = branch --all --verbose
     bd = branch -D
@@ -34,6 +36,7 @@
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
     ec = config --global -e
     f = fetch -p
+    lm = log --pretty=medium
     m = merge
     p = pull
     pod = push origin --delete --no-verify
