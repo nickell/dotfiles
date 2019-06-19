@@ -29,5 +29,6 @@ link_file $HOME/.dotfiles/shell/inputrc $HOME/.inputrc
 link_file $HOME/.dotfiles/rgignore $HOME/.rgignore
 mkdir -p $HOME/.aria2
 link_file $HOME/.dotfiles/aria2.conf $HOME/.aria2/aria2.conf
+link_file $HOME/.dotfiles/sshconfig $HOME/.ssh/config
 
 success 'Done'
