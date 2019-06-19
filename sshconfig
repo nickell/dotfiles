@@ -4,3 +4,13 @@ Host chad
     HostName chadnickell.com
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
+
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/id_personal_ed25519
+    User git
+
+Host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/id_ed25519
+    User git
