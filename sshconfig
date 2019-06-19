@@ -1,6 +1,6 @@
 # vim: set ft=sshconfig:
 
-Host chad
+Host chad chadnickell.com
     HostName chadnickell.com
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
