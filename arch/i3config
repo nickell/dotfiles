@@ -464,7 +464,7 @@ for_window [class="Google-chrome" title="Google Calendar - "] move to workspace 
 for_window [class="Google-chrome" title="Yaguara Slack"] move to workspace Slack
 for_window [class="Google-chrome" title="Yaguara Community Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Google-chrome" title="YAG board - Agile Board - Jira"] move to workspace Jira
+for_window [class="Google-chrome" title="Agile Board - Jira"] move to workspace Jira
 
 bindsym $mod+e workspace Email
 bindsym $mod+s workspace Slack
