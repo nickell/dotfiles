@@ -416,7 +416,7 @@ mode "$mode_gaps_outer" {
 
 # My customizations
 # {{{ Variables
-set $browser google-chrome-stable
+set $browser firefox
 # }}}
 
 # {{{ Keybindings
@@ -449,7 +449,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10
 # App shortcuts
 bindsym $mod+Return exec konsole --profile Tmux
 bindsym $mod+Shift+Return exec konsole
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec $browser
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
@@ -459,14 +459,14 @@ bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
 # }}}
 
 # {{{ Scripting
-for_window [class="Google-chrome" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
-for_window [class="Google-chrome" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
-for_window [class="Google-chrome" title="Yaguara - Calendar"] move to workspace Email
-for_window [class="Google-chrome" title="Google Calendar - "] move to workspace Email
-for_window [class="Google-chrome" title="Yaguara Slack"] move to workspace Slack
-for_window [class="Google-chrome" title="Yaguara Community Slack"] move to workspace Slack
+for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
+for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
+for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email
+for_window [class="Firefox" title="Google Calendar - "] move to workspace Email
+for_window [class="Firefox" title="Yaguara Slack"] move to workspace Slack
+for_window [class="Firefox" title="Yaguara Community Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Google-chrome" title="Agile Board - Jira"] move to workspace Jira
+for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Jira
 
 bindsym $mod+e workspace Email
 bindsym $mod+s workspace Slack
@@ -478,13 +478,13 @@ bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
         bindsym c exec $browser
-        bindsym p exec $browser --app='https://mail.google.com/mail/u/0/#inbox'
-        bindsym w exec $browser --app='https://mail.google.com/mail/u/1/#inbox'
-        bindsym s exec $browser --app='https://yaguara.slack.com/'
-        bindsym m exec $browser --app='https://yaguaracommunity.slack.com/'
-        bindsym a exec $browser --app='https://calendar.google.com/calendar/b/1/r'
-        bindsym l exec $browser --app='https://calendar.google.com/calendar'
-        bindsym i exec $browser --app='https://yaguara.atlassian.net/secure/RapidBoard.jspa'
+        bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
+        bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
+        bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
+        bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
+        bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
+        bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+        bindsym i exec $browser -P app -new-window https://yaguara.atlassian.net/secure/RapidBoard.jspa
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
