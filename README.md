@@ -46,3 +46,7 @@ address=/dev/127.0.0.1
 ```
 
 - `> sudo systemctl restart NetworkManager`
+
+#### Firefox colors
+
+`https://wiki.archlinux.org/index.php/Firefox/Tweaks#Unreadable_input_fields_with_dark_GTK+_themes`
