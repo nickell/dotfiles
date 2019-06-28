@@ -22,6 +22,10 @@ snippet impc "Redux connect" b
 import { connect } from 'react-redux'
 endsnippet
 
+snippet imps "Import state" b
+import { State } from '../redux'
+endsnippet
+
 snippet ig "Import generic" b
 import $2 from '$1'
 endsnippet
@@ -64,7 +68,9 @@ endsnippet
 
 # {{{ Redux
 snippet reduxmapstate "Redux mapStateToProps function" b
-const mapStateToProps = (state, props) => ({$1})
+const mapStateToProps = (state: State) => ({
+  $1
+})
 endsnippet
 
 snippet reduxmakemapstate "Redux mapStateToProps function" b
@@ -77,6 +83,10 @@ endsnippet
 
 snippet todo "TODO" b
 // TODO: ${1:desc} `!v strftime("%D %I:%M %p")` `echo $USER`
+endsnippet
+
+snippet reduxprops "ReduxProps type" b
+type ReduxProps = ReturnType<typeof mapStateToProps>
 endsnippet
 
 snippet flow "Flow declaration" b
