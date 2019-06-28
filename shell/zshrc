@@ -25,6 +25,8 @@ export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$
 # Add yarn to path
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+export PAGER="less -S"
+
 # Set up aliases
 source $HOME/.dotfiles/shell/aliases
 
