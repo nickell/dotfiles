@@ -178,10 +178,10 @@ Token.Output.EvenRow = ""
 # DSN to call by -D option
 [alias_dsn]
 # example_dsn = postgresql://[user[:password]@][netloc][:port][/dbname]
-local = postgresql://chad@localhost/yaguara
+local = postgresql://postgres@localhost/yaguara
 prod = postgresql://yaguara@production.cv360oyfmcuy.us-east-2.rds.amazonaws.com/yaguara
 staging = postgresql://yaguara@staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com/yaguara
-test = postgresql://chad@localhost/test
+test = postgresql://postgres@localhost/test
 
 # Format for number representation
 # for decimal "d" - 12345678, ",d" - 12,345,678
