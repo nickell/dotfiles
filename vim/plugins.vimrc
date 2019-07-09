@@ -101,3 +101,6 @@ Plug 'joshdick/onedark.vim'
 " Plug 'bounceme/highwayman'
 " Plug 'rafi/awesome-vim-colorschemes'
 " Plug 'mhartington/oceanic-next'
+
+" Random tools
+Plug 'diepm/vim-rest-console'
