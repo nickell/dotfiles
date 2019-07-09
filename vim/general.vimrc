@@ -239,6 +239,17 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" VRC
+let g:vrc_curl_opts = {
+  \ '-sS': '',
+  \ '--connect-timeout': 10,
+  \ '-b': '/home/chad/.curl-cookie-jar',
+  \ '-c': '/home/chad/.curl-cookie-jar',
+  \ '-i': '',
+  \ '--max-time': 60,
+  \ '-k': '',
+\}
+
 " gruvbox
 " let g:gruvbox_italic = 1
 " let g:gruvbox_bold = 1
