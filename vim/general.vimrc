@@ -116,6 +116,7 @@ nnoremap <leader>gs :Gstatus<cr>
 " <leader>t --- lint namespaced mappings
 nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
+nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
 nnoremap <leader>p :PrettierAsync<cr>
 nnoremap <leader>Q :q!<cr>
@@ -146,6 +147,19 @@ command! ClearTrailingWhitespace %s /\s\+$//g
 command! Gsave :!git save
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
+function! AleIgnore()
+  let codes = []
+  for d in getloclist(0)
+    if (d.lnum==line('.'))
+      let code = split(d.text,':')[0]
+      call add(codes, code)
+    endif
+  endfor
+  if len(codes)
+    exe 'normal A // eslint-disable-line ' . join(codes, ', ')
+  endif
+endfunction
 
 let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
 
@@ -239,6 +253,17 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" VRC
+let g:vrc_curl_opts = {
+  \ '-sS': '',
+  \ '--connect-timeout': 10,
+  \ '-b': '/home/chad/.curl-cookie-jar',
+  \ '-c': '/home/chad/.curl-cookie-jar',
+  \ '-i': '',
+  \ '--max-time': 60,
+  \ '-k': '',
+\}
+
 " gruvbox
 " let g:gruvbox_italic = 1
 " let g:gruvbox_bold = 1
