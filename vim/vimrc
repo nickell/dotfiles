@@ -18,8 +18,13 @@ augroup myCmds
     autocmd InsertEnter,InsertLeave * set cul!
 augroup END
 
+set autoread
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
+
+" tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
 " }}}
 
 " {{{ Keymaps
