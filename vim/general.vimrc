@@ -129,9 +129,6 @@ nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
 " <leader>t --- typescript namespaced mappings
-nnoremap <leader>td :TSDef<cr>
-nnoremap <leader>to :TSDoc<cr>
-nnoremap <leader>tt :TSType<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>w :w!<cr>
 

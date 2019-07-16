@@ -29,6 +29,11 @@ let g:nvim_typescript#diagnostics_enable=0
 " {{{ Keymaps
 nnoremap <leader>rc :so  ~/.config/nvim/init.vim<cr>
 
+" nvim-typescript
+nnoremap <leader>td :TSDef<cr>
+nnoremap <leader>to :TSDoc<cr>
+nnoremap <leader>tt :TSType<cr>
+
 " ncm
 imap <silent> <c-x><c-o> <Plug>(ncm2_manual_trigger)
 " }}}
