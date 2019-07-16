@@ -447,6 +447,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # App shortcuts
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec $browser
+bindsym $mod+x [class="Firefox"] kill
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
