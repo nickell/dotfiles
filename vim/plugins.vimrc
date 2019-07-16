@@ -104,3 +104,7 @@ Plug 'joshdick/onedark.vim'
 
 " Random tools
 Plug 'diepm/vim-rest-console'
+
+" IDE
+Plug 'w0rp/ale'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
