@@ -10,6 +10,7 @@ call plug#begin(g:configDir.'/plugged')
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-ultisnips'
+    Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
 
 source $HOME/.dotfiles/vim/general.vimrc
@@ -20,6 +21,9 @@ augroup ncm
     autocmd BufEnter * call ncm2#enable_for_buffer()
 augroup END
 set completeopt=noinsert,menuone,noselect
+
+" nvim-typescript
+let g:nvim_typescript#diagnostics_enable=0
 " }}}
 
 " {{{ Keymaps

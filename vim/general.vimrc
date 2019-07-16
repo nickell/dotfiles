@@ -275,9 +275,6 @@ let g:ale_pattern_options = {
     \}
 " \ 'lib': {'ale_linters': [], 'ale_fixers': []},
 
-" nvim-typescript
-let g:nvim_typescript#diagnostics_enable=0
-
 " VRC
 let g:vrc_curl_opts = {
   \ '-sS': '',

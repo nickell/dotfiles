@@ -8,9 +8,15 @@ call plug#begin(g:configDir.'/plugged')
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Quramy/tsuquyomi'
 call plug#end()
 
 source $HOME/.dotfiles/vim/general.vimrc
+
+augroup myCmds
+au!
+autocmd InsertEnter,InsertLeave * set cul!
+augroup END
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -24,5 +30,6 @@ nnoremap <leader>rc :so  ~/.vimrc<cr>
 if !has("gui_running")
     set t_Co=256
     set term=xterm-256color
+    set t_ut=
 endif
 " }}}
