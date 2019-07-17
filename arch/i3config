@@ -449,6 +449,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10
 # App shortcuts
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec $browser
+bindsym $mod+x [class="Firefox"] kill
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh

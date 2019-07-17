@@ -30,6 +30,7 @@ alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
 alias ssh='TERM=xterm-256color ssh'
 alias tmn="tmux new -s main"
+alias v="vim"
 alias x='exit'
 alias y="yarn"
 alias z='fasd_cd -d'

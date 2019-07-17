@@ -111,8 +111,8 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Gstatus<cr>
-" nmap <leader>j in specific configs
-" nmap <leader>k in specific configs
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 " <leader>t --- lint namespaced mappings
 nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
@@ -129,9 +129,6 @@ nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
 " <leader>t --- typescript namespaced mappings
-nnoremap <leader>td :TSDef<cr>
-nnoremap <leader>to :TSDoc<cr>
-nnoremap <leader>tt :TSType<cr>
 nnoremap <leader>U :UltiSnipsEdit<cr>
 nnoremap <leader>w :w!<cr>
 
@@ -145,6 +142,8 @@ vnoremap <leader>cl :call ConsoleLog()<cr>
 command! ClearTrailingWhitespace %s /\s\+$//g
 
 command! G Git
+
+cnoreabbrev G Git
 
 command! Gsave :!git save
 
@@ -255,6 +254,24 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" ALE
+let g:ale_fixers = {}
+let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
+let g:ale_completion_enabled = 0
+let g:ale_fix_on_save = 1
+let g:ale_lint_delay = 1000
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_linters = {
+    \ 'haskell': ['hlint', 'hdevtools', 'hfmt'],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint', 'tsserver'],
+    \}
+let g:ale_pattern_options = {
+    \ 'node_modules': {'ale_linters': [], 'ale_fixers': []},
+    \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+    \}
+" \ 'lib': {'ale_linters': [], 'ale_fixers': []},
+
 " VRC
 let g:vrc_curl_opts = {
   \ '-sS': '',
@@ -405,9 +422,6 @@ let g:lightline = {
 " let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
 " let g:airline#extensions#tabline#fnamecollapse =  1 " /a/m/model.rb
 " let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
-
-" vim-javascript
-let g:javascript_plugin_flow = 1
 
 " vim-jsx
 let g:jsx_ext_required = 0

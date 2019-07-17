@@ -1,0 +1,54 @@
+let g:configDir = $HOME . '/.vim'
+
+" {{{ Plugins and config
+filetype off
+
+call plug#begin(g:configDir.'/plugged')
+    source $HOME/.dotfiles/vim/plugins.vimrc
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Quramy/tsuquyomi'
+call plug#end()
+
+source $HOME/.dotfiles/vim/general.vimrc
+
+augroup myCmds
+    autocmd!
+    autocmd InsertEnter,InsertLeave * set cul!
+augroup END
+
+set autoread
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
+" }}}
+
+" {{{ Keymaps
+nnoremap <leader>rc :so  ~/.vimrc<cr>
+
+" Quramy/tsuquyomi
+nnoremap <leader>td :TsuDefinition<cr>
+" }}}
+
+" {{{ Hacks
+if !has("gui_running")
+    set t_Co=256
+    set term=xterm-256color
+    set t_ut=
+    augroup tsuquyomi
+        autocmd!
+        autocmd FileType typescript nmap <buffer> <Leader>tt : <C-u>echo tsuquyomi#hint()<CR>
+    augroup END
+else
+    set ballooneval
+    augroup tsuquyomi
+        autocmd!
+        autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+        autocmd FileType typescript nmap <buffer> <Leader>tt : <C-u>echo tsuquyomi#hint()<CR>
+    augroup END
+endif
+" }}}
