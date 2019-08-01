@@ -474,7 +474,7 @@ bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
 bindsym $mod+i workspace Jira
 
-set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | work c(a)lendar | persona(l) calendar | j(i)ra
+set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar | j(i)ra
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
