@@ -89,10 +89,6 @@ snippet reduxprops "ReduxProps type" b
 type ReduxProps = ReturnType<typeof mapStateToProps>
 endsnippet
 
-snippet flow "Flow declaration" b
-// @flow
-endsnippet
-
 snippet co "Comment" b
 /**
  * $0
@@ -109,14 +105,6 @@ endsnippet
 
 snippet clo "console.log" b
 console.log(${0:${VISUAL:'here'}})
-endsnippet
-
-snippet rc "React Component" b
-class ${1:ClassName} extends ${2:React.Component} {
-	render() {
-		${0:${VISUAL}}
-	}
-}
 endsnippet
 
 snippet try "Try catch" b
@@ -141,14 +129,6 @@ const ${1:ComponentName} = () => {
 }
 
 export default $1
-endsnippet
-
-snippet rp "React PureComponent" b
-class ${1:ClassName} extends ${2:React.PureComponent} {
-	render() {
-		${0:${VISUAL}}
-	}
-}
 endsnippet
 
 snippet e "Export" b
