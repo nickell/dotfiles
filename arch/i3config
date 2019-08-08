@@ -493,12 +493,13 @@ mode "$launch_app_mode" {
         bindsym Escape mode "default"
 }
 
-set $print_mode Print screen: (w)indow | (s)elect area | (p)rint screen
+set $print_mode Print screen: (w)indow | (p)rint screen | (s)election to clipboard | (c)opy area to file
 bindsym $mod+p mode $print_mode
 mode "$print_mode" {
         bindsym p --release exec --no-startup-id i3-scrot, mode "default"
         bindsym w --release exec --no-startup-id i3-scrot -w, mode "default"
-        bindsym s --release exec --no-startup-id i3-scrot -s, mode "default"
+        bindsym c --release exec --no-startup-id i3-scrot -s, mode "default"
+        bindsym s --release exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`', mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
