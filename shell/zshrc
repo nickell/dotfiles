@@ -29,6 +29,10 @@ export KEYTIMEOUT=1
 
 export PAGER="less -S"
 
+# Go stuff
+export GOPATH="$HOME/go"
+export PATH="$GOPATH:$GOPATH/bin:$PATH"
+
 # Set up aliases
 source $HOME/.dotfiles/shell/aliases
 

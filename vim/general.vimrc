@@ -118,7 +118,6 @@ nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
 nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
-nnoremap <leader>p :PrettierAsync<cr>
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
@@ -214,7 +213,7 @@ augroup mygroup
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 
-    autocmd Filetype markdown setlocal textwidth=80
+    autocmd Filetype markdown setlocal textwidth=80 ts=2 sts=2 sw=2
 
     " Javascript/typescript tab width, fold method
     autocmd Filetype javascript,typescript,json setlocal ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
@@ -232,7 +231,7 @@ augroup mygroup
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     
     " Update save mapping to format with prettier in compatible filetypes
-    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
+    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
 
     " fzf hide statusline
     autocmd! FileType fzf
@@ -254,6 +253,9 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-instant-markdown
+let g:instant_markdown_autostart=0
+
 " ALE
 let g:ale_fixers = {}
 let g:ale_fixers['sh'] = ['shfmt', 'trim_whitespace']
