@@ -118,7 +118,6 @@ nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
 nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
-nnoremap <leader>p :PrettierAsync<cr>
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 " Change javascript function statement to ES6
