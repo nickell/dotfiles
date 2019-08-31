@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 
 " Search
 Plug 'bronson/vim-visual-star-search'
+Plug 'Arkham/vim-quickfixdo'
 
 " Javascript
 " Plug 'moll/vim-node'
