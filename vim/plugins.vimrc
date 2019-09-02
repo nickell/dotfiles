@@ -64,6 +64,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 " Syntax
 Plug 'lifepillar/pgsql.vim'
 Plug 'chr4/nginx.vim'
+Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jason0x43/vim-js-indent'
