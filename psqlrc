@@ -2,8 +2,11 @@
 
 \timing
 \set ON_ERROR_ROLLBACK interactive
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT1 '%[%033[1;33;40m%]%m%[%033[0m%] > '
 \set PROMPT2 '[more] %R > '
+
+-- This prompt has user/database information in it as well
+-- \set PROMPT1 '%[%033[1m%]%m %n@%/%R%[%033[0m%]%# '
 
 -- By default, NULL displays as an empty space. Is it actually an empty
 -- string, or is it null? This makes that distinction visible.
