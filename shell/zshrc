@@ -11,6 +11,9 @@ unalias rm
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Make ctrl-s work for reverse-i-search/i-search, from here: https://stackoverflow.com/a/25391867/870835
+[[ $- == *i* ]] && stty -ixon
+
 # Use neovim by default
 export EDITOR='nvim'
 
