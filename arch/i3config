@@ -461,19 +461,18 @@ bindsym $mod+b exec pcmanfm
 # }}}
 
 # {{{ Scripting
-for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
-for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
-for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email
-for_window [class="Firefox" title="Google Calendar - "] move to workspace Email
+for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
 for_window [class="Firefox" title="^Slack.*Yaguara"] move to workspace Slack
 for_window [class="Firefox" title="^Slack.*Hawke"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Jira
+for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
 
-bindsym $mod+e workspace Email
+bindsym $mod+e workspace Email-Jira-Cal
 bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
-bindsym $mod+i workspace Jira
 
 set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar | j(i)ra
 bindsym $mod+u mode $launch_app_mode
