@@ -348,7 +348,8 @@ bar {
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  # client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #80FFF9 #80FFF9 #556064 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -460,19 +461,18 @@ bindsym $mod+b exec pcmanfm
 # }}}
 
 # {{{ Scripting
-for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email
-for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email
-for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email
-for_window [class="Firefox" title="Google Calendar - "] move to workspace Email
+for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email-Jira-Cal
+for_window [class="Firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
 for_window [class="Firefox" title="^Slack.*Yaguara"] move to workspace Slack
 for_window [class="Firefox" title="^Slack.*Hawke"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Jira
+for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
 
-bindsym $mod+e workspace Email
+bindsym $mod+e workspace Email-Jira-Cal
 bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
-bindsym $mod+i workspace Jira
 
 set $monitor_mode Monitor: (a)uto (h)dmi left (d)p1 left (m)edium res (l)ow res (x)tra low res
 bindsym $mod+m mode $monitor_mode
