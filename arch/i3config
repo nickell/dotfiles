@@ -461,14 +461,14 @@ bindsym $mod+b exec pcmanfm
 # }}}
 
 # {{{ Scripting
-for_window [class="Firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Jira-Cal
-for_window [class="Firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Jira-Cal
-for_window [class="Firefox" title="Yaguara - Calendar"] move to workspace Email-Jira-Cal
-for_window [class="Firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
-for_window [class="Firefox" title="^Slack.*Yaguara"] move to workspace Slack
-for_window [class="Firefox" title="^Slack.*Hawke"] move to workspace Slack
+for_window [class="firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="Yaguara - Calendar"] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="^Slack.*Yaguara"] move to workspace Slack
+for_window [class="firefox" title="^Slack.*Hawke"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
 
 bindsym $mod+e workspace Email-Jira-Cal
 bindsym $mod+s workspace Slack
