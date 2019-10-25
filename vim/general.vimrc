@@ -261,6 +261,9 @@ augroup END
 " }}}
 
 " {{{ Plugin Config
+" vim-terraform
+let g:terraform_fmt_on_save = 1
+
 " vim-instant-markdown
 let g:instant_markdown_autostart=0
 
