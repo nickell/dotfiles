@@ -76,7 +76,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
-Plug 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
 " Plug 'ludovicchabant/vim-gutentags'
