@@ -467,7 +467,7 @@ for_window [class="firefox" title="Yaguara - Calendar"] move to workspace Email-
 for_window [class="firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
 for_window [class="firefox" title="^Slack.*Yaguara"] move to workspace Slack
 for_window [class="firefox" title="^Slack.*Hawke"] move to workspace Slack
-for_window [class="slack"] move to workspace Slack
+for_window [class="Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
 for_window [class="firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
 
