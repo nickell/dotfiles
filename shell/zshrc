@@ -41,3 +41,12 @@ source $HOME/.dotfiles/shell/aliases
 
 # Support local modifications
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+# Add Ranger to the prompt
+PARENT_COMMAND=$(ps -o comm= $PPID)
+case "$PARENT_COMMAND" in
+    "ranger") ranger_prompt="~R~ " ;;
+    *) ranger_prompt="" ;;
+esac
+
+PROMPT="$PROMPT$ranger_prompt"
