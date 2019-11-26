@@ -484,7 +484,8 @@ mode "$launch_app_mode" {
         bindsym c exec $browser
         bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
         bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
-        bindsym s exec slack
+        # bindsym s exec slack
+        bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
         bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
         bindsym h exec $browser -P app -new-window https://hawkemedia.slack.com/
         bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
