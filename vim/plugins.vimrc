@@ -79,6 +79,8 @@ Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'sheerun/vim-polyglot'
