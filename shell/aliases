@@ -20,9 +20,6 @@ alias nr="npm run"
 alias nrs="npm run --silent"
 alias pg="pgcli -D"
 alias pgl="pgcli -D local"
-alias sql="psql -h localhost -d yaguara -U postgres"
-alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
-alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
 alias r="ranger"
 alias ranm="rm -rf node_modules && rnm && rm yarn.lock"
 alias rc="source ranger"
@@ -32,7 +29,11 @@ alias remove-tsbuildinfo"find . -name 'tsconfig.tsbuildinfo' -type f -prune -exe
 alias rs="ctl restart"
 alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
+alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
+alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
+alias sql="psql -h localhost -d yaguara -U postgres"
 alias ssh='TERM=xterm-256color ssh'
+alias tf="terraform"
 alias tmn="tmux new -s main"
 alias v="vim"
 alias x='exit'
