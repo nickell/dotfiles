@@ -16,6 +16,7 @@ unalias rm
 
 # Use neovim by default
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Set up ripgrep as fzf's backend
 export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-file ~/.rgignore'
