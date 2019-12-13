@@ -444,6 +444,7 @@ bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
+bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # App shortcuts
 bindsym $mod+Return exec alacritty
