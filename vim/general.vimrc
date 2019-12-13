@@ -123,8 +123,9 @@ nnoremap <leader>gs :Gstatus<cr>
 " nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>td <Plug>(coc-definition)
-nmap <silent> <leader>tt <Plug>(coc-type-definition)
+nmap <silent> <leader>te <Plug>(coc-definition)
+nmap <silent> <leader>td <Plug>(coc-type-definition)
+nmap <silent> <leader>tt :call CocActionAsync('doHover')<cr>
 nmap <silent> <leader>ti <Plug>(coc-implementation)
 nmap <silent> <leader>tr <Plug>(coc-references)
 " <leader>t --- lint namespaced mappings
