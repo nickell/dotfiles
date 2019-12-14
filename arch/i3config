@@ -446,6 +446,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # App shortcuts
 bindsym $mod+Return exec alacritty
