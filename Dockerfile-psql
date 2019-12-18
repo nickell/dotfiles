@@ -1,0 +1,8 @@
+FROM postgres:10.9-alpine
+
+COPY ./psqlrc /root/.psqlrc
+
+# build: sudo docker build --file=Dockerfile-psql -t psql .
+# run: sudo docker run -it --rm --network host psql psql -h localhost -U postgres -d yaguara
+
+RUN /bin/bash -c 'touch /root/.inputrc; printf "set editing-mode vi\nset keymap vi-command" >> /root/.inputrc'
