@@ -31,11 +31,13 @@ alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
 alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
 alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
+alias sql-test="psql -h localhost -d test -U postgres"
 alias sql="psql -h localhost -d yaguara -U postgres"
 alias ssh='TERM=xterm-256color ssh'
 alias tf="terraform"
 alias tmn="tmux new -s main"
 alias v="vim"
+alias vu="nvim +PlugUpgrade +PlugUpdate"
 alias x='exit'
 alias y="yarn"
 alias z='fasd_cd -d'
