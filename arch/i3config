@@ -464,21 +464,20 @@ bindsym $mod+b exec pcmanfm
 # }}}
 
 # {{{ Scripting
-for_window [class="firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Jira-Cal
-for_window [class="firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Jira-Cal
-for_window [class="firefox" title="Yaguara - Calendar"] move to workspace Email-Jira-Cal
-for_window [class="firefox" title="Google Calendar - "] move to workspace Email-Jira-Cal
+for_window [class="firefox" title="nickell.chad@gmail.com - Gmail"] move to workspace Email-Cal
+for_window [class="firefox" title="chad@yaguara.co - Yaguara Mail"] move to workspace Email-Cal
+for_window [class="firefox" title="Yaguara - Calendar"] move to workspace Email-Cal
+for_window [class="firefox" title="Google Calendar - "] move to workspace Email-Cal
 for_window [class="firefox" title="^Slack.*Yaguara"] move to workspace Slack
 for_window [class="firefox" title="^Slack.*Hawke"] move to workspace Slack
 for_window [class="Slack"] move to workspace Slack
 for_window [class="Spotify"] move to workspace Spotify
-for_window [class="firefox" title="Agile Board - Jira"] move to workspace Email-Jira-Cal
 
-bindsym $mod+e workspace Email-Jira-Cal
+bindsym $mod+e workspace Email-Cal
 bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
 
-set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar | j(i)ra
+set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -491,7 +490,6 @@ mode "$launch_app_mode" {
         bindsym h exec $browser -P app -new-window https://hawkemedia.slack.com/
         bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
         bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
-        bindsym i exec $browser -P app -new-window https://yaguara.atlassian.net/secure/RapidBoard.jspa
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"

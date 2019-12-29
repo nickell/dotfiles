@@ -14,7 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 
 " Files
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 
 " Search
@@ -27,7 +27,8 @@ Plug 'Arkham/vim-quickfixdo'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+  \ }
 
 " tpope {{{
 " :S command, change case (crs, crc, etc.)
@@ -87,8 +88,7 @@ Plug 'plasticboy/vim-markdown'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-" Plug 'dsimidzija/vim-nerdtree-ignore', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " Colorschemes
 Plug 'Yggdroot/indentLine'
@@ -114,8 +114,3 @@ Plug 'diepm/vim-rest-console'
 " IDE
 " Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
