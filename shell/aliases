@@ -4,7 +4,7 @@ alias a="cal"
 alias aria="aria2c"
 alias au="sudo pacman -Syu"
 alias c="clear"
-alias ctl="systemctl --user"
+alias ctl="launchctl"
 alias e="${(z)VISUAL:-${(z)EDITOR}}"
 alias g="git"
 alias gd="git diff"
@@ -41,10 +41,12 @@ alias vu="nvim +PlugUpgrade +PlugUpdate"
 alias x='exit'
 alias y="yarn"
 alias z='fasd_cd -d'
+alias startapp='ctl start front-end && ctl start api && ctl start api-watch && ctl start etl && ctl start websockets && ctl start mailer && ctl start cronjobs'
+alias stopapp='ctl stop front-end && ctl stop api && ctl stop api-watch && ctl stop etl && ctl stop websockets && ctl stop mailer && ctl stop cronjobs'
 
 # Functions
 logs () {
-    journalctl --user -f -o cat -u $1 | bunyan -o short
+    tail -f /Users/chad/.logs/$1.log | bunyan -o short
 }
 
 t () {

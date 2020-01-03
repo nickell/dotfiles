@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key>
+		<string>api</string>
+		<key>WorkingDirectory</key>
+        <string>/Users/chad/Sites/yaguara</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>npm</string>
+            <string>run</string>
+            <string>api</string>
+            <string>start</string>
+        </array>
+		<key>StandardOutPath</key>
+		<string>/Users/chad/.logs/api.log</string>
+		<key>StandardErrorPath</key>
+		<string>/Users/chad/.logs/api.log</string>
+	</dict>
+</plist>
