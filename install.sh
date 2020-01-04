@@ -14,6 +14,7 @@ fi
 if [ ! -d $prezto ]
 then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git $prezto
+    git clone --recurse-submodules https://github.com/belak/prezto-contrib contrib
 fi
 
 info 'Installing dotfiles'
