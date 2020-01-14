@@ -8,7 +8,7 @@
         <string>/Users/chad/Sites/yaguara</string>
         <key>ProgramArguments</key>
         <array>
-            <string>npm</string>
+            <string>/Users/chad/.nvm/versions/node/v10.15.3/bin/npm</string>
             <string>run</string>
             <string>websockets</string>
             <string>start</string>

@@ -5,14 +5,14 @@
 		<key>Label</key>
 		<string>api</string>
 		<key>WorkingDirectory</key>
-        <string>/Users/chad/Sites/yaguara</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>npm</string>
-            <string>run</string>
-            <string>api</string>
-            <string>start</string>
-        </array>
+		<string>/Users/chad/Sites/yaguara</string>
+		<key>ProgramArguments</key>
+		<array>
+			<string>/Users/chad/.nvm/versions/node/v10.15.3/bin/npm</string>
+			<string>run</string>
+			<string>api</string>
+			<string>start:nodemon</string>
+		</array>
 		<key>StandardOutPath</key>
 		<string>/Users/chad/.logs/api.log</string>
 		<key>StandardErrorPath</key>
