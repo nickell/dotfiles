@@ -227,6 +227,8 @@ augroup mygroup
     autocmd Filetype gitcommit setlocal textwidth=72 colorcolumn=51
     
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
+    
+    autocmd BufNewFile,BufRead *plist setlocal noexpandtab
 
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
