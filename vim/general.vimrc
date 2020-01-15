@@ -160,6 +160,8 @@ command! G Git
 
 cnoreabbrev G Git
 
+command! -nargs=1 Restart :!launchctl stop <f-args> && sleep 1 && launchctl start <f-args>
+
 command! Gsave :!git save
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
