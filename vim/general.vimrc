@@ -126,6 +126,7 @@ nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>td <Plug>(coc-definition)
 nmap <silent> <leader>tt <Plug>(coc-type-definition)
 nmap <silent> <leader>th :call CocActionAsync('doHover')<cr>
+nmap <silent> <leader>to :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 nmap <silent> <leader>ti <Plug>(coc-implementation)
 nmap <silent> <leader>tr <Plug>(coc-references)
 " <leader>t --- lint namespaced mappings
@@ -224,6 +225,8 @@ augroup mygroup
     autocmd Filetype gitcommit setlocal textwidth=72 colorcolumn=51
     
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
+    
+    autocmd BufNewFile,BufRead *plist setlocal noexpandtab
 
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile

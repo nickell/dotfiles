@@ -30,6 +30,10 @@ snippet ig "Import generic" b
 import $2 from '$1'
 endsnippet
 
+snippet ih "hooks import statement" b
+import * as hooks from '../hooks'
+endsnippet
+
 snippet iga "Import generic all" b
 import * as $1 from '$2'
 endsnippet
@@ -87,6 +91,10 @@ endsnippet
 
 snippet reduxprops "ReduxProps type" b
 type ReduxProps = ReturnType<typeof mapStateToProps>
+endsnippet
+
+snippet umounting "Unmounting useEffect" b
+React.useEffect(() => () => console.log('unmounting'), [])
 endsnippet
 
 snippet co "Comment" b
