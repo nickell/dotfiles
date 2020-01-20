@@ -236,7 +236,7 @@ augroup mygroup
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
 
-    autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
+    " autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
 
     " NERDTree stuff
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
