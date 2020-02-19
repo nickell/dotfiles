@@ -113,5 +113,4 @@ Plug 'diepm/vim-rest-console'
 
 " IDE
 " Plug 'w0rp/ale'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.74'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
