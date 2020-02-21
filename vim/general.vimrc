@@ -121,8 +121,10 @@ nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Gstatus<cr>
 " nmap <silent> <leader>j <Plug>(ale_next_wrap)
 " nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>J <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>K <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>td <Plug>(coc-definition)
 nmap <silent> <leader>tt <Plug>(coc-type-definition)
 nmap <silent> <leader>th :call CocActionAsync('doHover')<cr>
