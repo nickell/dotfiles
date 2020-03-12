@@ -27,6 +27,7 @@
 [commit]
     template = ~/.dotfiles/git_commit_msg
 [alias]
+    b = branch --verbose
     ba = branch --all --verbose
     bd = branch -D
     cm = !git commit -m
