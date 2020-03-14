@@ -513,4 +513,6 @@ mode "$print_mode" {
 exec --no-startup-id feh --bg-fill /home/chad/.dotfiles/arch/wallpaper.jpg
 
 exec --no-startup-id /home/chad/.dotfiles/arch/conky-desktop.sh
+
+exec --no-startup-id /usr/bin/caffeine
 # }}}
