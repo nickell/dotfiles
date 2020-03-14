@@ -451,6 +451,7 @@ bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifier
 # App shortcuts
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec $browser
+bindsym $mod+n exec $browser -P app -new-window https://yaguaracommunity.slack.com/
 bindsym $mod+x [class="Firefox"] kill
 
 # Lock screen
@@ -515,4 +516,6 @@ exec --no-startup-id feh --bg-fill /home/chad/.dotfiles/arch/wallpaper.jpg
 exec --no-startup-id /home/chad/.dotfiles/arch/conky-desktop.sh
 
 exec --no-startup-id /usr/bin/caffeine
+
+exec --no-startup-id /usr/bin/blueberry-tray
 # }}}
