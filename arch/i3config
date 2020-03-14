@@ -451,8 +451,8 @@ bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifier
 # App shortcuts
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec $browser
-bindsym $mod+n exec $browser -P app -new-window https://yaguaracommunity.slack.com/
 bindsym $mod+x [class="Firefox"] kill
+bindsym $mod+Shift+n move container to workspace Notion
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
@@ -476,21 +476,22 @@ for_window [class="Spotify"] move to workspace Spotify
 
 bindsym $mod+e workspace Email-Cal
 bindsym $mod+s workspace Slack
+bindsym $mod+n workspace Notion
 bindsym $mod+o workspace Spotify
 
 set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
-        bindsym o exec spotify
-        bindsym c exec $browser
-        bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
-        bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
-        # bindsym s exec slack
-        bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
-        bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
-        bindsym h exec $browser -P app -new-window https://hawkemedia.slack.com/
         bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
+        bindsym c exec $browser
+        bindsym h exec $browser -P app -new-window https://hawkemedia.slack.com/
         bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+        bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
+        bindsym n exec $browser -P app -new-window https://www.notion.so/Yaguara-59f044f936574f9ca255993703158bf6
+        bindsym o exec spotify
+        bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
+        bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
+        bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
