@@ -35,6 +35,7 @@ alias sql-test="psql -h localhost -d test -U postgres"
 alias sql="psql -h localhost -d yaguara -U postgres"
 alias ssh='TERM=xterm-256color ssh'
 alias tf="terraform"
+alias tm="tmux"
 alias tmn="tmux new -s main"
 alias v="vim"
 alias vu="nvim +PlugUpgrade +PlugUpdate"
@@ -45,6 +46,11 @@ alias z='fasd_cd -d'
 # Functions
 logs () {
     journalctl --user -f -o cat -u $1 | bunyan -o short
+}
+
+rn () {
+    tmux split-window -h
+    tmux send-keys 'ranger' Enter
 }
 
 t () {
