@@ -4,6 +4,7 @@ PartOf=app.service
 After=app.service
 
 [Service]
+Environment=PATH=/home/chad/.yarn/bin:/home/chad/.config/yarn/global/node_modules/.bin:/home/chad/.local/bin:/home/chad/.bin:/home/chad/.nvm/versions/node/v10.15.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/chad/.fzf/bin
 WorkingDirectory=/home/chad/Sites/yaguara/packages/api
 ExecStart=/home/chad/.nvm/versions/node/v10.15.3/bin/npm run watch
 
