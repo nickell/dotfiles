@@ -109,7 +109,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " {{{ Leader
 nnoremap <leader><cr> :noh<cr>
-nnoremap <leader>a :Rg 
+nnoremap <leader>a :Rg
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
@@ -225,14 +225,14 @@ augroup mygroup
     autocmd!
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72 colorcolumn=51
-    
+
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
-    
+
     autocmd BufNewFile,BufRead *plist setlocal noexpandtab
 
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
-    
+
     " Set filetype to json for VRC
     autocmd BufNewFile,BufRead __REST_response__ set ft=json
 
@@ -254,14 +254,14 @@ augroup mygroup
 
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-    
+
     " Update save mapping to format with prettier in compatible filetypes
     autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
 
     " fzf hide statusline
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
-        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler 
+        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
 
 augroup filetype_help
