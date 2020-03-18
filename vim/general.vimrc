@@ -232,6 +232,9 @@ augroup mygroup
 
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
+    
+    " Set filetype to json for VRC
+    autocmd BufNewFile,BufRead __REST_response__ set ft=json
 
     autocmd Filetype markdown setlocal textwidth=80 ts=2 sts=2 sw=2
 
