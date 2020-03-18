@@ -488,7 +488,7 @@ mode "$launch_app_mode" {
         bindsym o exec spotify
         bindsym c exec $browser
         bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
-        bindsym n exec $browser -P app -new-window https://www.notion.so/Yaguara-59f044f936574f9ca255993703158bf6
+        bindsym n exec /usr/bin/notion-app
         bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
         bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
         bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
