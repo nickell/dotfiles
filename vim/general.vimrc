@@ -109,7 +109,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " {{{ Leader
 nnoremap <leader><cr> :noh<cr>
-nnoremap <leader>a :Rg
+nnoremap <leader>a :Rg 
 nnoremap <leader>bo :BufOnly<cr>
 nnoremap <leader>cl :call ConsoleLog()<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
