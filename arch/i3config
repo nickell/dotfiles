@@ -267,7 +267,6 @@ mode "resize" {
 
 # Autostart applications
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
@@ -461,7 +460,21 @@ bindsym $mod+n workspace Notion
 bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
 
 # Wallpaper
-# bindsym $mod+Shift+w exec --no-startup-id /home/chad/.dotfiles/arch/change-wallpaper.sh
+set $wallpaper_mode Wallpaper: (n)ext | (p)revious | (f)avorite | (t)oggle pause | (q)uotes next | quotes p(r)evious
+bindsym $mod+Shift+w mode $wallpaper_mode
+mode "$wallpaper_mode" {
+        bindsym n exec --no-startup-id /usr/bin/variety --next
+        bindsym p exec --no-startup-id /usr/bin/variety --previous
+        bindsym f exec --no-startup-id /usr/bin/variety --favorite
+        bindsym t exec --no-startup-id /usr/bin/variety --toggle-pause
+        bindsym q exec --no-startup-id /usr/bin/variety --quotes-next
+        bindsym r exec --no-startup-id /usr/bin/variety --quotes-previous
+
+        # exit monitor mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 #
 # pcmanfm
 bindsym $mod+b exec pcmanfm
@@ -536,9 +549,9 @@ mode "$print_mode" {
 # }}}
 
 # {{{ Exec commands
-exec --no-startup-id feh --bg-fill /home/chad/.dotfiles/arch/wallpaper.jpg
-
 exec --no-startup-id /home/chad/.dotfiles/arch/conky-desktop.sh
+
+exec --no-startup-id /usr/bin/variety
 
 exec --no-startup-id /usr/bin/blueberry-tray
 # }}}
