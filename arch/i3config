@@ -555,4 +555,6 @@ exec --no-startup-id /home/chad/.dotfiles/arch/conky-desktop.sh
 exec --no-startup-id /usr/bin/variety
 
 exec --no-startup-id /usr/bin/blueberry-tray
+
+exec --no-startup-id /usr/bin/dunst
 # }}}
