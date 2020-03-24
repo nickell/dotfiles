@@ -495,7 +495,7 @@ bindsym $mod+s workspace Slack
 bindsym $mod+o workspace Spotify
 bindsym $mod+F5 exec --no-startup-id sudo brightnessctl set 1%
 
-set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | co(m)munity slack | (h)awke slack | work c(a)lendar | persona(l) calendar
+set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | work c(a)lendar | persona(l) calendar
 bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
@@ -503,9 +503,7 @@ mode "$launch_app_mode" {
         bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
         bindsym n exec /usr/bin/notion-app
         bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
-        bindsym s exec $browser -P app -new-window https://yaguara.slack.com/
-        bindsym m exec $browser -P app -new-window https://yaguaracommunity.slack.com/
-        bindsym h exec $browser -P app -new-window https://hawkemedia.slack.com/
+        bindsym s exec /usr/bin/slack
         bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
         bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
 
