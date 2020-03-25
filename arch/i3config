@@ -45,11 +45,11 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+# exec --no-startup-id volumeicon
+# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -60,14 +60,14 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 # bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
+# bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
+# bindsym $mod+Shift+F3 exec gksu pcmanfm
 # bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+# bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -80,10 +80,10 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 ### bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 ### bindsym $mod+Shift+j move left
@@ -434,6 +434,8 @@ bindsym $mod+Shift+l move right
 # Move worskpace to output
 bindsym $mod+Shift+Left move workspace to output left
 bindsym $mod+Shift+Right move workspace to output right
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Down move workspace to output down
 # }}}
 
 # Media player controls
@@ -513,7 +515,7 @@ mode "$launch_app_mode" {
 }
 
 # set $monitor_mode Monitor: (a)uto (h)dmi left (d)p1 left (m)edium res (l)ow res (x)tra low res
-set $monitor_mode Monitor: (a)uto (h)igh res (m)edium res (l)ow res
+set $monitor_mode Monitor: (a)uto (h)igh res (m)edium res (l)ow res | (c)losed docked | (o)pen docked
 bindsym $mod+m mode $monitor_mode
 mode "$monitor_mode" {
         # Auto detect monitors
@@ -528,19 +530,23 @@ mode "$monitor_mode" {
         bindsym m exec xrandr --output eDP-1 --mode 1600x900
         # Laptop low resolution
         bindsym l exec xrandr --output eDP-1 --mode 1280x720
+        
+        bindsym c exec /bin/bash /home/chad/.screenlayout/Closed\ Docked.sh
+        bindsym o exec /bin/bash /home/chad/.screenlayout/Open\ Docked.sh
+
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-set $print_mode Print screen: (w)indow | (p)rint screen | (s)election to clipboard | (c)opy area to file
+set $print_mode Print screen: (w)indow | (s)election to clipboard | (c)ast screen | (k)ill screencast
 bindsym $mod+p mode $print_mode
 mode "$print_mode" {
-        bindsym p --release exec --no-startup-id i3-scrot, mode "default"
-        bindsym w --release exec --no-startup-id i3-scrot -w, mode "default"
-        bindsym c --release exec --no-startup-id i3-scrot -s, mode "default"
-        bindsym s --release exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`', mode "default"
+        bindsym w --release exec --no-startup-id /home/chad/.bin/current-window-to-clipboard.sh, mode "default"
+        bindsym s --release exec --no-startup-id /home/chad/.bin/selection-to-clipboard.sh, mode "default"
+        bindsym c --release exec ffcast -q -s rec /home/chad/Videos/screencast-"$(date +%F\ %T)".mp4, mode "default"
+        bindsym k --release exec pkill -fxn '(/\S+)*ffmpeg\s.*\sx11grab\s.*', mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
