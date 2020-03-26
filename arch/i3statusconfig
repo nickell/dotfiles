@@ -10,11 +10,12 @@ general {
         colors = true
         interval = 5
         color_good = "#2AA198"
-        color_bad = "#586E75"
-        color_degraded = "#DC322F"
+        color_bad = "#f59842"
+        color_degraded = "#586E75"
 }
 
 order += "cpu_usage"
+order += "cpu_temperature 0"
 # order += "load"
 order += "disk /"
 # order += "disk /home"
@@ -30,10 +31,10 @@ cpu_usage {
         format = " cpu  %usage "
 }
 
-load {
-        format = " load %1min "
-        # max_threshold = 0.3
-}
+# load {
+#         format = " load %1min "
+#         # max_threshold = 0.3
+# }
 
 disk "/" {
         # format = " hdd %avail "
@@ -46,8 +47,14 @@ disk "/" {
 #         format_down = " no lan "
 # }
 
+cpu_temperature 0 {
+        format = ' T: %degrees °C '
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input"
+        max_threshold = 55
+}
+
 volume master {
-        format = "♪: %volume"
+        format = " ♪: %volume "
         format_muted = "♪: muted (%volume)"
         device = "default"
         mixer = "Master"
