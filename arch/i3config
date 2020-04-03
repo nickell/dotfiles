@@ -548,7 +548,7 @@ set $print_mode Print screen: (w)indow | (s)election to clipboard | (c)ast scree
 bindsym $mod+p mode $print_mode
 mode "$print_mode" {
         bindsym w --release exec --no-startup-id /home/chad/.bin/current-window-to-clipboard.sh, mode "default"
-        bindsym s --release exec --no-startup-id /home/chad/.bin/selection-to-clipboard.sh, mode "default"
+        bindsym s --release exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`', mode "default"
         bindsym c --release exec ffcast -q -s rec /home/chad/Videos/screencast-"$(date +%F\ %T)".mp4, mode "default"
         bindsym k --release exec pkill -fxn '(/\S+)*ffmpeg\s.*\sx11grab\s.*', mode "default"
 
