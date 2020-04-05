@@ -5,6 +5,7 @@ source $HOME/.dotfiles/generic/shell/functions/colored_echos.sh
 
 prezto="$HOME/.zprezto"
 tpm="$HOME/.tmux/plugins/tpm"
+vim_plug="$HOME/.local/share/nvim/site/autoload/plug.vim"
 dotconf="$HOME/.dotfiles/generic/config"
 conf="$HOME/.config"
 
@@ -16,6 +17,12 @@ fi
 if [ ! -d $prezto ]
 then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git $prezto
+fi
+
+if [ ! -f "$vim_plug" ]
+then
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 mkdir -p $HOME/.bin
@@ -35,4 +42,5 @@ linkf $dotconf/tmux.conf $HOME/.tmux.conf
 linkf $HOME/.dotfiles/generic/shell/inputrc $HOME/.inputrc
 linkf $HOME/.dotfiles/generic/shell/zpreztorc $HOME/.zpreztorc
 linkf $HOME/.dotfiles/generic/shell/zshrc $HOME/.zshrc
+linkf $HOME/.dotfiles/vim/init.vim $conf/nvim/init.vim
 echo_success 'Done'
