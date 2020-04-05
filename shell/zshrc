@@ -26,13 +26,13 @@ export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-fil
 # .local/bin (yarn)
 # $HOME/.bin for my custom scripts
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
-
 export KEYTIMEOUT=1
-
 export PAGER="less -S"
+export DOTFILES="$HOME/.dotfiles"
 
-# Set up aliases
+# Set up aliases and functions
 source $HOME/.dotfiles/shell/aliases
+for file in $HOME/.dotfiles/shell/functions/*; do source $file; done
 
 # Support local modifications
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local

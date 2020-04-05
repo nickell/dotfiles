@@ -72,3 +72,12 @@ t () {
     tmux send-keys -t:.6 'logs mailer' Enter
     tmux send-keys -t:.7 'logs cronjobs' Enter
 }
+
+n () {
+    if [ $# -eq 0 ]
+    then
+        nordvpn status;
+    else
+        nordvpn $*;
+    fi
+}

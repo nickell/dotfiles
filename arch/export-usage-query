@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-filename="`date`.csv"
-filepath="/home/chad/Google Drive/usage-query-results/$filename"
-
-/usr/sbin/psql -U yaguara -d yaguara -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -c "\copy (with x as ( select o.name, 'objective' as type, o.created as date, o.completed_date as completed_date, cu.email from objective o left join company_user cu on o.responsible_user_id = cu.user_id union select t.todo_text as name, 'todo' as type, t.created as date, t.completed_date as completed_date, cu.email from todo t left join company_user cu on t.created_by = cu.user_id union select g.name, 'key_result' as type, g.created as date, g.completed_date as completed_date, cu.email from goal g left join company_user cu on g.created_by = cu.user_id) select * from x where email not like '%yaguara%' order by date desc) To '/tmp/usage-query-results.csv' With CSV HEADER"
-mv /tmp/usage-query-results.csv $filepath
-
-/usr/sbin/drive push -no-prompt $filepath

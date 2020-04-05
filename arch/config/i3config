@@ -456,7 +456,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
 
 # App shortcuts
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e "tmux"
 bindsym $mod+c exec $browser
 bindsym $mod+x [class="Firefox"] kill
 bindsym $mod+Shift+n move container to workspace Notion

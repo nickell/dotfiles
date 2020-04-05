@@ -1,10 +1,14 @@
 #!/bin/bash
 
-link_file () {
+linkf () {
     local src=$1 dst=$2
 
     local overwrite= backup= skip=
     local action=
+
+    local dir=$(dirname "${2}")
+
+    mkdir -p $dir
 
     if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
     then
@@ -21,7 +25,7 @@ link_file () {
 
             else
 
-                user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
+                echo_user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
                     [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
                 read -n 1 action
 
@@ -53,25 +57,34 @@ link_file () {
         if [ "$overwrite" == "true" ]
         then
             rm -rf "$dst"
-            success "removed $dst"
+            echo_success "removed $dst"
         fi
 
         if [ "$backup" == "true" ]
         then
             mv "$dst" "${dst}.backup"
-            success "moved $dst to ${dst}.backup"
+            echo_success "moved $dst to ${dst}.backup"
         fi
 
         if [ "$skip" == "true" ]
         then
-            success "skipped $src"
+            echo_success "skipped $src"
         fi
     fi
 
     if [ "$skip" != "true" ]  # "false" or empty
     then
         ln -s "$1" "$2"
-        success "linked $1 to $2"
+        echo_success "linked $1 to $2"
     fi
 }
 
+install_linkf () {
+    local install_file=$HOME/.dotfiles/install.sh
+    sed -i "`wc -l < $install_file`i\\linkf $1 $2\\" $install_file
+}
+
+install_arch_linkf () {
+    local install_file=$HOME/.dotfiles/arch/install.sh
+    sed -i "`wc -l < $install_file`i\\linkf $1 $2\\" $install_file
+}

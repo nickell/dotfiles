@@ -114,10 +114,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: FuraCode Nerd Font
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
-    style: Light
+    style: Regular
 
   # Bold font face
   bold:
@@ -131,15 +131,17 @@ font:
     style: Medium
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux/BSD) monospace
+    #   - (Windows) Consolas
+    # family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Light Italic
 
   # Bold italic font face
   #bold_italic:
@@ -377,11 +379,11 @@ colors:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
-  program: /bin/zsh
-  args:
-    - -c
-    - tmux
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - -c
+#     - tmux
 
 # Startup directory
 #

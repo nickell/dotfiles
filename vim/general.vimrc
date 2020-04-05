@@ -405,7 +405,7 @@ let g:NERDTreeShowHidden = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim-ultisnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/vim-ultisnips']
 let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"

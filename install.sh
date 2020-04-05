@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-source $HOME/.dotfiles/scripts/link_file.sh
-source $HOME/.dotfiles/scripts/colored_echos.sh
+source $HOME/.dotfiles/shell/functions/linkf.sh
+source $HOME/.dotfiles/shell/functions/colored_echos.sh
 
 prezto="$HOME/.zprezto"
 tpm="$HOME/.tmux/plugins/tpm"
+dotconf="$HOME/.dotfiles/config"
+conf="$HOME/.config"
 
 if [ ! -d $tpm ]
 then
@@ -14,22 +16,21 @@ fi
 if [ ! -d $prezto ]
 then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git $prezto
-    git clone --recurse-submodules https://github.com/belak/prezto-contrib $prezto/contrib
 fi
 
-info 'Installing dotfiles'
+echo_info 'Installing dotfiles'
 overwrite_all=false backup_all=false skip_all=false
-link_file $HOME/.dotfiles/gitconfig $HOME/.gitconfig
-link_file $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-link_file $HOME/.dotfiles/shell/zshrc $HOME/.zshrc
-link_file $HOME/.dotfiles/shell/zpreztorc $HOME/.zpreztorc
-link_file $HOME/.dotfiles/psqlrc $HOME/.psqlrc
-mkdir -p $HOME/.config/pgcli
-link_file $HOME/.dotfiles/pgcliconfig $HOME/.config/pgcli/config
-link_file $HOME/.dotfiles/shell/inputrc $HOME/.inputrc
-link_file $HOME/.dotfiles/rgignore $HOME/.rgignore
-mkdir -p $HOME/.aria2
-link_file $HOME/.dotfiles/aria2.conf $HOME/.aria2/aria2.conf
-link_file $HOME/.dotfiles/sshconfig $HOME/.ssh/config
-
-success 'Done'
+linkf $dotconf/alacritty.yml $conf/alacritty/alacritty.yml
+linkf $dotconf/aria2.conf $HOME/.aria2/aria2.conf
+linkf $dotconf/gitconfig $HOME/.gitconfig
+linkf $dotconf/htoprc $conf/htop/htoprc
+linkf $dotconf/pgcliconfig $conf/pgcli/config
+linkf $dotconf/psqlrc $HOME/.psqlrc
+linkf $dotconf/rc.conf $conf/ranger/rc.conf
+linkf $dotconf/rgignore $HOME/.rgignore
+linkf $dotconf/sshconfig $HOME/.ssh/config
+linkf $dotconf/tmux.conf $HOME/.tmux.conf
+linkf $HOME/.dotfiles/shell/inputrc $HOME/.inputrc
+linkf $HOME/.dotfiles/shell/zpreztorc $HOME/.zpreztorc
+linkf $HOME/.dotfiles/shell/zshrc $HOME/.zshrc
+echo_success 'Done'
