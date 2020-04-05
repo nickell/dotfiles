@@ -1,0 +1,31 @@
+Sudoers file:
+    ## vim: set ft=sudoers:
+
+    chad ALL=(ALL) ALL
+    chad ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
+    chad ALL=(ALL) NOPASSWD: /usr/bin/openvpn
+    chad ALL=(ALL) NOPASSWD: /usr/bin/pacman
+
+    Defaults env_keep += "editor visual"
+
+    Defaults passwd_timeout=0
+
+    Defaults insults
+
+Keyboard config:
+    # Written by systemd-localed(8), read by systemd-localed and Xorg. It's
+    # probably wise not to edit this file manually. Use localectl(1) to
+    # instruct systemd-localed to update it.
+    Section "InputClass"
+            Identifier "system-keyboard"
+            MatchIsKeyboard "on"
+            Option "XkbLayout" "us"
+            Option "XkbModel" "pc104"
+            Option "XkbOptions" "caps:escape"
+    EndSection
+
+LightDM config:
+    # Set the key repeat/delay
+    xserver-command=X -ardelay 200 -arinterval 30
+    # Set the greeter session
+    greeter-session=lightdm-gtk-greeter
