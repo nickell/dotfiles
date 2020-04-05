@@ -31,8 +31,10 @@ export PAGER="less -S"
 export DOTFILES="$HOME/.dotfiles"
 
 # Set up aliases and functions
-source $HOME/.dotfiles/shell/aliases
-for file in $HOME/.dotfiles/shell/functions/*; do source $file; done
+source $HOME/.dotfiles/generic/shell/aliases
+for file in $HOME/.dotfiles/generic/shell/functions/*; do source $file; done
 
 # Support local modifications
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi

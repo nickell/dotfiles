@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-source $HOME/.dotfiles/shell/functions/linkf.sh
-source $HOME/.dotfiles/shell/functions/colored_echos.sh
+source $HOME/.dotfiles/generic/shell/functions/linkf.sh
+source $HOME/.dotfiles/generic/shell/functions/colored_echos.sh
 
 prezto="$HOME/.zprezto"
 tpm="$HOME/.tmux/plugins/tpm"
-dotconf="$HOME/.dotfiles/config"
+dotconf="$HOME/.dotfiles/generic/config"
 conf="$HOME/.config"
 
 if [ ! -d $tpm ]
@@ -17,6 +17,8 @@ if [ ! -d $prezto ]
 then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git $prezto
 fi
+
+mkdir -p $HOME/.bin
 
 echo_info 'Installing dotfiles'
 overwrite_all=false backup_all=false skip_all=false
@@ -30,7 +32,7 @@ linkf $dotconf/rc.conf $conf/ranger/rc.conf
 linkf $dotconf/rgignore $HOME/.rgignore
 linkf $dotconf/sshconfig $HOME/.ssh/config
 linkf $dotconf/tmux.conf $HOME/.tmux.conf
-linkf $HOME/.dotfiles/shell/inputrc $HOME/.inputrc
-linkf $HOME/.dotfiles/shell/zpreztorc $HOME/.zpreztorc
-linkf $HOME/.dotfiles/shell/zshrc $HOME/.zshrc
+linkf $HOME/.dotfiles/generic/shell/inputrc $HOME/.inputrc
+linkf $HOME/.dotfiles/generic/shell/zpreztorc $HOME/.zpreztorc
+linkf $HOME/.dotfiles/generic/shell/zshrc $HOME/.zshrc
 echo_success 'Done'

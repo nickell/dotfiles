@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source $HOME/.dotfiles/shell/functions/linkf.sh
 source $HOME/.dotfiles/shell/functions/colored_echos.sh
+source $HOME/.dotfiles/shell/functions/linkf.sh
 
 echo_info 'Installing dotfiles'
 overwrite_all=false backup_all=false skip_all=false

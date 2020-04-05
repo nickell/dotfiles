@@ -235,7 +235,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (s)uspend, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /home/chad/.bin/lock-screen.sh, mode "default"
+    bindsym l exec --no-startup-id /home/chad/.bin/lock-screen, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
@@ -463,7 +463,7 @@ bindsym $mod+Shift+n move container to workspace Notion
 bindsym $mod+n workspace Notion
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen.sh
+bindsym $mod+9 exec --no-startup-id /home/chad/.bin/lock-screen
 
 # Wallpaper
 set $wallpaper_mode Wallpaper: (n)ext | (p)revious | (f)avorite | (t)oggle pause | (q)uotes next | quotes p(r)evious
@@ -547,7 +547,7 @@ mode "$monitor_mode" {
 set $print_mode Print screen: (w)indow | (s)election to clipboard | (c)ast screen | (k)ill screencast
 bindsym $mod+p mode $print_mode
 mode "$print_mode" {
-        bindsym w --release exec --no-startup-id /home/chad/.bin/current-window-to-clipboard.sh, mode "default"
+        bindsym w --release exec --no-startup-id /home/chad/.bin/current-window-to-clipboard, mode "default"
         bindsym s --release exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`', mode "default"
         bindsym c --release exec ffcast -q -s rec /home/chad/Videos/screencast-"$(date +%F\ %T)".mp4, mode "default"
         bindsym k --release exec pkill -fxn '(/\S+)*ffmpeg\s.*\sx11grab\s.*', mode "default"
@@ -558,7 +558,7 @@ mode "$print_mode" {
 # }}}
 
 # {{{ Exec commands
-exec --no-startup-id /home/chad/.dotfiles/arch/conky-desktop.sh
+exec --no-startup-id /home/chad/.bin/conky-desktop
 
 exec --no-startup-id /usr/bin/variety
 

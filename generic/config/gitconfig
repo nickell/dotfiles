@@ -25,7 +25,7 @@
     date = format:%m/%d/%Y %H:%M
     abbrevCommit = true
 [commit]
-    template = ~/.dotfiles/config/git_commit_msg
+    template = ~/.dotfiles/generic/config/git_commit_msg
 [alias]
     b = branch --verbose
     ba = branch --all --verbose
