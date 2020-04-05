@@ -21,7 +21,6 @@ zstyle ':prezto:load' pmodule \
            'terminal' \
            'editor' \
            'history' \
-           'zshmarks' \
            'directory' \
            'wakeonlan' \
            'spectrum' \
