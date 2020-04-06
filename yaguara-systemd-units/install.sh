@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source "$HOME/.dotfiles/generic/shell/functions/colored_echos.sh"
-source "$HOME/.dotfiles/generic/shell/functions/linkf.sh"
+source $HOME/.dotfiles/generic/shell/functions/colored_echos.sh
+source $HOME/.dotfiles/generic/shell/functions/linkf.sh
 
 parentServices=(app backend)
 individualServices=(api api-watch websockets cronjobs etl mailer front-end)

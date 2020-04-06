@@ -28,7 +28,6 @@ fi
 mkdir -p $HOME/.bin
 
 echo_info 'Installing dotfiles'
-overwrite_all=false backup_all=false skip_all=false
 linkf $dotconf/alacritty.yml $conf/alacritty/alacritty.yml
 linkf $dotconf/aria2.conf $HOME/.aria2/aria2.conf
 linkf $dotconf/gitconfig $HOME/.gitconfig

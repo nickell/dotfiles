@@ -1,0 +1,16 @@
+# if [ ! -f /etc/systemd/system/reflector.timer ]
+# then
+#     ln -s $HOME/.dotfiles/arch/root-owned/reflector.timer /etc/systemd/system/reflector.timer
+#     systemctl enable --now reflector.timer
+# fi
+
+[Unit]
+Description=Run reflector weekly
+
+[Timer]
+OnCalendar=Mon *-*-* 7:00:00
+RandomizedDelaySec=15h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 source $HOME/.dotfiles/generic/shell/functions/colored_echos.sh
 source $HOME/.dotfiles/generic/shell/functions/linkf.sh
@@ -18,9 +18,8 @@ archconf=$HOME/.dotfiles/arch/config
 conf=$HOME/.config
 
 echo_info 'Installing config'
-overwrite_all=false backup_all=false skip_all=false
 linkf $archconf/dunstrc $conf/dunst/dunstrc
 linkf $archconf/i3config $conf/i3/config
 linkf $archconf/i3statusconfig $conf/i3status/config
 linkf $archconf/variety.conf $conf/variety/variety.conf
-echo_success 'Done'
+echo_success 'Config done'

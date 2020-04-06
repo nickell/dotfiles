@@ -13,7 +13,7 @@ linkf () {
     if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
     then
 
-        if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
+        if [ -z "$overwrite_all" ] && [ -z "$backup_all" ] && [ -z "$skip_all" ]
         then
 
             local currentSrc="$(readlink $dst)"
