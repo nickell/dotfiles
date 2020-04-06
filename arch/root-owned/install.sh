@@ -14,6 +14,17 @@ then
     echo_info 'Linking reflector.timer and enabling it'
     linkf $root_owned/reflector.timer /etc/systemd/system/reflector.timer
     systemctl enable --now reflector.timer
+else 
+    echo_success "skipped $root_owned/reflector.timer"
+fi
+
+# Sudo config
+if ! cmp -s $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
+then
+    cp $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
+    echo_success "copied $root_owned/sudoers_01_chad to /etc/sudoers.d/01_chad"
+else 
+    echo_success "skipped $root_owned/sudoers_01_chad"
 fi
 
 echo_success 'Done'
