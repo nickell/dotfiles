@@ -2,8 +2,6 @@
 
 chad ALL=(ALL) ALL
 chad ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
-chad ALL=(ALL) NOPASSWD: /usr/bin/openvpn
-chad ALL=(ALL) NOPASSWD: /usr/bin/pacman
 
 Defaults env_keep += "editor visual"
 
