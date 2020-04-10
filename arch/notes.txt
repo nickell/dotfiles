@@ -29,3 +29,18 @@ LightDM config:
     xserver-command=X -ardelay 200 -arinterval 30
     # Set the greeter session
     greeter-session=lightdm-gtk-greeter
+
+Install/configure ssh:
+    # Set the key repeat/delay
+    xserver-command=X -ardelay 200 -arinterval 30
+    # Set the greeter session
+    greeter-session=lightdm-gtk-greeter
+
+
+Install list:
+pacman -S fzf curl tmux neovim python-pynvim xclip xsel xdg-utils openssh
+
+AUR Install list:
+google-chrome
+nvim
+nerd fonts
