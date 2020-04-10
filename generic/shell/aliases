@@ -30,6 +30,7 @@ alias remove-lib="find . -name 'lib' -type d -prune -exec rm -rf '{}' +"
 alias remove-node-modules="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 alias remove-tsbuildinfo"find . -name 'tsconfig.tsbuildinfo' -type f -prune -exec rm -rf '{}' +"
 alias rs="ctl restart"
+alias sctl="sudo systemctl"
 alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
 alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
