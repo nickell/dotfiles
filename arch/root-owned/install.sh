@@ -31,4 +31,7 @@ compare_and_copy () {
 # Sudo config
 compare_and_copy $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
 
+# Touchpad config
+compare_and_copy $root_owned/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
+
 echo_success 'Done'
