@@ -18,13 +18,17 @@ else
     echo_success "skipped $root_owned/reflector.timer"
 fi
 
+compare_and_copy () {
+    if ! cmp -s $1 $2
+    then
+        cp $1 $2
+        echo_success "copied $1 to $2"
+    else
+        echo_success "skipped $1"
+    fi
+}
+
 # Sudo config
-if ! cmp -s $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
-then
-    cp $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
-    echo_success "copied $root_owned/sudoers_01_chad to /etc/sudoers.d/01_chad"
-else 
-    echo_success "skipped $root_owned/sudoers_01_chad"
-fi
+compare_and_copy $root_owned/sudoers_01_chad /etc/sudoers.d/01_chad
 
 echo_success 'Done'
