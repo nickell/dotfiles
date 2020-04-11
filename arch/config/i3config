@@ -576,4 +576,6 @@ exec --no-startup-id /usr/bin/variety
 exec --no-startup-id /usr/bin/blueberry-tray
 
 exec --no-startup-id /usr/bin/dunst
+
+exec --no-startup-id /usr/bin/libinput-gestures-setup start
 # }}}

@@ -22,4 +22,5 @@ linkf $archconf/dunstrc $conf/dunst/dunstrc
 linkf $archconf/i3config $conf/i3/config
 linkf $archconf/i3statusconfig $conf/i3status/config
 linkf $archconf/variety.conf $conf/variety/variety.conf
+linkf $archconf/libinput-gestures.conf $conf/libinput-gestures.conf
 echo_success 'Config done'
