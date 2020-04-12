@@ -23,4 +23,7 @@ linkf $archconf/i3config $conf/i3/config
 linkf $archconf/i3statusconfig $conf/i3status/config
 linkf $archconf/variety.conf $conf/variety/variety.conf
 linkf $archconf/libinput-gestures.conf $conf/libinput-gestures.conf
+linkf $archconf/gtk3_settings.ini $conf/gtk-3.0/settings.ini
+linkf $archconf/gtkrc-2.0 $HOME/.gtkrc-2.0
+linkf $archconf/xprofile $HOME/.xprofile
 echo_success 'Config done'
