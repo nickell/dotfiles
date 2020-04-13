@@ -42,6 +42,6 @@ compare_and_copy $root_owned/freetype2.sh /etc/profile.d/freetype2.sh
 compare_and_copy $root_owned/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # Video driver config
-# compare_and_copy $root_owned/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+compare_and_copy $root_owned/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 
 echo_success 'Done'

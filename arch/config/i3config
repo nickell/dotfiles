@@ -540,11 +540,11 @@ mode "$monitor_mode" {
         # Make DP1 left of laptop
         # bindsym d exec xrandr --output DP1 --left-of eDP1
         # Laptop high resolution
-        bindsym h exec xrandr --output eDP-1 --mode 1920x1080
+        bindsym h exec xrandr --output eDP1 --mode 1920x1080
         # Laptop medium resolution
-        bindsym m exec xrandr --output eDP-1 --mode 1600x900
+        bindsym m exec xrandr --output eDP1 --mode 1600x900
         # Laptop low resolution
-        bindsym l exec xrandr --output eDP-1 --mode 1280x720
+        bindsym l exec xrandr --output eDP1 --mode 1280x720
         
         bindsym c exec /bin/bash /home/chad/.screenlayout/Closed\ Docked.sh
         bindsym o exec /bin/bash /home/chad/.screenlayout/Open\ Docked.sh
