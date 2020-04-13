@@ -1,3 +1,5 @@
+# vim: set fdm=marker fmr={{{,}}} fdl=0:
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -7,6 +9,20 @@ unsetopt beep
 # Source Prezto and remove an alias from it
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 unalias rm
+
+# {{{ Change prompt for SSH connections
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+else
+  case $(ps -o comm= -p $PPID) in
+    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+  esac
+fi
+
+if [ ! -z $SESSION_TYPE ]; then
+    export PROMPT="[S] $PROMPT"
+fi
+# }}}
 
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
