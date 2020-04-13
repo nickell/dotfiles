@@ -11,7 +11,6 @@ alias g="git"
 alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
-alias publicip="curl ipecho.net/plain;echo"
 alias j="jump"
 alias k="kubectl"
 alias kprod="k config use-context prod"
@@ -23,6 +22,7 @@ alias nrs="npm run --silent"
 alias p="sudo pacman"
 alias pg="pgcli -D"
 alias pgl="pgcli -D local"
+alias publicip="curl ipecho.net/plain;echo"
 alias r="ranger"
 alias ranm="rm -rf node_modules && rnm && rm yarn.lock"
 alias rc="source ranger"
@@ -37,8 +37,8 @@ alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d y
 alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
 alias sql-test="psql -h localhost -d test -U postgres"
 alias sql="psql -h localhost -d yaguara -U postgres"
-alias ssh='TERM=alacritty ssh'
-alias pssh='ssh'
+alias ssh='TERM=xterm-256color ssh'
+alias ssha='TERM=alacritty ssh'
 alias tf="terraform"
 alias tm="tmux"
 alias tmn="tmux new -s main"
