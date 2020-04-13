@@ -37,7 +37,8 @@ alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d y
 alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
 alias sql-test="psql -h localhost -d test -U postgres"
 alias sql="psql -h localhost -d yaguara -U postgres"
-alias ssh='TERM=xterm-256color ssh'
+alias ssh='TERM=alacritty ssh'
+alias pssh='ssh'
 alias tf="terraform"
 alias tm="tmux"
 alias tmn="tmux new -s main"
