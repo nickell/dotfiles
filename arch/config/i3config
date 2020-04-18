@@ -62,7 +62,6 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 # bindsym $mod+F2 exec palemoon
 # bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
@@ -121,7 +120,7 @@ bindsym $mod+Shift+c mode $change_container_layout_mode
 mode "$change_container_layout_mode" {
         bindsym s layout stacking
         bindsym t layout tabbed
-        bindsym e layout toggle split
+        bindsym o layout toggle split
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
