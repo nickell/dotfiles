@@ -129,10 +129,6 @@ nmap <silent> <leader>th :call CocActionAsync('doHover')<cr>
 nmap <silent> <leader>to :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 nmap <silent> <leader>ti <Plug>(coc-implementation)
 nmap <silent> <leader>tr <Plug>(coc-references)
-" <leader>t --- lint namespaced mappings
-nnoremap <leader>ld :ALEDetail<cr>
-nnoremap <leader>li :ALEInfo<cr>
-nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
 nnoremap <leader>o za
 nnoremap <leader>Q :q!<cr>
@@ -163,18 +159,12 @@ command! Gsave :!git save
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
-function! AleIgnore()
-  let codes = []
-  for d in getloclist(0)
-    if (d.lnum==line('.'))
-      let code = split(d.text,':')[0]
-      call add(codes, code)
-    endif
-  endfor
-  if len(codes)
-    exe 'normal A // eslint-disable-line ' . join(codes, ', ')
+function! SynStack()
+  if !exists("*synstack")
+    return
   endif
-endfunction
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
 
@@ -206,16 +196,6 @@ endfunction
 function! ProfileEnd()
     profile pause
     noautocmd qall!
-endfunction
-
-function! ToggleAleFix()
-    if g:ale_fix_on_save
-        let g:ale_fix_on_save = 0
-        echo "Ale fix on save off"
-    else
-        let g:ale_fix_on_save = 1
-        echo "Ale fix on save on"
-    endif
 endfunction
 
 augroup mygroup
