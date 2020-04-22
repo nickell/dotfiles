@@ -33,8 +33,8 @@ alias rs="ctl restart"
 alias sctl="sudo systemctl"
 alias se="sudoedit"
 alias show-cursor='echo "\x1B[?25h"'
-alias sql-prod="psql -h production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
-alias sql-staging="psql -h staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U yaguara"
+alias sql-prod="psql -h yaguara-web-production.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U i8jEDBevToM"
+alias sql-staging="psql -h yaguara-web-staging.cv360oyfmcuy.us-east-2.rds.amazonaws.com -d yaguara -U tWrn2DKUyri"
 alias sql-test="psql -h localhost -d test -U postgres"
 alias sql="psql -h localhost -d yaguara -U postgres"
 alias ssh='TERM=xterm-256color ssh'
