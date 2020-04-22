@@ -119,8 +119,6 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Gstatus<cr>
-" nmap <silent> <leader>j <Plug>(ale_next_wrap)
-" nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next-error)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>J <Plug>(coc-diagnostic-next)
@@ -136,12 +134,11 @@ nnoremap <leader>ld :ALEDetail<cr>
 nnoremap <leader>li :ALEInfo<cr>
 nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
+nnoremap <leader>o za
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
-" Change javascript function statement to ES6
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
-nnoremap <leader>sa :wa<cr>
 nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
