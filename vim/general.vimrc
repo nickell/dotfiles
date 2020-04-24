@@ -119,8 +119,6 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Gstatus<cr>
-" nmap <silent> <leader>j <Plug>(ale_next_wrap)
-" nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next-error)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>J <Plug>(coc-diagnostic-next)
@@ -131,17 +129,12 @@ nmap <silent> <leader>th :call CocActionAsync('doHover')<cr>
 nmap <silent> <leader>to :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 nmap <silent> <leader>ti <Plug>(coc-implementation)
 nmap <silent> <leader>tr <Plug>(coc-references)
-" <leader>t --- lint namespaced mappings
-nnoremap <leader>ld :ALEDetail<cr>
-nnoremap <leader>li :ALEInfo<cr>
-nnoremap <leader>lg :call AleIgnore()<cr>
 nnoremap <leader>n :NERDTreeFind<cr>
+nnoremap <leader>o za
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
-" Change javascript function statement to ES6
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
-nnoremap <leader>sa :wa<cr>
 nnoremap <leader>si :SortImport<cr>
 vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
@@ -166,18 +159,12 @@ command! Gsave :!git save
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
-function! AleIgnore()
-  let codes = []
-  for d in getloclist(0)
-    if (d.lnum==line('.'))
-      let code = split(d.text,':')[0]
-      call add(codes, code)
-    endif
-  endfor
-  if len(codes)
-    exe 'normal A // eslint-disable-line ' . join(codes, ', ')
+function! SynStack()
+  if !exists("*synstack")
+    return
   endif
-endfunction
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
 
@@ -209,16 +196,6 @@ endfunction
 function! ProfileEnd()
     profile pause
     noautocmd qall!
-endfunction
-
-function! ToggleAleFix()
-    if g:ale_fix_on_save
-        let g:ale_fix_on_save = 0
-        echo "Ale fix on save off"
-    else
-        let g:ale_fix_on_save = 1
-        echo "Ale fix on save on"
-    endif
 endfunction
 
 augroup mygroup
