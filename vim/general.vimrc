@@ -280,6 +280,7 @@ let g:vrc_curl_opts = {
   \ '--max-time': 60,
   \ '-k': '',
 \}
+let g:vrc_split_request_body=1
 
 " gruvbox
 let g:gruvbox_italic = 1
