@@ -115,3 +115,4 @@ Plug 'diepm/vim-rest-console'
 
 " IDE
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/dbext.vim'
