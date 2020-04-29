@@ -39,6 +39,7 @@ set fileformat=unix " Possible fix to lots of odd line endings showing up
 " https://www.reddit.com/r/vim/comments/7fqpny/slow_vim_scrolling_and_cursor_moving_in_iterm_and/
 set regexpengine=1
 set synmaxcol=200
+set timeoutlen=500
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -135,8 +136,8 @@ nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
 nnoremap <leader>rw :Rg <c-r><c-w><cr>
-nnoremap <leader>si :SortImport<cr>
-vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
+" nnoremap <leader>si :SortImport<cr>
+" vnoremap <leader>su :call ChangeSqlCase()<cr><cr>
 " Surround with spaces
 " <leader>t --- typescript namespaced mappings
 nnoremap <leader>U :UltiSnipsEdit<cr>
@@ -281,6 +282,11 @@ let g:vrc_curl_opts = {
   \ '-k': '',
 \}
 let g:vrc_split_request_body=1
+
+" dbext
+let g:dbext_default_profile_local = 'type=PGSQL:user=postgres:dbname=yaguara:host=localhost'
+let g:dbext_default_profile_prod = 'type=PGSQL:user=i8jEDBevToM:dbname=yaguara:host=yaguara-web-production.cv360oyfmcuy.us-east-2.rds.amazonaws.com'
+let g:dbext_default_profile = 'local'
 
 " gruvbox
 let g:gruvbox_italic = 1
