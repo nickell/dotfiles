@@ -479,12 +479,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
 # App shortcuts
 bindsym $mod+Return exec alacritty -e "tmux"
 bindsym $mod+c exec $browser
-bindsym $mod+x [class="Firefox"] kill
-bindsym $mod+Shift+n move container to workspace Notion
-bindsym $mod+Shift+e move container to workspace Email-Cal
-bindsym $mod+Shift+s move container to workspace Slack
-bindsym $mod+Shift+o move container to workspace Spotify
-bindsym $mod+n workspace Notion
+bindsym $mod+F5 exec --no-startup-id sudo brightnessctl set 1%
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id /usr/bin/xtrlock
@@ -524,10 +519,21 @@ bindsym $mod+b exec pcmanfm
 for_window [class="Gcolor2"] floating enable, move container to scratchpad
 for_window [class=".*"] title_format "<span size=\\"small\\"> %title</span>"
 
+# Email-Cal
 bindsym $mod+e workspace Email-Cal
+bindsym $mod+Shift+e move container to workspace Email-Cal
+# Slack
 bindsym $mod+s workspace Slack
+bindsym $mod+Shift+s move container to workspace Slack
+# DB
+bindsym $mod+x workspace DB
+bindsym $mod+Shift+x move container to workspace DB
+# Spotify
 bindsym $mod+o workspace Spotify
-bindsym $mod+F5 exec --no-startup-id sudo brightnessctl set 1%
+bindsym $mod+Shift+o move container to workspace Spotify
+# Notion
+bindsym $mod+n workspace Notion
+bindsym $mod+Shift+n move container to workspace Notion
 
 set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | work c(a)lendar | persona(l) calendar
 bindsym $mod+u mode $launch_app_mode
@@ -540,6 +546,16 @@ mode "$launch_app_mode" {
         bindsym s exec /usr/bin/slack
         bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
         bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+
+        # exit monitor mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $shortcut_mode Shortcut: (k)ill firefox
+bindsym $mod+bracketright mode $shortcut_mode
+mode "$shortcut_mode" {
+        bindsym k [class="Firefox"] kill
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
