@@ -54,3 +54,7 @@ for file in $HOME/.dotfiles/generic/shell/functions/*; do source $file; done
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi
+
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
