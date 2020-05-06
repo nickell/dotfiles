@@ -207,7 +207,8 @@ augroup mygroup
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
 
     autocmd BufNewFile,BufRead *plist setlocal noexpandtab
-
+    autocmd BufNewFile,BufRead .envrc* setlocal ft=zsh
+    
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 
