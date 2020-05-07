@@ -552,10 +552,12 @@ mode "$launch_app_mode" {
         bindsym Escape mode "default"
 }
 
-set $shortcut_mode Shortcut: (k)ill firefox
+set $shortcut_mode Shortcut: (k)ill firefox | (u)p or (d)own yaguara vpn
 bindsym $mod+bracketright mode $shortcut_mode
 mode "$shortcut_mode" {
         bindsym k [class="Firefox"] kill
+        bindsym u exec nmcli con up yaguara
+        bindsym d exec nmcli con down yaguara
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
