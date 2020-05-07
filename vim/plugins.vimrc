@@ -99,6 +99,7 @@ Plug 'gerw/vim-HiLinkTrace'
 " Plug 'lifepillar/vim-solarized8'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'fneu/breezy'
+Plug 'jparise/vim-graphql'
 Plug 'morhetz/gruvbox'
 " Plug 'joshdick/onedark.vim'
 " Plug 'mhartington/oceanic-next'
@@ -113,5 +114,5 @@ Plug 'morhetz/gruvbox'
 Plug 'diepm/vim-rest-console'
 
 " IDE
-" Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/dbext.vim'
