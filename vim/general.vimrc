@@ -288,6 +288,7 @@ let g:vrc_split_request_body=1
 let g:dbext_default_profile_local = 'type=PGSQL:user=postgres:dbname=yaguara:host=localhost'
 let g:dbext_default_profile_prod = 'type=PGSQL:user=i8jEDBevToM:dbname=yaguara:host=yaguara-web-production.cv360oyfmcuy.us-east-2.rds.amazonaws.com'
 let g:dbext_default_profile = 'local'
+let g:dbext_default_history_file = '/home/chad/.dbext_sql_history.txt'
 
 " gruvbox
 let g:gruvbox_italic = 1
