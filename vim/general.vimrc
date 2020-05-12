@@ -39,7 +39,6 @@ set fileformat=unix " Possible fix to lots of odd line endings showing up
 " https://www.reddit.com/r/vim/comments/7fqpny/slow_vim_scrolling_and_cursor_moving_in_iterm_and/
 set regexpengine=1
 set synmaxcol=200
-set timeoutlen=500
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
@@ -288,6 +287,7 @@ let g:vrc_split_request_body=1
 let g:dbext_default_profile_local = 'type=PGSQL:user=postgres:dbname=yaguara:host=localhost'
 let g:dbext_default_profile_prod = 'type=PGSQL:user=i8jEDBevToM:dbname=yaguara:host=yaguara-web-production.cv360oyfmcuy.us-east-2.rds.amazonaws.com'
 let g:dbext_default_profile = 'local'
+let g:dbext_default_history_file = '/home/chad/.dbext_sql_history.txt'
 
 " gruvbox
 let g:gruvbox_italic = 1
