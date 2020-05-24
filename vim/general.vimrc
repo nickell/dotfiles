@@ -39,7 +39,6 @@ set fileformat=unix " Possible fix to lots of odd line endings showing up
 " https://www.reddit.com/r/vim/comments/7fqpny/slow_vim_scrolling_and_cursor_moving_in_iterm_and/
 set regexpengine=1
 set synmaxcol=200
-set timeoutlen=500
 
 " backup/persistance settings
 set backupskip=/tmp/*,/private/tmp/*"
