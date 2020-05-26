@@ -540,12 +540,16 @@ bindsym $mod+u mode $launch_app_mode
 mode "$launch_app_mode" {
         bindsym o exec spotify
         bindsym c exec $browser
-        bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
         bindsym n exec /usr/bin/notion-app
-        bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
         bindsym s exec /usr/bin/slack
-        bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
-        bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+        # bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
+        bindsym p exec $browser --app=https://mail.google.com/mail/u/0/#inbox
+        # bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
+        bindsym w exec $browser --app=https://mail.google.com/mail/u/1/#inbox
+        # bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
+        bindsym a exec $browser --app=https://calendar.google.com/calendar/b/1/r
+        # bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+        bindsym l exec $browser --app=https://calendar.google.com/calendar
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
