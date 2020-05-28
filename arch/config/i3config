@@ -559,8 +559,8 @@ mode "$launch_app_mode" {
 set $shortcut_mode Shortcut: (u)p or (d)own yaguara vpn | (m)onitor mode
 bindsym $mod+bracketright mode $shortcut_mode
 mode "$shortcut_mode" {
-        bindsym u exec nmcli con up yaguara
-        bindsym d exec nmcli con down yaguara
+        bindsym u exec nmcli con up yaguara; mode "default"
+        bindsym d exec nmcli con down yaguara; mode "default"
         bindsym m mode $monitor_mode
 
         # exit monitor mode: Enter or Escape
