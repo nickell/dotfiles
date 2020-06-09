@@ -43,3 +43,7 @@
     pod = push origin --delete --no-verify
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT} --no-verify; }; f"
     undo = reset HEAD~1 --mixed
+[rebase]
+	instructionFormat = (%an <%ae>) %s
+[pull]
+	ff = only
