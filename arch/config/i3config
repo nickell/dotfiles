@@ -439,7 +439,8 @@ mode "$mode_gaps_outer" {
 
 # My customizations
 # {{{ Variables
-set $browser google-chrome-stable
+# set $browser google-chrome-stable
+set $browser firefox
 # }}}
 
 # {{{ Keybindings
@@ -542,26 +543,37 @@ mode "$launch_app_mode" {
         bindsym c exec $browser
         bindsym n exec /usr/bin/notion-app
         bindsym s exec /usr/bin/slack
-        # bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
-        bindsym p exec $browser --app=https://mail.google.com/mail/u/0/#inbox
-        # bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
-        bindsym w exec $browser --app=https://mail.google.com/mail/u/1/#inbox
-        # bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
-        bindsym a exec $browser --app=https://calendar.google.com/calendar/b/1/r
-        # bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
-        bindsym l exec $browser --app=https://calendar.google.com/calendar
+        bindsym p exec $browser -P app -new-window https://mail.google.com/mail/u/0/#inbox
+        # bindsym p exec $browser --app=https://mail.google.com/mail/u/0/#inbox
+        bindsym w exec $browser -P app -new-window https://mail.google.com/mail/u/1/#inbox
+        # bindsym w exec $browser --app=https://mail.google.com/mail/u/1/#inbox
+        bindsym a exec $browser -P app -new-window https://calendar.google.com/calendar/b/1/r
+        # bindsym a exec $browser --app=https://calendar.google.com/calendar/b/1/r
+        bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
+        # bindsym l exec $browser --app=https://calendar.google.com/calendar
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-set $shortcut_mode Shortcut: (u)p or (d)own yaguara vpn | (m)onitor mode
+set $shortcut_mode Shortcut: (u)p or (d)own yaguara vpn | (m)onitor mode | (k)ill mode
 bindsym $mod+bracketright mode $shortcut_mode
 mode "$shortcut_mode" {
         bindsym u exec nmcli con up yaguara; mode "default"
         bindsym d exec nmcli con down yaguara; mode "default"
+        bindsym k mode $kill_mode
         bindsym m mode $monitor_mode
+
+        # exit monitor mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $kill_mode Kill: (c)hrome | (f)irefox
+mode "$kill_mode" {
+        bindsym c exec killall chrome; mode "default"
+        bindsym f exec killall firefox; mode "default"
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
