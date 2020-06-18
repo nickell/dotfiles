@@ -29,6 +29,7 @@ mkdir -p $HOME/.bin
 
 echo_info 'Installing dotfiles'
 linkf $dotconf/alacritty.yml $conf/alacritty/alacritty.yml
+linkf $dotconf/vim/coc-settings.json $conf/nvim/coc-settings.json
 linkf $dotconf/aria2.conf $HOME/.aria2/aria2.conf
 linkf $dotconf/gitconfig $HOME/.gitconfig
 linkf $dotconf/htoprc $conf/htop/htoprc
