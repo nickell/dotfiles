@@ -52,7 +52,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 # exec --no-startup-id volumeicon
 # bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
@@ -279,21 +278,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# Autostart applications
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-# exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcursor
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -618,12 +602,12 @@ mode "$print_mode" {
 }
 # }}}
 
-# {{{ Exec commands
+# {{{ Autostart programs
 exec --no-startup-id /home/chad/.bin/conky-desktop
-
 exec --no-startup-id /usr/bin/variety
-
 exec --no-startup-id /usr/bin/blueberry-tray
-
 exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id pa-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
 # }}}
