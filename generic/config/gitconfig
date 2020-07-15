@@ -39,6 +39,7 @@
     f = fetch -p
     lm = log --pretty=medium
     m = merge
+    s = switch
     p = pull
     pod = push origin --delete --no-verify
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT} --no-verify; }; f"
