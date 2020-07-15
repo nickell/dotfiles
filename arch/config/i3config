@@ -564,25 +564,19 @@ mode "$kill_mode" {
         bindsym Escape mode "default"
 }
 
-# set $monitor_mode Monitor: (a)uto (h)dmi left (d)p1 left (m)edium res (l)ow res (x)tra low res
-set $monitor_mode Monitor: (a)uto (h)igh res (m)edium res (l)ow res | (c)losed docked | (o)pen docked
+set $monitor_mode Monitor: (a)uto (h)igh (m)ed (n)low/med (l)ow (x)tra low | (c)losed docked | (o)pen docked
 mode "$monitor_mode" {
         # Auto detect monitors
         bindsym a exec xrandr --auto
-        # Make HDMI2 left of laptop
-        # bindsym h exec xrandr --output HDMI2 --left-of eDP1
-        # Make DP1 left of laptop
-        # bindsym d exec xrandr --output DP1 --left-of eDP1
-        # Laptop high resolution
-        bindsym h exec xrandr --output eDP-1 --mode 1920x1080
-        # Laptop medium resolution
-        bindsym m exec xrandr --output eDP-1 --mode 1600x900
-        # Laptop low resolution
-        bindsym l exec xrandr --output eDP-1 --mode 1280x720
-        
+
+        # Scripted setups
+        bindsym h exec /bin/bash /home/chad/.screenlayout/high.sh
+        bindsym m exec /bin/bash /home/chad/.screenlayout/medium.sh
+        bindsym n exec /bin/bash /home/chad/.screenlayout/low-medium.sh
+        bindsym l exec /bin/bash /home/chad/.screenlayout/low.sh
+        bindsym x exec /bin/bash /home/chad/.screenlayout/extra-low.sh
         bindsym c exec /bin/bash /home/chad/.screenlayout/Closed\ Docked.sh
         bindsym o exec /bin/bash /home/chad/.screenlayout/Open\ Docked.sh
-
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
