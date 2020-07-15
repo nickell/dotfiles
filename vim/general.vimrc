@@ -101,8 +101,12 @@ nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 nnoremap <leader>e :!cd %:p:h;
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>ggh :diffget //2<cr>
+nnoremap <leader>ggl :diffget //3<cr>
+nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nnoremap <leader>n :NERDTreeFind<cr>
@@ -238,6 +242,7 @@ let g:instant_markdown_autostart=0
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-eslint',
+    \ 'coc-go',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-snippets',

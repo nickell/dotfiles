@@ -63,6 +63,9 @@ export KEYTIMEOUT=1
 # Use neovim by default
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# Used in git aliases for code reviews
+export REVIEW_BASE='master'
 # }}}
 
 # {{{ PATH
