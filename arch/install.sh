@@ -25,4 +25,5 @@ linkf $archconf/variety.conf $conf/variety/variety.conf
 linkf $archconf/gtk3_settings.ini $conf/gtk-3.0/settings.ini
 linkf $archconf/gtkrc-2.0 $HOME/.gtkrc-2.0
 linkf $archconf/xprofile $HOME/.xprofile
+linkf $archconf/polybar/config $conf/polybar/config
 echo_success 'Config done'
