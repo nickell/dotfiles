@@ -1,15 +1,20 @@
 # vim: set fdm=marker fmr={{{,}}} fdl=0:
 
+# {{{ ZSH Settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd extendedglob nomatch hist_ignore_dups
 unsetopt beep
+# }}}
 
+# {{{ Prezto
 # Source Prezto and remove an alias from it
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 unalias rm
+# }}}
 
+# {{{ Prompt
 # {{{ Change prompt for SSH connections
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   SESSION_TYPE=remote/ssh
@@ -24,37 +29,57 @@ if [ ! -z $SESSION_TYPE ]; then
 fi
 # }}}
 
-# Source FZF
+# Change prompt for inside ranger
+if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi
+# }}}
+
+# {{{ Configs
+# {{{ FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set up ripgrep as fzf's backend
+export FZF_DEFAULT_OPTS='--bind alt-j:down,alt-k:up'
+export FZF_TMUX=1
 
 # Make ctrl-s work for reverse-i-search/i-search, from here: https://stackoverflow.com/a/25391867/870835
 [[ $- == *i* ]] && stty -ixon
+# }}}
+
+# {{{  direnv
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
+# }}}
+
+# NVM
+# source /usr/share/nvm/init-nvm.sh
+
+# Pager use less
+export PAGER="less -S"
+
+# Make escape work immediately
+export KEYTIMEOUT=1
 
 # Use neovim by default
 export EDITOR='nvim'
 export VISUAL='nvim'
+# }}}
 
-# Set up ripgrep as fzf's backend
-export FZF_DEFAULT_COMMAND='rg -g '!.git' --files --hidden --follow --ignore-file ~/.rgignore'
-
+# {{{ PATH
 # Export path to include:
 # node from NVM
 # .local/bin (yarn)
 # $HOME/.bin for my custom scripts
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
-export KEYTIMEOUT=1
-export PAGER="less -S"
+# }}}
+
+# {{{ Dotfiles
 export DOTFILES="$HOME/.dotfiles"
 
 # Set up aliases and functions
 source $HOME/.dotfiles/generic/shell/aliases
 for file in $HOME/.dotfiles/generic/shell/functions/*; do source $file; done
+# }}}
 
 # Support local modifications
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi
-
-if [ -x "$(command -v direnv)" ]; then
-    eval "$(direnv hook zsh)"
-fi
