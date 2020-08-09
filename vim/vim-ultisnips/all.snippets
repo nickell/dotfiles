@@ -3,17 +3,6 @@ $1 {{{ $2
 $1 }}}
 endsnippet
 
-snippet #fo "Fold" b
-# {{{ $1
-# }}}
-endsnippet
-
-snippet /fo "Fold" b
-// {{{ $1
-// }}}
-endsnippet
-
-snippet -fo "Fold" b
--- {{{ $1
--- }}}
+snippet todo "Todo"
+$1 TODO: ${2:desc} `!v strftime("%D %I:%M %p")` `echo $USER`
 endsnippet

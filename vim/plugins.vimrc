@@ -10,9 +10,6 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Snippets
-Plug 'SirVer/ultisnips'
-
 " Files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
@@ -24,7 +21,6 @@ Plug 'Arkham/vim-quickfixdo'
 " Javascript
 " Plug 'moll/vim-node'
 " Plug 'dgraham/vim-eslint'
-Plug 'ruanyl/vim-sort-imports'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
@@ -74,7 +70,6 @@ Plug 'tpope/vim-liquid'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'pedrohdz/vim-yaml-folds'
-" Plug 'tomtom/tcomment_vim' " Using this one because it has a bunch of stars and seems actively kept up to date
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -82,8 +77,6 @@ Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree
@@ -92,23 +85,23 @@ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " Colorschemes
 Plug 'Yggdroot/indentLine'
-" Plug 'gertjanreynaert/cobalt2-vim-theme'
-" Plug 'ajh17/Spacegray.vim'
-" Plug 'flazz/vim-colorschemes'
 Plug 'gerw/vim-HiLinkTrace'
-" Plug 'lifepillar/vim-solarized8'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'fneu/breezy'
 Plug 'jparise/vim-graphql'
 Plug 'morhetz/gruvbox'
-" Plug 'joshdick/onedark.vim'
-" Plug 'mhartington/oceanic-next'
+" Plug 'ajh17/Spacegray.vim'
+" Plug 'bounceme/highwayman'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'sickill/vim-monokai'
-" Plug 'bounceme/highwayman'
-" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'fneu/breezy'
+" Plug 'gertjanreynaert/cobalt2-vim-theme'
+" Plug 'joshdick/onedark.vim'
+" Plug 'lifepillar/vim-solarized8'
 " Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
+" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'sickill/vim-monokai'
 
 " Random tools
 Plug 'diepm/vim-rest-console'
@@ -116,3 +109,4 @@ Plug 'diepm/vim-rest-console'
 " IDE
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/dbext.vim'
+Plug 'honza/vim-snippets'
