@@ -35,15 +35,16 @@
     co = checkout
     cob = checkout -b
     cof = "!f() { git branch | grep -i "$1" | head -1 | xargs git checkout; }; f"
+    cp = cherry-pick
     ec = config --global -e
     f = fetch -p
     files = !git diff --name-only `git merge-base HEAD $REVIEW_BASE`
     lm = log --pretty=medium
     m = merge
-    s = switch
     p = pull
-    pod = push origin --delete --no-verify
+    ; pod = push origin --delete --no-verify
     review = !nvim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+    s = switch
     save = "!f() { git add -A; git commit -m ${1-SAVEPOINT} --no-verify; }; f"
     stat = !git diff --stat `git merge-base HEAD $REVIEW_BASE`
     undo = reset HEAD~1 --mixed

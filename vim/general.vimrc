@@ -178,6 +178,7 @@ augroup mygroup
     autocmd!
     " Git tweaks
     autocmd Filetype gitcommit setlocal textwidth=72 colorcolumn=51
+    autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
 
     autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
 
@@ -210,7 +211,7 @@ augroup mygroup
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
     " Update save mapping to format with prettier in compatible filetypes
-    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :PrettierAsync<cr>:w!<cr>
+    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :Prettier<cr>:w!<cr>
 
     " fzf hide statusline
     autocmd! FileType fzf
