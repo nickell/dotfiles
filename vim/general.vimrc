@@ -50,6 +50,7 @@ set noswapfile
 set undofile
 set history=100
 set undolevels=100
+set sessionoptions=blank,buffers,curdir,folds
 
 " Colors
 syntax on
@@ -253,18 +254,6 @@ let g:coc_global_extensions = [
 " Coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand-jump)
 vmap <C-j> <Plug>(coc-snippets-select)
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
 " }}}
 
 " {{{ VRC
@@ -358,7 +347,6 @@ command! -bang -nargs=* Rgm
 " let g:session_lock_enabled = 0
 " let g:session_default_to_last = 0
 " let g:session_default_name = fnamemodify(getcwd(), ':t')
-set sessionoptions=blank,buffers,curdir,folds
 
 " vim-devicons
 let g:webdevicons_enable_nerdtree = 1
