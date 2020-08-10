@@ -16,6 +16,7 @@
 ;
 ;==========================================================
 
+; {{{ Colors
 [colors]
 background = #222
 background-alt = #444
@@ -24,8 +25,11 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+; }}}
 
-[bar/top]
+; {{{ Bar
+[bar/bottom]
+; {{{ Styles & Fonts
 width = 100%
 height = 23
 radius = 2.0
@@ -50,6 +54,7 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+; }}}
 
 modules-left = i3
 ; modules-center = mpd
@@ -69,7 +74,10 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+; }}}
 
+; {{{ Modules
+; {{{ filesystem
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -79,7 +87,9 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+; }}}
 
+; {{{ i3
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -116,8 +126,9 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+; }}}
 
-
+; {{{ mpd
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -130,7 +141,9 @@ icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
+; }}}
 
+; {{{ xbacklight
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -152,7 +165,9 @@ bar-empty-foreground = ${colors.foreground-alt}
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+; }}}
 
+; {{{ cpu
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -160,7 +175,9 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
+; }}}
 
+; {{{ memory
 [module/memory]
 type = internal/memory
 interval = 2
@@ -168,7 +185,9 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
+; }}}
 
+; {{{ wlan & eth
 [module/wlan]
 type = internal/network
 interface = wlp0s20f3
@@ -206,7 +225,9 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+; }}}
 
+; {{{ date
 [module/date]
 type = internal/date
 interval = 5
@@ -222,7 +243,9 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
+; }}}
 
+; {{{ pulseaudio & also
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -277,7 +300,9 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+; }}}
 
+; {{{ battery
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -310,7 +335,9 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
+; }}}
 
+; {{{ temperature
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -329,7 +356,9 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+; }}}
 
+; {{{ powermenu
 [module/powermenu]
 type = custom/menu
 
@@ -358,17 +387,10 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+; }}}
+; }}}
 
-[module/bluetooth]
-type = custom/script
-exec = /home/chad/Code/polybar-bluetooth/bluetooth.sh
-interval = 2
-click-left = exec blueberry
-click-right = exec /home/chad/Code/polybar-bluetooth/toggle_bluetooth.sh
-format-padding = 1
-format-background = #000000
-format-foreground = #ffffff
-
+; {{{ Settings & global
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -380,5 +402,6 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+; }}}
 
-; vim:ft=dosini
+; vim: set fdm=marker fmr={{{,}}} fdl=0 ft=dosini:
