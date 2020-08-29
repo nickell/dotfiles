@@ -449,17 +449,17 @@ bindsym $mod+Shift+Down move workspace to output down
 # }}}
 
 # Media player controls
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh 2dB+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh 2dB- unmute
+bindsym XF86AudioMute exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh toggle
 bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # Brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 10%-
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo brightnessctl set +10%
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym XF86MonBrightnessDown exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-brightness-and-notify.sh 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-brightness-and-notify.sh +10%
 
 # App shortcuts
 bindsym $mod+Return exec alacritty -e "tmux"
@@ -599,7 +599,7 @@ mode "$print_mode" {
 # {{{ Autostart programs
 exec --no-startup-id $HOME/.dotfiles/arch/bin/launch-polybar.sh
 exec --no-startup-id /usr/bin/variety
-exec --no-startup-id /usr/bin/blueberry-tray
+# exec --no-startup-id /usr/bin/blueberry-tray
 exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id nm-applet
 # exec --no-startup-id pa-applet
