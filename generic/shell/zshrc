@@ -53,6 +53,7 @@ fi
 
 # NVM
 # source /usr/share/nvm/init-nvm.sh
+# source /home/chad/.nvm/nvm.sh
 
 # Pager use less
 export PAGER="less -S"
