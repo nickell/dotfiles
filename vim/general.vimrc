@@ -107,7 +107,7 @@ nmap <leader>0 <Plug>BuffetSwitch(10)
 
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>a :Rg 
-nnoremap <leader>bo :BufOnly<cr>
+nnoremap <leader>bo :Bonly<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 " Run command in current buffer's directory
 nnoremap <leader>e :!cd %:p:h;
@@ -394,6 +394,13 @@ let g:lightline = {
   \   'gitbranch': 'fugitive#head'
   \ },
   \ }
+" }}}
+
+" {{{ vim-buffet
+let g:buffet_powerline_separators = 1
+let g:buffet_tab_icon = "\uf00a"
+let g:buffet_left_trunc_icon = "\uf0a8"
+let g:buffet_right_trunc_icon = "\uf0a9"
 " }}}
 
 " GitGutter
