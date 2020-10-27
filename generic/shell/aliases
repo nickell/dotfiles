@@ -12,9 +12,6 @@ alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
 alias j="jump"
-alias k="kubectl"
-alias kprod="k config use-context prod"
-alias kstaging="k config use-context staging"
 alias ll="ls -aFhl"
 alias mosh='TERM=xterm-256color mosh'
 alias nr="npm run"
@@ -46,6 +43,8 @@ alias v="vim"
 alias vu="nvim +PlugUpgrade +PlugUpdate"
 alias x='exit'
 alias y="yarn"
+alias ystart="systemctl --user start app"
+alias ystop="systemctl --user stop app"
 alias z='fasd_cd -d'
 
 # Functions

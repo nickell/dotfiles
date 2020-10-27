@@ -3,7 +3,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-scripts/BufOnly.vim'
+" Plug 'vim-scripts/BufOnly.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 
 " Git
@@ -55,7 +55,7 @@ Plug 'suy/vim-context-commentstring' " contexts for jsx regions
 
 " Status and tab line
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 Plug 'shinchu/lightline-gruvbox.vim'
 
 " Syntax
@@ -110,3 +110,4 @@ Plug 'diepm/vim-rest-console'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/dbext.vim'
 Plug 'honza/vim-snippets'
+Plug 'bagrat/vim-buffet'

@@ -94,6 +94,17 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " {{{ Leader
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
+
 nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>a :Rg 
 nnoremap <leader>bo :BufOnly<cr>
@@ -369,6 +380,9 @@ let g:sql_type_default = 'pgsql'
 " {{{ Lightline
 let g:lightline = {
   \ 'colorscheme': 'gruvbox',
+  \ 'enable': {
+  \   'tabline': 0
+  \ },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \           [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
