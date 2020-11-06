@@ -121,7 +121,7 @@ mode "$change_container_layout_mode" {
         bindsym t layout tabbed
         bindsym o layout toggle split
 
-        # exit monitor mode: Enter or Escape
+        # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -203,21 +203,15 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
+for_window [title="term-scratchpad"] floating enable, move container to scratchpad
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -319,35 +313,35 @@ set $blueBackgroundText #D5E5F9
 set $darkestBlue #2F4865
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-#	i3bar_command i3bar
-#	status_command i3status
-#	position bottom
-#	font xft:DejaVu Sans $barFontSize
-#	font pango:DejaVu Sans $barFontSize
+bar {
+	i3bar_command i3bar
+	status_command i3status
+	position bottom
+	font xft:DejaVu Sans $barFontSize
+	font pango:DejaVu Sans $barFontSize
 
-### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-##	tray_output primary
-##	tray_output eDP1
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#	tray_output primary
+#	tray_output eDP1
 
-#	bindsym button4 nop
-#	bindsym button5 nop
-##   font xft:URWGothic-Book 11
-#	strip_workspace_numbers yes
+	bindsym button4 nop
+	bindsym button5 nop
+#   font xft:URWGothic-Book 11
+	strip_workspace_numbers yes
 
-#    colors {
-#        background $darkTitlebar
-#        statusline $darkTitlebarText
-#        separator  #FFFFFF
+    colors {
+        background $darkTitlebar
+        statusline $darkTitlebarText
+        separator  #FFFFFF
 
-##                      border  backgr. text
-#        focused_workspace  $darkerBlue $blue $blueBackgroundText
-#        active_workspace  $blue $darkerBlue $blueBackgroundText
-#        inactive_workspace $lighterDarkTitlebarText $darkTitlebar $darkTitlebarText
-#        binding_mode       $blue $darkTitlebar $darkTitlebarText
-#        urgent_workspace   #16a085 #FDF6E3 #E5201D
-#    }
-#}
+#                      border  backgr. text
+        focused_workspace  $darkerBlue $blue $blueBackgroundText
+        active_workspace  $blue $darkerBlue $blueBackgroundText
+        inactive_workspace $lighterDarkTitlebarText $darkTitlebar $darkTitlebarText
+        binding_mode       $blue $darkTitlebar $darkTitlebarText
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
 
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle
@@ -482,7 +476,7 @@ mode "$wallpaper_mode" {
         bindsym q exec --no-startup-id /usr/bin/variety --quotes-next
         bindsym r exec --no-startup-id /usr/bin/variety --quotes-previous
 
-        # exit monitor mode: Enter or Escape
+        # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -501,7 +495,6 @@ bindsym $mod+b exec pcmanfm
 # for_window [class="firefox" title="^Slack.*Hawke"] move to workspace Slack
 # for_window [class="Slack"] move to workspace Slack
 # for_window [class="Spotify"] move to workspace Spotify
-for_window [class="Gcolor2"] floating enable, move container to scratchpad
 for_window [class=".*"] title_format "<span size=\\"small\\"> %title</span>"
 
 # Email-Cal
@@ -536,7 +529,7 @@ mode "$launch_app_mode" {
         bindsym l exec $browser -P app -new-window https://calendar.google.com/calendar
         # bindsym l exec $browser --app=https://calendar.google.com/calendar
 
-        # exit monitor mode: Enter or Escape
+        # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -549,7 +542,7 @@ mode "$shortcut_mode" {
         bindsym k mode $kill_mode
         bindsym m mode $monitor_mode
 
-        # exit monitor mode: Enter or Escape
+        # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -559,7 +552,7 @@ mode "$kill_mode" {
         bindsym c exec killall chrome; mode "default"
         bindsym f exec killall firefox; mode "default"
 
-        # exit monitor mode: Enter or Escape
+        # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -570,13 +563,13 @@ mode "$monitor_mode" {
         bindsym a exec xrandr --auto
 
         # Scripted setups
-        bindsym h exec /bin/bash /home/chad/.screenlayout/high.sh
-        bindsym m exec /bin/bash /home/chad/.screenlayout/medium.sh
-        bindsym n exec /bin/bash /home/chad/.screenlayout/low-medium.sh
-        bindsym l exec /bin/bash /home/chad/.screenlayout/low.sh
-        bindsym x exec /bin/bash /home/chad/.screenlayout/extra-low.sh
-        bindsym c exec /bin/bash /home/chad/.screenlayout/Closed\ Docked.sh
-        bindsym o exec /bin/bash /home/chad/.screenlayout/Open\ Docked.sh
+        bindsym h exec /bin/bash /home/chad/.screenlayout/high.sh, mode "default"
+        bindsym m exec /bin/bash /home/chad/.screenlayout/medium.sh, mode "default"
+        bindsym n exec /bin/bash /home/chad/.screenlayout/low-medium.sh, mode "default"
+        bindsym l exec /bin/bash /home/chad/.screenlayout/low.sh, mode "default"
+        bindsym x exec /bin/bash /home/chad/.screenlayout/extra-low.sh, mode "default"
+        bindsym c exec /bin/bash /home/chad/.screenlayout/Closed\ Docked.sh, mode "default"
+        bindsym o exec /bin/bash /home/chad/.screenlayout/Open\ Docked.sh, mode "default"
 
         # exit monitor mode: Enter or Escape
         bindsym Return mode "default"
@@ -597,11 +590,14 @@ mode "$print_mode" {
 # }}}
 
 # {{{ Autostart programs
-exec --no-startup-id $HOME/.dotfiles/arch/bin/launch-polybar.sh
+# exec --no-startup-id $HOME/.dotfiles/arch/bin/launch-polybar.sh
 exec --no-startup-id /usr/bin/variety
-# exec --no-startup-id /usr/bin/blueberry-tray
+exec --no-startup-id /usr/bin/blueberry-tray
 exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id nm-applet
-# exec --no-startup-id pa-applet
-# exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pa-applet
+exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+
+exec alacritty -t term-scratchpad
 # }}}
