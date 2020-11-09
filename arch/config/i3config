@@ -446,9 +446,9 @@ bindsym $mod+Shift+Down move workspace to output down
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRaiseVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh 2dB- unmute
-bindsym XF86AudioMute exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh +2dB
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh -2dB
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # Brightness controls
@@ -599,5 +599,5 @@ exec --no-startup-id pa-applet
 exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
 
-exec alacritty -t term-scratchpad
+exec alacritty -t term-scratchpad -e "tmux"
 # }}}
