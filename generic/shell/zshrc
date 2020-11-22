@@ -74,7 +74,10 @@ export REVIEW_BASE='master'
 # node from NVM
 # .local/bin (yarn)
 # $HOME/.bin for my custom scripts
+# Node 10.15.3
 export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
+# Node 14.15.0
+# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.0/bin:$PATH"
 # }}}
 
 # {{{ Dotfiles

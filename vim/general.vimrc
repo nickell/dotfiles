@@ -111,6 +111,7 @@ nnoremap <leader>bo :Bonly<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
 " Run command in current buffer's directory
 nnoremap <leader>e :!cd %:p:h;
+nnoremap <leader>E :!%:p<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ggh :diffget //2<cr>

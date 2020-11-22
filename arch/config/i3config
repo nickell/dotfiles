@@ -449,6 +449,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh +2dB
 bindsym XF86AudioLowerVolume exec --no-startup-id /home/chad/.dotfiles/arch/bin/change-volume-and-notify.sh -2dB
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym XF86Favorites exec playerctl play-pause
+bindsym F11 exec playerctl previous
+bindsym F12 exec playerctl next
 bindsym --whole-window button10 exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # Brightness controls
