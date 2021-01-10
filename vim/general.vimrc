@@ -161,6 +161,33 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+let s:wrapenabled = 0
+function! ToggleWrap()
+  if s:wrapenabled
+    set nowrap list nolinebreak
+    unmap j
+    unmap k
+    unmap 0
+    unmap ^
+    unmap $
+    let s:wrapenabled = 0
+  else
+    set linebreak wrap nolist
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+    let s:wrapenabled = 1
+  endif
+endfunction
+map <leader>W :call ToggleWrap()<CR>
+
 let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
 
 function! VimTodoListsCustomMappings()
