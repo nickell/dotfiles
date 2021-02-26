@@ -11,6 +11,7 @@ set cmdheight=1
 set completeopt-=preview
 set expandtab
 set hidden
+set listchars=trail:-
 set hlsearch
 set ignorecase
 set incsearch
@@ -257,6 +258,8 @@ augroup mygroup
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+    autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.mjs :%s/\s\+$//e 
 augroup END
 
 augroup filetype_help
