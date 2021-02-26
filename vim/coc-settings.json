@@ -1,4 +1,18 @@
 {
   "typescript.suggestionActions.enabled": false,
-  "snippets.userSnippetsDirectory": "/home/chad/.dotfiles/vim/vim-ultisnips"
+  "snippets.userSnippetsDirectory": "/home/chad/.dotfiles/vim/vim-ultisnips",
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  }
 }

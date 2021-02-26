@@ -23,7 +23,7 @@ Plug 'Arkham/vim-quickfixdo'
 " Plug 'dgraham/vim-eslint'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+  \ 'for': ['javascript', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
   \ }
 
 " tpope {{{
@@ -63,9 +63,11 @@ Plug 'lifepillar/pgsql.vim'
 Plug 'chr4/nginx.vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'mxw/vim-jsx'
-Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-terraform'
 Plug 'jason0x43/vim-js-indent'
+Plug 'jvirtanen/vim-hcl'
 Plug 'tpope/vim-liquid'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -75,6 +77,7 @@ Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'hashivim/vim-hashicorp-tools'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " Plug 'sheerun/vim-polyglot'

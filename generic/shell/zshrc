@@ -78,9 +78,16 @@ export REVIEW_BASE='master'
 # .local/bin (yarn)
 # $HOME/.bin for my custom scripts
 # Node 10.15.3
-export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
+# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
+# Node 10.17.0
+# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
+# Node 14.15.4
+# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.4/bin:$PATH"
 # Node 14.15.0
-# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.0/bin:$PATH"
+
+# Haskell
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 # }}}
 
 # {{{ Dotfiles
