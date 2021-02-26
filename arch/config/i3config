@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id /home/chad/.bin/dmenu_recency
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+# bindsym $mod+z exec --no-startup-id morc_menu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -429,6 +429,8 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym $mod+Shift+Tab focus output up
+
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -515,6 +517,9 @@ bindsym $mod+Shift+o move container to workspace Spotify
 # Notion
 bindsym $mod+n workspace Notion
 bindsym $mod+Shift+n move container to workspace Notion
+# Zoom
+bindsym $mod+z workspace Zoom
+bindsym $mod+Shift+z move container to workspace Zoom
 
 set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (p)ersonal email | (w)ork email | (s)lack | work c(a)lendar | persona(l) calendar
 bindsym $mod+u mode $launch_app_mode
@@ -563,7 +568,7 @@ mode "$kill_mode" {
 set $monitor_mode Monitor: (a)uto (h)igh (m)ed (n)low/med (l)ow (x)tra low | (c)losed docked | (o)pen docked
 mode "$monitor_mode" {
         # Auto detect monitors
-        bindsym a exec xrandr --auto
+        bindsym a exec xrandr --auto, mode "default"
 
         # Scripted setups
         bindsym h exec /bin/bash /home/chad/.screenlayout/high.sh, mode "default"
