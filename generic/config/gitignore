@@ -1,4 +1,5 @@
 .nerdtreeignore
+.yvmrc
 .vscode
 .stack-work
 .agignore

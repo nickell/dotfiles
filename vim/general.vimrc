@@ -166,6 +166,7 @@ let s:wrapenabled = 0
 function! ToggleWrap()
   if s:wrapenabled
     set nowrap list nolinebreak
+    set textwidth=100
     unmap j
     unmap k
     unmap 0
@@ -174,6 +175,7 @@ function! ToggleWrap()
     let s:wrapenabled = 0
   else
     set linebreak wrap nolist
+    set textwidth=1000
     nnoremap j gj
     nnoremap k gk
     nnoremap 0 g0
@@ -254,6 +256,9 @@ augroup mygroup
     " Update save mapping to format with prettier in compatible filetypes
     autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :Prettier<cr>:w!<cr>
 
+    " Add format shortcut for haskell
+    autocmd BufNewFile,BufRead *.hs nnoremap <buffer> <leader>p :Hindent<cr>
+
     " fzf hide statusline
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
@@ -278,6 +283,10 @@ augroup END
 " {{{ Plugin Config
 " vim-terraform
 let g:terraform_fmt_on_save=1
+
+" vim-haskell
+let g:haskell_indent_after_bare_where=2
+let g:haskell_indent_before_where=-2
 
 " vim-instant-markdown
 let g:instant_markdown_autostart=0

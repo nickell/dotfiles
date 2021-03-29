@@ -88,6 +88,13 @@ export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.0/bin:$
 
 # Haskell
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# YVM
+export YVM_DIR=/home/chad/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 # }}}
 
 # {{{ Dotfiles
