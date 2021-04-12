@@ -93,8 +93,10 @@ export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # YVM
-export YVM_DIR=/home/chad/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+# export YVM_DIR=/home/chad/.yvm
+# [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+export PATH="$PATH:$HOME/.yvm/versions/v1.22.5/bin"
+# export PATH="$PATH:$HOME/.yvm/versions/v1.22.4/bin"
 # }}}
 
 # {{{ Dotfiles
