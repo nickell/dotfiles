@@ -605,6 +605,7 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id pa-applet
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 # exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
 
 exec alacritty -t term-scratchpad -e "tmux"
