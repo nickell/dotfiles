@@ -20,13 +20,13 @@ Host grunner
     IdentityFile ~/.ssh/id_ed25519
     User ubuntu
 
-Host amd-arch-remote
-    HostName manorchestra.ddns.net
+Host amd-arch
+    HostName 192.168.153.2
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
-Host amd-arch-local
-    HostName 192.168.1.2
+Host thinkpad-arch
+    HostName 192.168.153.3
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
