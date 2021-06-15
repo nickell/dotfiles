@@ -56,7 +56,7 @@ Plug 'suy/vim-context-commentstring' " contexts for jsx regions
 " Status and tab line
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
-Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'shinchu/lightline-gruvbox.vim'
 
 " Syntax
 Plug 'lifepillar/pgsql.vim'
@@ -92,6 +92,7 @@ Plug 'gerw/vim-HiLinkTrace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jparise/vim-graphql'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'ajh17/Spacegray.vim'
 " Plug 'bounceme/highwayman'
 " Plug 'cocopon/iceberg.vim'

@@ -26,4 +26,8 @@ linkf $archconf/gtk3_settings.ini $conf/gtk-3.0/settings.ini
 linkf $archconf/gtkrc-2.0 $HOME/.gtkrc-2.0
 # linkf $archconf/xprofile $HOME/.xprofile
 linkf $archconf/polybar/config $conf/polybar/config
+linkf $archconf/yay-config.json $conf/yay/config.json
+linkf $archconf/picom.conf $conf/picom/picom.conf
+linkf $archconf/fehbg $HOME/.fehbg
+linkf $archconf/rofi-config.rasi $conf/rofi/config.rasi
 echo_success 'Config done'
