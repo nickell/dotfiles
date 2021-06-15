@@ -330,10 +330,13 @@ let g:dbext_default_history_file = '/home/chad/.dbext_sql_history.txt'
 
 " {{{ Colorscheme
 " gruvbox
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
-let g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
+" let g:gruvbox_italic = 1
+" let g:gruvbox_bold = 1
+" let g:gruvbox_contrast_dark = 'medium'
+" colorscheme gruvbox
+
+" dracula
+colorscheme dracula
 " }}}
 
 " {{{ Syntax plugin configs

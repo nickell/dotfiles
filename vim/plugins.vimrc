@@ -92,6 +92,7 @@ Plug 'gerw/vim-HiLinkTrace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jparise/vim-graphql'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'ajh17/Spacegray.vim'
 " Plug 'bounceme/highwayman'
 " Plug 'cocopon/iceberg.vim'
