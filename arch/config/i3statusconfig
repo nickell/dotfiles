@@ -7,80 +7,62 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        # colors = true
-        interval = 5
-        # color_good = "#2AA198"
-        # color_bad = "#f59842"
-        # color_degraded = "#586E75"
-
-        output_format = "i3bar"
         colors = true
+        output_format = "i3bar"
+        interval = 5
         color_good = "#50FA7B"
         color_degraded = "#F1FA8C"
         color_bad = "#FF5555"
 }
 
+# order += "arch_updates"
+order += "spotify"
 order += "cpu_usage"
-order += "cpu_temperature 0"
-# order += "load"
-order += "disk /"
-# order += "disk /home"
-# order += "wireless _first_"
-# order += "ethernet _first_"
-# order += "battery all"
-# order += "load"
-order += "volume master"
-order += "tztime local"
-# order += "ipv6"
+order += "lm_sensors"
+order += "weather_owm"
+order += "clock"
+order += "do_not_disturb"
+order += "presentation_mode"
+
+# arch_updates {
+#     format = " Updates: {pacman} - {aur} "
+#     hide_if_zero = true
+# }
+
+weather_owm {
+    api_key = '893a639001e5cadb53517d025df8d9a8'
+    format = '{icon} {temperature}[ {rain}]'
+    format_temperature = '[\?color=all {current:.0f}°{unit}]'
+}
+
+spotify {
+    button_play_pause = 1
+    format_down = ''
+    format_stopped = ''
+}
+
+clock {
+    format = " {Local} "
+    format_time = "%a, %b %e %l:%M %P"
+}
+
+do_not_disturb {
+    format = ' [\?color=state [\?if=state  🎧|👂]] '
+    thresholds = [(0, 'good'), (1, 'bad')]
+}
+
+lm_sensors {
+    format_chip = '{format_sensor}'
+    format_sensor = ' 💻'
+    format_sensor += ' [\?color=auto.input {input:00.0f}°C] '
+    chips = ['k10temp-pci-00c3']
+    sensors = ['tdie']
+}
 
 cpu_usage {
         format = " cpu  %usage "
 }
 
-# load {
-#         format = " load %1min "
-#         # max_threshold = 0.3
-# }
-
-disk "/" {
-        # format = " hdd %avail "
-        format = " ⛁ %avail "
-}
-
-cpu_temperature 0 {
-        format = ' T: %degrees °C '
-        path = "/sys/class/hwmon/hwmon0/device/hwmon0/temp1_input"
-        max_threshold = 55
-}
-
-volume master {
-        format = " ♪: %volume "
-        format_muted = "♪: muted (%volume)"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
-}
-
-battery all {
-        # format = "%status %percentage %remaining %emptytime"
-        format = " %status %percentage "
-        format_down = " No battery "
-        last_full_capacity = true
-        integer_battery_capacity = true
-        # status_chr = ""
-        status_chr = "⚡"
-        # status_bat = "bat"
-        # status_bat = "☉"
-        status_bat = ""
-        # status_unk = "?"
-        status_unk = ""
-        # status_full = ""
-        status_full = "☻"
-        low_threshold = 15
-        threshold_type = time
-}
-
 tztime local {
-        # format = "%Y-%m-%d %H:%M:%S"
         format = " %a, %b %e %l:%M %P "
 }
