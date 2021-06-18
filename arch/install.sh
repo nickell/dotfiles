@@ -17,9 +17,9 @@ done
 tela="$HOME/src/Tela-icon-theme"
 if [ ! -d $tela ]
 then
-    mkdir ~/src
-    git clone git@github.com:vinceliuice/Tela-icon-theme.git $tpm
-    /home/chad/src/Tela-icon-theme/install.sh
+    mkdir -p ~/src
+    git clone git@github.com:vinceliuice/Tela-icon-theme.git $tela
+    /home/chad/src/Tela-icon-theme/install.sh -a
 fi
 
 archconf=$HOME/.dotfiles/arch/config
