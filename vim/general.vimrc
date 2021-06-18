@@ -119,7 +119,7 @@ nnoremap <leader>ggh :diffget //2<cr>
 nnoremap <leader>ggl :diffget //3<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gp :echo @%<cr>
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
@@ -230,6 +230,9 @@ augroup mygroup
     
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
+
+    " Remap q for fugitive buffer
+    autocmd FileType fugitive,fugitiveblame nmap <buffer> q gq
 
     " Set filetype to json for VRC
     autocmd BufNewFile,BufRead __REST_response__ set ft=json
