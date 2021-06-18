@@ -12,11 +12,9 @@ notion-app
 nvm
 otf-san-francisco
 pa-applet-git
-plex-media-server
 postman-bin
 siji-git
 slack-desktop
-soundux
 spotify
 tfenv
 ttf-weather-icons
