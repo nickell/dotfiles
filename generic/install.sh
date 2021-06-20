@@ -36,6 +36,7 @@ linkf $dotconf/htoprc $conf/htop/htoprc
 linkf $dotconf/pgcliconfig $conf/pgcli/config
 linkf $dotconf/psqlrc $HOME/.psqlrc
 linkf $dotconf/rc.conf $conf/ranger/rc.conf
+linkf $dotconf/rifle.conf $conf/ranger/rifle.conf
 linkf $dotconf/rgignore $HOME/.rgignore
 linkf $dotconf/sshconfig $HOME/.ssh/config
 linkf $dotconf/tmux.conf $HOME/.tmux.conf

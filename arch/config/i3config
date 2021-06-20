@@ -222,7 +222,8 @@ bindsym $mod+9 exec --no-startup-id /usr/bin/xtrlock
 bindsym $mod+Return exec alacritty -e "tmux"
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+a focus parent
-bindsym $mod+b exec dolphin
+# bindsym $mod+b exec dolphin
+bindsym $mod+b exec alacritty -t "Ranger" -e "ranger"
 bindsym $mod+bracketright mode $shortcut_mode
 bindsym $mod+c exec $browser
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -249,6 +250,7 @@ bindsym $mod+Shift+Down move workspace to output down
 bindsym $mod+Shift+Left move workspace to output left
 bindsym $mod+Shift+Right move workspace to output right
 bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+b exec alacritty -t "Sudo Ranger" -e bash -c "sudo -E ranger"
 bindsym $mod+Shift+e move container to workspace Email-Cal
 bindsym $mod+Shift+equal floating toggle; move scratchpad; scratchpad show
 bindsym $mod+Shift+h move left
