@@ -1,5 +1,6 @@
 # vim: set ft=sh:
 
+alias -- -="popd"
 alias a="cal"
 alias aria="aria2c"
 alias au="sudo pacman -Syu"
