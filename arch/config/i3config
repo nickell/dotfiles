@@ -247,6 +247,8 @@ bindsym $mod+p mode $print_mode
 bindsym $mod+u mode $launch_app_mode
 bindsym $mod+z workspace Zoom
 
+bindsym $mod+Ctrl+h focus parent; focus left
+bindsym $mod+Ctrl+l focus parent; focus right
 bindsym $mod+Ctrl+m exec pavucontrol
 bindsym $mod+Shift+Down move workspace to output down
 bindsym $mod+Shift+Left move workspace to output left
