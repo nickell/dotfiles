@@ -225,7 +225,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+a focus parent
 # bindsym $mod+b exec dolphin
 # bindsym $mod+b exec alacritty -t "Ranger" -e "ranger"
-bindsym $mod+b exec --no-startup-id /home/chad/.bin/launcher-ranger; [title="Ranger"] scratchpad show
+bindsym $mod+b exec --no-startup-id /home/chad/.dotfiles/arch/bin/launcher-ranger.sh; [title="Ranger"] scratchpad show
 bindsym $mod+bracketright mode $shortcut_mode
 bindsym $mod+c exec $browser
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -358,17 +358,32 @@ mode "$launch_app_mode" {
 # }}}
 
 # {{{ mode: shortcut_mode
-set $shortcut_mode Shortcut: (a)udio mode | (m)onitor mode | (k)ill mode | (s)hortcut mode
+set $shortcut_mode Shortcut: (a)udio mode | (m)onitor mode | (k)ill mode | (s)hortcut mode | (v)im launch mode
 mode "$shortcut_mode" {
         bindsym k mode $kill_mode
         bindsym m mode $monitor_mode
         bindsym a mode $audio_mode
         bindsym s mode $seldom_shortcut_mode
+        bindsym v mode $vim_launch_mode
 
         # exit mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# {{{ mode: vim_launch_mode
+set $vim_launch_mode Launch vim project: (d)otfiles | (r)uby koans | (a)ssembly | a(c)s core
+mode "$vim_launch_mode" {
+        bindsym r exec alacritty --title="Ruby Koans" -e bash -c "sleep 0.1 && cd /home/chad/src/ruby_koans && nvim"; mode "default"
+        bindsym d exec alacritty --title="Dotfiles" -e bash -c "sleep 0.1 && cd /home/chad/.dotfiles && nvim"; mode "default"
+        bindsym a exec alacritty --title="Assembly" -e bash -c "sleep 0.1 && cd /home/chad/Sites/assembly-ui && nvim"; mode "default"
+        bindsym c exec alacritty --title="ACS Core" -e bash -c "sleep 0.1 && cd /home/chad/Sites/acs-core && nvim"; mode "default"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+# }}}
 
 # {{{ mode: audio_mode
 set $audio_mode Audio: (h)eadset mode (a)2dp mode

@@ -1,6 +1,7 @@
 {
   "typescript.suggestionActions.enabled": false,
   "eslint.enable": false,
+  "codeLens.enable": true,
   "snippets.userSnippetsDirectory": "/home/chad/.dotfiles/vim/vim-ultisnips",
   "languageserver": {
     "haskell": {
