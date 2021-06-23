@@ -342,7 +342,7 @@ mode "$change_container_layout_mode" {
 # }}}
 
 # {{{ mode: launch_app_mode
-set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (s)lack | (1)password | (z)oom
+set $launch_app_mode Launch app: (c)hrome | sp(o)tify | (s)lack | (1)password | (z)oom | (v)im mode | (e)mail
 mode "$launch_app_mode" {
         bindsym o exec spotify; mode "default"
         bindsym c exec $browser; mode "default"
@@ -350,21 +350,8 @@ mode "$launch_app_mode" {
         bindsym s exec /usr/bin/slack; mode "default"
         bindsym 1 exec /usr/bin/1password; mode "default"
         bindsym z exec /usr/bin/zoom; mode "default"
-
-        # exit mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-# }}}
-
-# {{{ mode: shortcut_mode
-set $shortcut_mode Shortcut: (a)udio mode | (m)onitor mode | (k)ill mode | (s)hortcut mode | (v)im launch mode
-mode "$shortcut_mode" {
-        bindsym k mode $kill_mode
-        bindsym m mode $monitor_mode
-        bindsym a mode $audio_mode
-        bindsym s mode $seldom_shortcut_mode
         bindsym v mode $vim_launch_mode
+        bindsym e mode $email_launch_mode
 
         # exit mode: Enter or Escape
         bindsym Return mode "default"
@@ -384,6 +371,35 @@ mode "$vim_launch_mode" {
         bindsym Escape mode "default"
 }
 # }}}
+#
+# {{{ mode: email_launch_mode
+set $email_launch_mode (p)ersonal | (w)ork | (c)hord | personal c(a)lendar | work ca(l)endar
+mode "$email_launch_mode" {
+        bindsym p exec google-chrome-stable --app="https://mail.google.com/mail/u/0/#inbox"
+        bindsym w exec google-chrome-stable --app="https://mail.google.com/mail/u/1/#inbox"
+        bindsym c exec google-chrome-stable --app="https://mail.google.com/mail/u/2/#inbox"
+        bindsym a exec google-chrome-stable --app="https://calendar.google.com/calendar/u/0/r"
+        bindsym l exec google-chrome-stable --app="https://calendar.google.com/calendar/u/2/r"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+# }}}
+# }}}
+
+# {{{ mode: shortcut_mode
+set $shortcut_mode Shortcut: (a)udio mode | (m)onitor mode | (k)ill mode | (s)hortcut mode
+mode "$shortcut_mode" {
+        bindsym k mode $kill_mode
+        bindsym m mode $monitor_mode
+        bindsym a mode $audio_mode
+        bindsym s mode $seldom_shortcut_mode
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 # {{{ mode: audio_mode
 set $audio_mode Audio: (h)eadset mode (a)2dp mode
