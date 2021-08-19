@@ -43,5 +43,7 @@ linkf $dotconf/tmux.conf $HOME/.tmux.conf
 linkf $HOME/.dotfiles/generic/shell/inputrc $HOME/.inputrc
 linkf $HOME/.dotfiles/generic/shell/zpreztorc $HOME/.zpreztorc
 linkf $HOME/.dotfiles/generic/shell/zshrc $HOME/.zshrc
+linkf $HOME/.dotfiles/generic/shell/zlogin $HOME/.zlogin
+linkf $HOME/.dotfiles/generic/shell/zshenv $HOME/.zshenv
 linkf $HOME/.dotfiles/vim/init.vim $conf/nvim/init.vim
 echo_success 'Done'

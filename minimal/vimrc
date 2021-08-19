@@ -5,3 +5,9 @@ set hidden
 
 let mapleader = " "
 nnoremap <leader>w :w!<cr>
+
+nnoremap - dd
+
+nnoremap gd :bd<cr>
+nnoremap gn :bn<cr>
+nnoremap gp :bp<cr>

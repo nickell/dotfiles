@@ -70,33 +70,9 @@ export VISUAL='nvim'
 
 # Used in git aliases for code reviews
 export REVIEW_BASE='master'
-# }}}
 
-# {{{ PATH
-# Export path to include:
-# node from NVM
-# .local/bin (yarn)
-# $HOME/.bin for my custom scripts
-# Node 10.15.3
-# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.15.3/bin:$PATH"
-# Node 10.17.0
-# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v10.17.0/bin:$PATH"
-# Node 14.15.4
-# export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.4/bin:$PATH"
-# Node 14.15.0
-export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.nvm/versions/node/v14.15.0/bin:$PATH"
-
-# Haskell
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# YVM
-# export YVM_DIR=/home/chad/.yvm
-# [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-# export PATH="$PATH:$HOME/.yvm/versions/v1.22.5/bin"
-export PATH="$PATH:$HOME/.yvm/versions/v1.22.4/bin"
+# Used in ranger
+export TERMCMD='alacritty'
 # }}}
 
 # {{{ Dotfiles

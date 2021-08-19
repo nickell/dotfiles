@@ -1,1 +1,5 @@
 alias e="vim"
+alias r="ranger"
+alias c="clear"
+alias g="git"
+alias gs="git status"

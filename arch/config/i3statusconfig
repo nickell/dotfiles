@@ -39,6 +39,7 @@ weather_owm {
     api_key = '893a639001e5cadb53517d025df8d9a8'
     format = '{icon} {temperature}[ {rain}]'
     format_temperature = '[\?color=all {current:.0f}°{unit}]'
+    location = "35.818191, -79.311480"
 }
 
 spotify {

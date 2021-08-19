@@ -359,12 +359,12 @@ mode "$launch_app_mode" {
 }
 
 # {{{ mode: vim_launch_mode
-set $vim_launch_mode Launch vim project: (d)otfiles | (r)uby koans | (a)ssembly | a(c)s | Cara(w)ay | Caraway (s)hopify
+set $vim_launch_mode Launch vim project: (d)otfiles | (r)uby koans | (c)hord ui | (a)cs | Cara(w)ay | Caraway (s)hopify
 mode "$vim_launch_mode" {
         bindsym r exec alacritty --title="Ruby Koans" -e bash -c "sleep 0.1 && cd /home/chad/src/ruby_koans && nvim"; mode "default"
         bindsym d exec alacritty --title="Dotfiles" -e bash -c "sleep 0.1 && cd /home/chad/.dotfiles && nvim"; mode "default"
-        bindsym a exec alacritty --title="Assembly" -e bash -c "sleep 0.1 && cd /home/chad/Sites/assembly-ui && nvim"; mode "default"
-        bindsym c exec alacritty --title="ACS Core" -e bash -c "sleep 0.1 && cd /home/chad/Sites/acs-core && nvim"; mode "default"
+        bindsym c exec alacritty --title="Chord UI" -e bash -c "sleep 0.1 && cd /home/chad/src/chord-ui && nvim"; mode "default"
+        bindsym a exec alacritty --title="ACS Core" -e bash -c "sleep 0.1 && cd /home/chad/src/acs-core && nvim"; mode "default"
         bindsym w exec alacritty --title="Caraway" -e bash -c "sleep 0.1 && cd /home/chad/src/Caraway/chord-caraway && nvim"; mode "default"
         bindsym s exec alacritty --title="Caraway Shopify" -e bash -c "sleep 0.1 && cd /home/chad/src/Caraway/caraway-shopify"; mode "default"
 
