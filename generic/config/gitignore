@@ -4,3 +4,5 @@
 .stack-work
 .agignore
 Session.vim
+.solargraph.yml
+node_modules
