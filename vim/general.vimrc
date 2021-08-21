@@ -268,6 +268,10 @@ augroup mygroup
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
     autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.mjs :%s/\s\+$//e 
+
+    autocmd VimLeave * call system("tmux setw automatic-rename")
+
+    autocmd VimEnter * call system("tmux rename-window " . expand(fnamemodify(getcwd(), ':t')))
 augroup END
 
 augroup filetype_help
