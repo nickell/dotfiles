@@ -1,0 +1,4 @@
+# vim: set fdm=marker fmr={{{,}}} fdl=0 ft=zsh:
+
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim

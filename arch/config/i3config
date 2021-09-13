@@ -220,7 +220,7 @@ set $browser firefox
 
 # {{{ Keybindings
 bindsym $mod+9 exec --no-startup-id /usr/bin/xtrlock
-bindsym $mod+Return exec alacritty -e "tmux"
+bindsym $mod+Return exec alacritty --config-file /home/chad/.dotfiles/generic/config/alacritty-tmux.yml
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+a focus parent
 # bindsym $mod+b exec dolphin

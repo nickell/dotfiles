@@ -45,5 +45,6 @@ linkf $HOME/.dotfiles/generic/shell/zpreztorc $HOME/.zpreztorc
 linkf $HOME/.dotfiles/generic/shell/zshrc $HOME/.zshrc
 linkf $HOME/.dotfiles/generic/shell/zlogin $HOME/.zlogin
 linkf $HOME/.dotfiles/generic/shell/zshenv $HOME/.zshenv
+linkf $HOME/.dotfiles/generic/shell/zprofile $HOME/.zprofile
 linkf $HOME/.dotfiles/vim/init.vim $conf/nvim/init.vim
 echo_success 'Done'

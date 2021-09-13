@@ -175,7 +175,7 @@ function! ToggleWrap()
     let s:wrapenabled = 0
   else
     set linebreak wrap nolist
-    set textwidth=1000
+    set textwidth=10000
     nnoremap j gj
     nnoremap k gk
     nnoremap 0 g0

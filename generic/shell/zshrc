@@ -34,13 +34,9 @@ fi
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi
 # }}}
 
-# {{{ Configs
+# {{{ FZF direnv nvm rvm
 # {{{ FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Set up ripgrep as fzf's backend
-export FZF_DEFAULT_OPTS='--bind alt-j:down,alt-k:up'
-export FZF_TMUX=1
 
 # Make ctrl-s work for reverse-i-search/i-search, from here: https://stackoverflow.com/a/25391867/870835
 [[ $- == *i* ]] && stty -ixon
@@ -52,36 +48,15 @@ if [ -x "$(command -v direnv)" ]; then
 fi
 # }}}
 
-# NVM
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 # source /usr/share/nvm/init-nvm.sh
-# source /home/chad/.nvm/nvm.sh
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Pager use less
-export PAGER="less -S"
-
-# Make escape work immediately
-export KEYTIMEOUT=1
-
-# Use neovim by default
-export EDITOR='nvim'
-export VISUAL='nvim'
-
-# Used in git aliases for code reviews
-export REVIEW_BASE='master'
-
-# Used in ranger
-export TERMCMD='alacritty'
 # }}}
 
 # {{{ Dotfiles
-export DOTFILES="$HOME/.dotfiles"
-
 # Set up aliases and functions
-source $HOME/.dotfiles/generic/shell/aliases
-for file in $HOME/.dotfiles/generic/shell/functions/*; do source $file; done
+source $DOTFILES/generic/shell/aliases
+for file in $DOTFILES/generic/shell/functions/*; do source $file; done
 # }}}
 
 # Support local modifications

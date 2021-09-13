@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 if ! pgrep -x "ranger" > /dev/null
 then
