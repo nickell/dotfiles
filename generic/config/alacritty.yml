@@ -385,7 +385,7 @@ import:
 shell:
   program: /bin/zsh
   args:
-    - -l
+    - --login
 
 # Startup directory
 #

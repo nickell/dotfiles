@@ -385,9 +385,11 @@ import:
 shell:
   program: /bin/zsh
   args:
-    - -l
+    - --login
     - -c
     - tmux
+#     - -c
+#     - tmux
 
 # Startup directory
 #
