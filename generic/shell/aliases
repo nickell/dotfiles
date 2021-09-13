@@ -17,7 +17,7 @@ alias ll="ls -aFhl"
 alias mosh='TERM=xterm-256color mosh'
 alias nr="npm run"
 alias nrs="npm run --silent"
-alias p="sudo pacman"
+alias p="sudo pacman --assume-installed nodejs=${NODE_VERSION}-1"
 alias pg="pgcli -D"
 alias pgl="pgcli -D local"
 alias publicip="curl ipecho.net/plain;echo"

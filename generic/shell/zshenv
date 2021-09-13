@@ -1,32 +1,5 @@
 # vim: set fdm=marker fmr={{{,}}} fdl=0 ft=zsh:
 
-# {{{ PATH
-path+=$HOME/.bin
-path+=$HOME/.local/bin
-
-# Node 14.15.0
-path+=$HOME/.nvm/versions/node/v14.15.4/bin
-
-# Haskell
-path+=$HOME/.cabal/bin
-path+=$HOME/.ghcup/bin
-
-# YVM
-# export YVM_DIR=/home/chad/.yvm
-# [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-path+=$HOME/.yvm/versions/v1.22.4/bin
-
-# Yarn
-path+=$HOME/.yarn/bin
-
-# RVM
-# path+=$HOME/.rvm/bin
-
-typeset -U path
-
-export PATH
-# }}}
-
 # Used in ranger
 export TERMCMD='alacritty'
 
