@@ -31,7 +31,7 @@ Host thinkpad-arch
     User chad
 
 Host pi
-    HostName 192.168.55.225
+    HostName 192.168.1.102
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
