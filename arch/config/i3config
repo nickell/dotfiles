@@ -224,7 +224,6 @@ bindsym $mod+Return exec alacritty --config-file /home/chad/.dotfiles/generic/co
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+a focus parent
 # bindsym $mod+b exec dolphin
-# bindsym $mod+b exec alacritty -t "Ranger" -e "ranger"
 bindsym $mod+b exec --no-startup-id /home/chad/.dotfiles/arch/bin/launcher-ranger.sh; [title="Ranger"] scratchpad show
 bindsym $mod+bracketright mode $shortcut_mode
 bindsym $mod+c exec $browser
