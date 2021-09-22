@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+sleep 0.1;
+
 dir=$1
 session=$(basename $1)
 
