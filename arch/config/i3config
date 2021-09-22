@@ -357,12 +357,55 @@ mode "$launch_app_mode" {
 }
 
 # {{{ mode: vim_launch_mode
-set $vim_launch_mode Launch vim project: (d)otfiles | (c)hord ui | (a)cs | Cara(w)ay
+set $vim_launch_mode Launch vim project: (c)hord internal | (d)otfiles | cara(w)ay
 mode "$vim_launch_mode" {
+        bindsym c mode $chord_internal_launch_mode
         bindsym d exec alacritty --title="Dotfiles" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/.dotfiles"; mode "default"
-        bindsym c exec alacritty --title="Chord UI" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui"; mode "default"
-        bindsym a exec alacritty --title="ACS Core" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/acs-core"; mode "default"
         bindsym w exec alacritty --title="Caraway" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/Caraway/chord-caraway"; mode "default"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $chord_internal_launch_mode Launch chord internal project: (a)utonomy | (c)hord-ui | chord-(j)s | (p)erformance | provisioning (t)ools
+mode "$chord_internal_launch_mode" {
+        bindsym a mode $chord_autonomy_launch_mode
+        bindsym c exec alacritty --title="Chord UI" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui"
+        bindsym j mode $chord_js_launch_mode
+        bindsym p mode $chord_performance_launch_mode
+        bindsym t exec alacritty --title="Provisioning Tools" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/provisioning-tools"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $chord_performance_launch_mode Launch chord performance project: (s)tarter | (t)heme
+mode "$chord_performance_launch_mode" {
+        bindsym s exec alacritty --title="Gatsby Starter Performance" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui/packages/gatsby-starter-performance"
+        bindsym t exec alacritty --title="Gatsby Theme Performance" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui/packages/gatsby-theme-performance"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $chord_autonomy_launch_mode Launch chord autonomy project: (s)tarter | (t)heme
+mode "$chord_autonomy_launch_mode" {
+        bindsym s exec alacritty --title="Gatsby Starter Autonomy" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui/packages/gatsby-starter-autonomy"
+        bindsym t exec alacritty --title="Gatsby Theme Autonomy" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-ui/packages/gatsby-theme-autonomy"
+
+        # exit mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $chord_js_launch_mode Launch chord js project: (a)nalytics | (c)ore | (p)erformance
+mode "$chord_js_launch_mode" {
+        bindsym a exec alacritty --title="Chord JS Analytics" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-js/packages/chord-js-analytics"
+        bindsym c exec alacritty --title="Chord JS Core" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-js/packages/chord-js-core"
+        bindsym p exec alacritty --title="Chord JS Performance" -e /usr/bin/zsh --login -c "start-nvim-inside-tmux /home/chad/src/chord-js/packages/chord-js-performance"
 
         # exit mode: Enter or Escape
         bindsym Return mode "default"
