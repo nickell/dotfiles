@@ -2,8 +2,8 @@
 
 sleep 0.1;
 
-dir=$1
-session=$(basename $1)
+dir=$1;
+session=${$(basename $1)//./};
 
 # Check if the session exists, discarding output
 # We can check $? for the exit status (zero for success, non-zero for failure)
