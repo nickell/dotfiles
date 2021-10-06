@@ -16,20 +16,6 @@ unalias rm
 # }}}
 
 # {{{ Prompt
-# {{{ Change prompt for SSH connections
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  SESSION_TYPE=remote/ssh
-else
-  case $(ps -o comm= -p $PPID) in
-    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
-  esac
-fi
-
-if [ ! -z $SESSION_TYPE ]; then
-    export PROMPT="[S] $PROMPT"
-fi
-# }}}
-
 # Change prompt for inside ranger
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[R] $PS1"; fi
 # }}}
