@@ -15,37 +15,22 @@ Host gitlab.com
     IdentityFile ~/.ssh/id_ed25519
     User git
 
-Host grunner
-    HostName ec2-18-218-71-137.us-east-2.compute.amazonaws.com
-    IdentityFile ~/.ssh/id_ed25519
-    User ubuntu
-
 Host amd-arch
-    HostName 192.168.153.2
+    HostName 192.168.55.5
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
 Host thinkpad-arch
-    HostName 192.168.153.3
+    HostName 192.168.55.6
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
 Host pi
-    HostName 192.168.1.102
+    HostName 192.168.55.4
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
 
 Host xps
-    HostName 192.168.1.150
+    HostName 192.168.55.2
     IdentityFile ~/.ssh/id_personal_ed25519
     User chad
-
-Host prod-ec2
-    HostName 3.133.120.115
-    IdentityFile ~/.ssh/prod_ec2_pm2.pem
-    User yaguara
-
-Host staging-ec2
-    HostName 3.135.203.216
-    IdentityFile ~/.ssh/staging_ec2_pm2.pem
-    User yaguara
