@@ -23,6 +23,8 @@ path+=$HOME/.yarn/bin
 path+=$HOME/.bin
 path+=$HOME/.local/bin
 
+path+=$DENO_INSTALL/bin
+
 export PATH
 # }}}
 

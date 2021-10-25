@@ -21,10 +21,10 @@ Plug 'Arkham/vim-quickfixdo'
 " Javascript
 " Plug 'moll/vim-node'
 " Plug 'dgraham/vim-eslint'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
-  \ }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+"   \ }
 
 " tpope {{{
 " :S command, change case (crs, crc, etc.)
@@ -80,6 +80,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'evanleck/vim-svelte'
 " Plug 'sheerun/vim-polyglot'
 
 " NERDTree

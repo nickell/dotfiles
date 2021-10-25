@@ -110,6 +110,7 @@ nnoremap <leader><cr> :noh<cr>
 nnoremap <leader>a :Rg 
 nnoremap <leader>bo :Bonly<cr>
 nnoremap <leader>ctw :ClearTrailingWhitespace<cr>:noh<cr>
+nnoremap <leader>cr :CocRestart<cr>
 " Run command in current buffer's directory
 nnoremap <leader>e :!cd %:p:h;
 nnoremap <leader>E :!%:p<cr>
@@ -118,6 +119,7 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ggh :diffget //2<cr>
 nnoremap <leader>ggl :diffget //3<cr>
 nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gf <Plug>(coc-format-selected)
 nnoremap <leader>gp :echo @%<cr>
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gw :Gwrite<cr>
@@ -125,6 +127,7 @@ nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 nnoremap <leader>n :NERDTreeFind<cr>
 nnoremap <leader>o za
+nnoremap <leader>p :Prettier<cr>
 nnoremap <leader>Q :q!<cr>
 " nnoremap <leader>rc in specific configs
 nnoremap <leader>rs <esc>:syntax sync fromstart<cr>
@@ -142,6 +145,7 @@ nnoremap <leader>w :w!<cr>
 
 " Visual
 vnoremap <leader>cl yoconsole.log(<esc>pa)<esc>
+vnoremap <leader>gf <Plug>(coc-format-selected)
 " }}}
 " }}}
 
@@ -246,7 +250,7 @@ augroup mygroup
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
 
     autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
-
+    
     " NERDTree stuff
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -257,7 +261,7 @@ augroup mygroup
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
     " Update save mapping to format with prettier in compatible filetypes
-    autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :Prettier<cr>:w!<cr>
+    " autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :Prettier<cr>:w!<cr>
 
     " Add format shortcut for haskell
     autocmd BufNewFile,BufRead *.hs nnoremap <buffer> <leader>p :Hindent<cr>
@@ -302,13 +306,18 @@ let g:instant_markdown_autostart=0
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-eslint',
+    \ 'coc-prettier',
     \ 'coc-go',
+    \ 'coc-svelte',
+    \ 'coc-deno',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-snippets',
     \ 'coc-tsserver',
     \ 'coc-solargraph'
     \ ]
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand-jump)
