@@ -2,9 +2,9 @@
 
 # {{{ ZSH Settings
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob nomatch hist_ignore_dups
+HISTSIZE=999999
+SAVEHIST=999999
+setopt appendhistory autocd extendedglob nomatch hist_ignore_all_dups
 unsetopt beep
 setopt NO_NOMATCH
 # }}}
