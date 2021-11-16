@@ -36,10 +36,10 @@ battery_level {
 }
 
 weather_owm {
-    api_key = '893a639001e5cadb53517d025df8d9a8'
+    api_key = env(OWM_API_KEY)
     format = '{icon} {temperature}[ {rain}]'
     format_temperature = '[\?color=all {current:.0f}°{unit}]'
-    location = "35.818191, -79.311480"
+    location = env(LAT_LONG)
 }
 
 spotify {
