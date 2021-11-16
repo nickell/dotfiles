@@ -414,11 +414,11 @@ mode "$chord_js_launch_mode" {
 # }}}
 
 # {{{ mode: email_launch_mode
-set $email_launch_mode (p)ersonal | (w)ork | (c)hord | personal c(a)lendar | work ca(l)endar | (r)eminders
+set $email_launch_mode (p)ersonal | (w)ork | (y)aguara | personal c(a)lendar | work ca(l)endar | (r)eminders
 mode "$email_launch_mode" {
         bindsym p exec google-chrome-stable --app="https://mail.google.com/mail/u/0/#inbox"
-        bindsym w exec google-chrome-stable --app="https://mail.google.com/mail/u/1/#inbox"
-        bindsym c exec google-chrome-stable --app="https://mail.google.com/mail/u/2/#inbox"
+        bindsym y exec google-chrome-stable --app="https://mail.google.com/mail/u/1/#inbox"
+        bindsym w exec google-chrome-stable --app="https://mail.google.com/mail/u/2/#inbox"
         bindsym a exec google-chrome-stable --app="https://calendar.google.com/calendar/u/0/r"
         bindsym l exec google-chrome-stable --app="https://calendar.google.com/calendar/u/2/r"
         bindsym r exec google-chrome-stable --app="https://www.icloud.com/reminders/"
