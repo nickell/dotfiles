@@ -244,7 +244,7 @@ augroup mygroup
     autocmd Filetype markdown setlocal textwidth=80 ts=2 sts=2 sw=2
 
     " Javascript/typescript tab width, fold method
-    autocmd Filetype javascript,typescript,json setlocal tw=80 ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
+    autocmd Filetype javascript,javascript.jsx,typescript,json setlocal tw=80 ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
 
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif

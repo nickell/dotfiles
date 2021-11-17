@@ -43,6 +43,7 @@
     lm = log --pretty=medium
     m = merge
     p = pull
+    pu = push
     ; pod = push origin --delete --no-verify
     reset-to-remote = !git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
     review = !nvim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
