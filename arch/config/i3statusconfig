@@ -39,7 +39,7 @@ weather_owm {
     api_key = env(OWM_API_KEY)
     format = '{icon} {temperature}[ {rain}]'
     format_temperature = '[\?color=all {current:.0f}°{unit}]'
-    location = env(LAT_LONG)
+    location = (env(LAT),env(LONG))
 }
 
 spotify {
