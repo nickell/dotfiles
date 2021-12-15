@@ -307,14 +307,10 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-eslint',
     \ 'coc-prettier',
-    \ 'coc-go',
-    \ 'coc-svelte',
-    \ 'coc-deno',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-snippets',
     \ 'coc-tsserver',
-    \ 'coc-solargraph'
     \ ]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
