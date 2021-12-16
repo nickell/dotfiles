@@ -37,6 +37,7 @@ linkf $archconf/picom.conf $conf/picom/picom.conf
 linkf $archconf/fehbg $HOME/.fehbg
 linkf $archconf/rofi-config.rasi $conf/rofi/config.rasi
 linkf $archconf/py3status_module_presentation_mode.py $conf/py3status/modules/presentation_mode.py
+linkf $archconf/py3status_module_do_not_disturb_mode.py $conf/py3status/modules/do_not_disturb_mode.py
 linkf $archconf/kvantum/Dracula-purple-solid $conf/Kvantum/Dracula-purple-solid
 linkf $archconf/kvantum/kvantum.kvconfig $conf/Kvantum/kvantum.kvconfig
 linkf $HOME/.dotfiles/arch/themes/Dracula-gtk $HOME/.themes/Dracula

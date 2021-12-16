@@ -446,8 +446,11 @@ mode "$shortcut_mode" {
 # {{{ mode: audio_mode
 set $audio_mode Audio: (h)eadset mode (a)2dp mode
 mode "$audio_mode" {
-        bindsym a exec pactl set-card-profile bluez_card.94_DB_56_A3_2B_BF a2dp_sink; mode "default"
-        bindsym h exec pactl set-card-profile bluez_card.94_DB_56_A3_2B_BF headset_head_unit; mode "default"
+        # bindsym a exec pactl set-card-profile bluez_card.94_DB_56_A3_2B_BF a2dp_sink; mode "default"
+        # bindsym h exec pactl set-card-profile bluez_card.94_DB_56_A3_2B_BF headset_head_unit; mode "default"
+
+        bindsym a exec pactl set-card-profile bluez_card.F8_4D_89_05_7F_48 a2dp_sink; mode "default"
+        bindsym h exec pactl set-card-profile bluez_card.F8_4D_89_05_7F_48 handsfree_head_unit; mode "default"
 
         # exit mode: Enter or Escape
         bindsym Return mode "default"

@@ -22,7 +22,7 @@ order += "lm_sensors"
 order += "weather_owm"
 order += "battery_level"
 order += "clock"
-order += "do_not_disturb"
+order += "do_not_disturb_mode"
 order += "presentation_mode"
 
 # arch_updates {
@@ -51,11 +51,6 @@ spotify {
 clock {
     format = " {Local} "
     format_time = "%a, %b %e %l:%M %P"
-}
-
-do_not_disturb {
-    format = ' [\?color=state [\?if=state  🎧|👂]] '
-    thresholds = [(0, 'good'), (1, 'bad')]
 }
 
 lm_sensors {
