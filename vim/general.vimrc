@@ -22,13 +22,13 @@ set nowritebackup
 set number
 set relativenumber
 set ruler
-set shiftwidth=4
+set shiftwidth=2
 set showmatch
 set smartcase
 set smarttab
 set mouse=a
-set softtabstop=4
-set tabstop=4
+set softtabstop=2
+set tabstop=2
 set textwidth=100
 set viewoptions=cursor,folds,slash,unix
 set wildignorecase
@@ -235,23 +235,28 @@ augroup mygroup
     " Set filetype to docker for anything that starts with Dockerfile
     autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 
-    " Remap q for fugitive buffer
-    autocmd FileType fugitive,fugitiveblame nmap <buffer> q gq
-
     " Set filetype to json for VRC
     autocmd BufNewFile,BufRead __REST_response__ set ft=json
 
-    autocmd Filetype markdown setlocal textwidth=80 ts=2 sts=2 sw=2
+    autocmd Filetype markdown setlocal tw=80 ts=2 sts=2 sw=2
 
-    " Javascript/typescript tab width, fold method
-    autocmd Filetype javascript,javascript.jsx,typescript,json setlocal tw=80 ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
+    " {{{ Javascript/Typescript/React
+    " Help keep syntax highlighting in sync in large jsx/tsx files
+    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+    " On save, clear whitespace at end of lines
+    autocmd BufWritePre *.{js,jsx,ts,tsx,mjs} :%s/\s\+$//e 
+
+    " Tab width, fold method, column highlighting
+    autocmd Filetype javascript,javascript.jsx,typescript,json,typescriptreact setlocal tw=80 ts=2 sts=2 sw=2 fdm=syntax foldlevel=99 colorcolumn=81
+
+    " tsconfig
+    autocmd FileType typescript,typescriptreact let b:coc_root_patterns = ['tsconfig.json']
+    " }}}
 
     " NERDTree stuff
     autocmd bufenter * if @% == '__doc__' | nnoremap <silent> <buffer> q :bd<cr> | endif
-
-    autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
-    
-    " NERDTree stuff
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
     " Automatically update diff on save of either file
@@ -259,9 +264,6 @@ augroup mygroup
 
     " Set yaml folds to 2 space
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-    " Update save mapping to format with prettier in compatible filetypes
-    " autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html nnoremap <buffer> <leader>w :Prettier<cr>:w!<cr>
 
     " Add format shortcut for haskell
     autocmd BufNewFile,BufRead *.hs nnoremap <buffer> <leader>p :Hindent<cr>
@@ -271,10 +273,8 @@ augroup mygroup
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-    autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.mjs :%s/\s\+$//e 
-
+    " Tmux window naming
     autocmd VimLeave * call system("tmux setw automatic-rename")
-
     autocmd VimEnter * call system("tmux rename-window " . expand(fnamemodify(getcwd(), ':t')))
 augroup END
 

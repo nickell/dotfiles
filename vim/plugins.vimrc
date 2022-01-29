@@ -4,7 +4,7 @@ Plug 'ervandew/supertab'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'jeetsukumaran/vim-indentwise'
+" Plug 'jeetsukumaran/vim-indentwise'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -59,21 +59,23 @@ Plug 'ap/vim-buftabline'
 " Plug 'shinchu/lightline-gruvbox.vim'
 
 " Syntax
+" Javascript/Typescript/React syntax
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'elzr/vim-json'
+" Plug 'peitalin/vim-jsx-typescript' using MaxMEllon/vim-jsx-pretty instead
+" Plug 'jason0x43/vim-js-indent'
+
 Plug 'lifepillar/pgsql.vim'
 Plug 'chr4/nginx.vim'
 Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'mxw/vim-jsx'
 " Plug 'hashivim/vim-terraform'
-Plug 'jason0x43/vim-js-indent'
 Plug 'jvirtanen/vim-hcl'
 Plug 'tpope/vim-liquid'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'alvan/vim-closetag'
-Plug 'elzr/vim-json'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-scripts/changesqlcase.vim'
 Plug 'tmux-plugins/vim-tmux'
