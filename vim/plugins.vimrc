@@ -67,12 +67,12 @@ Plug 'elzr/vim-json'
 " Plug 'peitalin/vim-jsx-typescript' using MaxMEllon/vim-jsx-pretty instead
 " Plug 'jason0x43/vim-js-indent'
 
+Plug 'pantharshit00/vim-prisma'
 Plug 'lifepillar/pgsql.vim'
 Plug 'chr4/nginx.vim'
 Plug 'othree/html5.vim'
 Plug 'neovimhaskell/haskell-vim'
 " Plug 'hashivim/vim-terraform'
-Plug 'jvirtanen/vim-hcl'
 Plug 'tpope/vim-liquid'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'alvan/vim-closetag'
