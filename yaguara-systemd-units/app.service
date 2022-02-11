@@ -1,7 +1,0 @@
-[Unit]
-Description=Yaguara application
-
-[Service]
-Type=oneshot
-ExecStart=/bin/true
-RemainAfterExit=yes
